@@ -1,0 +1,122 @@
+/* main-page */
+.section-with-images, .section-with-title
+    width: 100vw
+    height: 100vh
+    position: relative
+
+.section-with-images__layers-list
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    // display: grid
+    // grid-auto-rows: auto
+    // align-items: center
+    // grid-template-rows: 1fr 2fr
+// .background-list__layers-item:nth-child(1)
+//     grid-row: 1
+.background-list__layers-item:nth-child(2)
+    // grid-row: 2
+    opacity: 0.05
+
+.layers-item__container
+    display: grid
+    grid-template-columns: 100px 100px
+
+@media screen and (max-width: 320px)
+    .layers-item__container, .layers__container
+        max-width: 100%
+        margin: 0 auto
+@media screen and (min-width: 320px)
+    .layers-item__container, .layers__container
+        max-width: 100%
+        margin: 0 auto
+@media screen and (min-width: 576px)
+    .layers-item__container, .layers__container
+        max-width: 100%
+@media screen and (min-width: 1030px)
+    .layers-item__container, .layers__container
+        max-width: 998px
+@media screen and (min-width: 1200px)
+    .layers-item__container, .layers__container
+        max-width: 1140px
+
+
+.section-with-images__this-number
+    color: #000000
+    font-size: 200px
+    font-family: 'Montserrat', sans-serif
+    line-height: 1.55
+    font-weight: 700
+    opacity: 0.05
+    background-position: center center
+    border-color: transparent
+    border-style: solid
+.section-with-images__all-number
+    color: #000000
+    font-size: 57px
+    font-family: 'Montserrat', sans-serif
+    line-height: 1.55
+    font-weight: 500
+    opacity: 0.05
+    background-position: center center
+    border-color: transparent
+    border-style: solid
+
+/* */
+.layer-list__wrap
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 100%
+.content-list__item
+    position: absolute
+
+.content-list__item_images.one
+    left: 5%
+.content-list__item_images.two
+    left: 15%
+    top: 40%
+    z-index: 9
+.content-list__item_images.three
+    left: 34.5%
+
+.outer-wrap-for-img
+    position: relative
+// .outer-wrap-for-img img
+//     width: 100%
+//     position: absolute
+@media screen and (max-width: 576px)
+    .outer-wrap-for-img.one img
+        max-height: 191px
+    .outer-wrap-for-img.two img
+        max-height: 163px
+        z-index: 10
+    .outer-wrap-for-img.three img
+        max-height: 179px
+@media screen and (min-width: 576px)
+    .outer-wrap-for-img.one img
+        max-height: 518px
+    .outer-wrap-for-img.two img
+        max-height: 450px
+        z-index: 10
+    .outer-wrap-for-img.three img
+        max-height: 487px   
+@media screen and (min-width: 1200px)
+    .outer-wrap-for-img.one img
+        max-height: 518px
+    .outer-wrap-for-img.two img
+        max-height: 450px
+        z-index: 10
+    .outer-wrap-for-img.three img
+        max-height: 487px
+
+// .outer-wrap-for-img.one img
+//     left: 120px
+// .outer-wrap-for-img.two img
+//     left: -140px
+// .outer-wrap-for-img.three img
+//     left: -250px

@@ -1,0 +1,803 @@
+/* шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap')
+@font-face
+	font-family: GothamPro
+	src: url(../fonts/GothamPro/GothamPro-Bold.woff)
+	font-weight: bold
+@font-face
+	font-family: GothamPro
+	src: url(../fonts/GothamPro/GothamPro-Medium.woff)
+	font-weight: normal
+@font-face
+	font-family: GothamPro
+	src: url(../fonts/GothamPro/GothamPro-Light.woff)
+	font-weight: lighter
+/* simple style */
+html
+    font-size: 10px
+body 
+    background-color: #5b5a62
+    font-family: 'Roboto Condensed', sans-serif
+.work-area
+	width: 100%
+	height: 100%
+h1, h2, h3, h4, h5, h6, p, span, .content-item__description, .more-button
+    font-family: 'Roboto Condensed', sans-serif
+h1
+    font-weight: bold
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    color: #ffffff
+    font-stretch: condensed
+@media screen and (max-width: 320px)
+    h1
+        font-size: 28px
+        line-height: 1.21
+@media screen and (min-width: 320px)
+    h1
+        font-size: 28px
+        line-height: 1.21
+@media screen and (min-width: 576px)
+    h1
+        font-size: 72px
+        line-height: 1.19
+h2
+    font-weight: bold
+    font-stretch: condensed
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    color: #5b5a62
+    @media screen and (max-width: 576px)
+        font-size: 2.6rem
+        line-height: 1.23
+    @media screen and (min-width: 576px)
+        font-size: 7rem // 40px
+        line-height: 1.21
+
+h3
+    font-weight: bold
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    color: #000000
+@media screen and (max-width: 320px)
+    h3
+        font-size: 16px
+        line-height: normal
+@media screen and (min-width: 320px)
+    h3
+        font-size: 16px
+        line-height: normal
+@media screen and (min-width: 576px)
+    h3
+        font-size: 20px
+        line-height: normal
+h4
+    font-weight: bold
+    font-stretch: normal
+    font-style: normal
+    line-height: normal
+    letter-spacing: normal
+    color: #000000
+@media screen and (max-width: 576px)
+    h4
+        font-size: 16px
+@media screen and (min-width: 576px)
+    h4
+        font-size: 16px
+
+h5  
+    font-weight: bold
+    font-stretch: condensed
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    color: #0099f0
+    @media screen and (max-width: 576px)
+        font-size: 24px
+        line-height: 1.21
+    @media screen and (min-width: 576px)
+        font-size: 30px
+        line-height: 1.23
+
+p, span, .content-item__description
+    font-weight: 300
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    color: #000000
+@media screen and (max-width: 320px)
+    p, span, .content-item__description
+        font-size: 14px
+        line-height: normal
+@media screen and (min-width: 320px)
+    p, span, .content-item__description
+        font-size: 14px
+        line-height: normal
+@media screen and (min-width: 576px)
+    p, span, .content-item__description
+        font-size: 16px
+        line-height: normal // 1.69
+
+.not-visible
+    display: none
+.hidden
+    overflow: hidden
+
+.content-block
+    position: relative
+
+.simple-button
+    text-decoration: none
+    font-family: GothamPro
+    font-weight: 500
+    font-stretch: normal
+    font-style: normal
+    line-height: 1.11
+    letter-spacing: normal
+    text-align: left
+    color: #ffffff
+    background-color: #bc7112
+    border: 1px solid #bc7112
+    @media screen and (max-width: 576px)
+        font-size: 35px
+        font-weight: normal
+        padding: 1.5rem 1.85rem 1.5rem 1.85rem
+    @media screen and (min-width: 576px)
+        font-size: 35px
+        font-weight: 500
+        padding: 2.8rem 9.1rem 2.1rem 9.1rem
+
+
+/* top-menu */ 
+.top-menu
+    position: absolute
+    z-index: 100
+    width: 100%
+    @media screen and (max-width: 576px)
+        padding-top: 2.6rem
+        margin-top: 0rem
+        background-color: transpatent
+    @media screen and (min-width: 576px)
+        padding-top: 0rem
+        margin-top: 9rem
+        background-color: rgba(40, 38, 48, .4)
+.top-menu.active
+    background-color: rgba(40, 38, 48, .62)
+.top-menu__content-container
+    display: flex
+    flex-wrap: nowrap
+    justify-content: space-between
+    border-top: solid 1px rgba(40, 38, 48, .62)
+    border-bottom: solid 1px rgba(40, 38, 48, .62)
+    @media screen and (max-width: 576px)
+        padding:
+            top: 0rem
+            bottom: 0rem
+        background-color: rgba(40, 38, 48, .4)
+    @media screen and (min-width: 576px)
+        padding:
+            top: 1.7rem
+            bottom: 1.7rem
+        background-color: transparent
+.top-menu.active .top-menu__content-container
+    background-color: transparent //rgba(40, 38, 48, .62)
+.navigation-bar
+    @media screen and (max-width: 576px)
+        display: none
+    @media screen and (min-width: 576px)
+        display: flex
+        align-items: center
+.navigation-bar ul
+    display: flex
+    @media screen and (max-width: 576px)
+        flex-direction: column
+    @media screen and (min-width: 576px)
+        flex-direction: row
+.navigation-bar ul li
+    font-family: GothamPro
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    color: #f6f5f9
+    margin:
+        left: 5px
+        right: 5px
+    @media screen and (max-width: 576px)
+        font-size: 20px
+        font-weight: normal
+        line-height: 1.1
+    @media screen and (min-width: 576px)
+        font-size: 30px
+        font-weight: 500
+        line-height: 1.13
+
+.top-menu.active .navigation-bar
+        display: flex
+        flex-direction: column
+        position: absolute
+        z-index: 100
+        margin-top: 7rem
+        width: 100%
+        height: 90vh
+        margin-left: -15px
+        background-color: rgba(40, 38, 48, .62)
+.top-menu.active .navigation-bar ul
+    width: 100%
+    align-items: flex-end
+.top-menu.active .navigation-bar ul li
+    margin:
+        top: 3rem
+        left: 1.5rem
+        right: 1.5rem
+
+.mobil-footer
+    @media screen and (max-width: 576px)
+        display: block
+    @media screen and (min-width: 576px)
+        display: none
+.mobil-footer .header__phone .phone-pref__item_icon img
+    margin-top: -20px
+
+.site-logo img
+    @media screen and (max-width: 576px)
+        width: 6.4rem
+        height: 7rem
+    @media screen and (min-width: 576px)
+        width: 100%
+        height: 100%
+
+.burger-button
+    display: flex
+    justify-content: center
+    align-items: center
+.burger-button__wrap
+    width: 5rem
+    height: 5rem
+    border: solid 3px #bc7112
+    justify-content: center
+    align-items: center
+    @media screen and (max-width: 576px)
+        display: flex
+    @media screen and (min-width: 576px)
+        display: none
+.burger-button__wrap svg
+    width: 3rem
+    height: 3rem
+    color: #fff
+
+.top-menu.active .burger-button__wrap
+    transform: rotate(90deg)
+
+/* header */
+.header
+    width: 100%
+    background-image: url(../images/track-railway@2x.png)
+    background-size: cover
+    background-position: center center
+    background-repeat: no-repeat
+    @media screen and (max-width: 576px)
+        height: 49.4rem
+        background-position: 35% center
+    @media screen and (min-width: 576px)
+        height: 68.7rem
+        background-position: center center
+.header__layer
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, .25);
+.header__up-row
+    display: flex
+    flex-wrap: nowrap
+    justify-content: space-between
+    @media screen and (max-width: 576px)
+        flex-direction: column
+        padding: 
+            top: 4.1rem
+    @media screen and (min-width: 576px)
+        flex-direction: row
+        padding: 
+            top: 2.3rem
+
+.header__inner-wrap_low-row
+    display: inline-block
+
+.header__low-row
+    width: 100%
+    display: flex
+    flex-direction: row-reverse
+    @media screen and (max-width: 576px)
+        order: -1
+        margin:
+            top: 17rem
+    @media screen and (min-width: 576px)
+        order: 0
+        margin:
+            top: calc(68.7rem - 12rem - 8.6rem - 6.8rem)
+    
+.header__main-title_left, .header__sub-title_left
+    text-align: right
+
+.header__email
+    font-family: GothamPro
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    color: #ffffff
+    @media screen and (max-width: 576px)
+        font-size: 18px
+        font-weight: 500
+        line-height: 1.17
+        text-align: right
+    @media screen and (min-width: 576px)
+        font-size: 30px
+        line-height: 1.13
+        font-weight: bold
+        text-align: left
+
+.header__phone
+    display: inline-flex
+    flex-wrap: nowrap
+    @media screen and (max-width: 576px)
+        justify-content: flex-end
+        margin-top: 30px
+    @media screen and (min-width: 576px)
+        justify-content: space-between
+        margin-top: 0px
+.header__phone-pref
+    @media screen and (max-width: 576px)
+        margin-right: 1.4rem
+    @media screen and (min-width: 576px)
+        margin-right: 2.8rem
+.phone-pref__item
+    font-family: GothamPro
+    font-size: 30px
+    font-weight: 500
+    font-stretch: normal
+    font-style: normal
+    line-height: 1.13
+    letter-spacing: normal
+    text-align: left
+    color: #f4f4f6
+.phone-pref__item_icon
+    width: 20px
+    height: 20px
+    object-fit: contain
+@media screen and (max-width: 576px)
+    .phone-pref__item_txt
+        display: none
+    .phone-pref__item_icon
+        display: block
+    .phone-pref__item
+@media screen and (min-width: 576px)
+    .phone-pref__item_txt
+        display: block
+    .phone-pref__item_icon
+        display: none
+    .phone-pref__item
+
+.header__phone-link
+    text-decoration: none
+    font-family: GothamPro
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    color: #ffffff
+@media screen and (max-width: 576px)
+    .header__phone-link
+        font-size: 16px
+        font-weight: 500
+        line-height: 1.13
+@media screen and (min-width: 576px)
+    .header__phone-link
+        font-size: 35px
+        font-weight: bold
+        line-height: 1.14
+
+.header__sub-title
+    font-family: GothamPro
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    // text-align: left
+    color: #ffffff
+@media screen and (max-width: 320px)
+    .header__sub-title
+        font-size: 1.3rem
+        font-weight: 500
+        line-height: 1.15
+@media screen and (min-width: 320px)
+    .header__sub-title
+        font-size: 1.3rem
+        font-weight: 500
+        line-height: 1.15
+@media screen and (min-width: 576px)
+    .header__sub-title
+        font-size: 2.4rem
+        font-weight: 300
+        line-height: 1.13
+
+.header__link-to-prise
+    @media screen and (min-width: 320px)
+        display: flex
+        justify-content: flex-end
+        margin-top: 2rem
+    @media screen and (min-width: 576px)
+        display: none
+        margin-top: 0rem
+
+.header__link-to-prise.header__link-to-prise_top-menu
+    align-items: center
+    @media screen and (min-width: 320px)
+        display: none
+        margin-top: 0rem
+    @media screen and (min-width: 576px)
+        display: flex
+        justify-content: flex-end
+        margin-top: 0rem
+
+.link-to-prise
+    text-decoration: none
+    display: block
+    
+    background-color: rgba(255, 255, 255, .12)
+    @media screen and (max-width: 576px)
+        width: 20.7rem
+        height: 5.2rem
+        padding: .9rem 1.6rem .9rem 1.3rem
+        border: solid 3px #bc7112
+    @media screen and (min-width: 576px)
+        width: 33.2rem
+        height: 9rem
+        padding: 2.5rem 3.0rem
+        border: solid 5px #bc7112
+
+.link-to-prise__wrap
+    display: 
+    align-items: center
+    width: 100%
+    height: 100%
+    @media screen and (max-width: 576px)
+        display: flex
+        align-items: center
+    @media screen and (min-width: 576px)
+        display: inline-flex
+
+.link-to-prise__wrap span
+    font-family: GothamPro
+    font-stretch: normal
+    font-style: normal
+    line-height: 1.11
+    letter-spacing: normal
+    text-align: left
+    color: #ffffff
+    @media screen and (max-width: 576px)
+        font-size: 18px
+        font-weight: 300
+    @media screen and (min-width: 576px)
+        font-size: 35px
+        font-weight: 500
+
+.link-to-prise__wrap picture
+    @media screen and (max-width: 576px)
+        display: block
+        margin-right: 5px
+    @media screen and (min-width: 576px)
+        display: none
+        margin-right: 0px
+
+.header.active .row
+    opacity: 0
+
+
+/* special-offer */
+.special-offer
+    width: 100%
+    background-image: url(../images/mike-enerio-2IkxeDKaZdY-unsplash.png)
+    background-size: cover
+    background-position: center center
+    background-repeat: no-repeat
+    @media screen and (max-width: 576px)
+        height: auto // 55rem
+        // background-position: 35% center
+    @media screen and (min-width: 576px)
+        height: 141.0rem // 95rem
+        // background-position: center center
+.special-offer__layer
+    width: 100%
+    height: 100%
+    background-color: rgba(255, 255, 255, .31) 
+    @media screen and (max-width: 576px)
+        padding:
+            top: 5.5rem
+            bottom: 5rem
+    @media screen and (min-width: 576px)
+        padding:
+            top: 10.6rem
+            bottom: 12rem
+
+.section-title
+    text-align: center
+
+.special-offer__wrap-with-offers
+    width: 100%
+    display: flex
+    overflow: hidden
+    position: relative
+    @media screen and (max-width: 576px)
+        margin-top: 4.3rem
+        flex-wrap: nowrap
+    @media screen and (min-width: 576px)
+        margin-top: 11.3rem
+        flex-wrap: wrap  
+
+.special-offer__button
+    display: flex
+    justify-content: center
+    @media screen and (max-width: 576px)
+        display: none
+    @media screen and (min-width: 576px)
+        display: flex
+        justify-content: center
+        margin-top: calc(12rem - 11.6rem)
+
+.offer-item__block
+    width: 100%
+    background-image: url(../images/taylor-smith-ADkyQ53QovE-unsplash.jpg)
+    background-size: cover
+    background-position: center center
+    background-repeat: no-repeat
+    position: relative
+    @media screen and (max-width: 320px)
+        height: 29rem
+        margin-bottom: 1.83rem
+    @media screen and (min-width: 320px)
+        height: 32.5rem
+        margin-bottom: 1.83rem
+    @media screen and (min-width: 576px)
+        height: 33rem
+        margin-bottom: 11.6rem
+.offer-item__layer
+    width: 100%
+    height: 100%
+    padding: 3rem
+    background-color: rgba(0,0,0,.48)
+.offer-item__border
+    width: 100%
+    height: 100%
+    border: solid 5px #bc7112
+.offer-item__main-title
+    padding: calc(2.4rem - 5px)
+
+.offer-item__footer
+    width: 100%
+    background-color: #282630
+    position: absolute
+    bottom: 0
+    @media screen and (max-width: 576px)
+        height: 10rem
+    @media screen and (min-width: 576px)
+        height: 9rem
+.offer-item__footer-wrap
+    width: 100%
+    height: 100%
+    padding: 0 3rem 3rem 3rem
+.offer-item__footer-border
+    width: 100%
+    height: 100%
+    border-left: solid 5px #bc7112
+    display: flex
+    justify-content: flex-end
+    align-items: flex-end
+    position: relative
+.offer-item__footer-border:after
+    content: ""
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 5rem
+    height: 5px
+    background-color: #bc7112
+    @media screen and (max-width: 320px)
+        width: 1rem
+    @media screen and (min-width: 320px)
+        width: 1rem
+    @media screen and (min-width: 340px)
+        width: 2rem
+    @media screen and (min-width: 360px)
+        width: 3rem
+    @media screen and (min-width: 380px)
+        width: 5rem
+    @media screen and (min-width: 576px)
+        width: 2rem
+.offer-item__footer-text
+    display: inline-block
+    font-family: GothamPro
+    font-weight: bold
+    font-stretch: normal
+    font-style: normal
+    line-height: 1.13
+    letter-spacing: normal
+    text-align: left
+    color: #0099f0
+    margin-bottom: -5px
+    @media screen and (max-width: 576px)
+        font-size: 2.4rem
+    @media screen and (min-width: 576px)
+        font-size: 3rem
+
+.special-offer__dots-bar
+    position: absolute
+    bottom: 0
+    width: 100%
+    @media screen and (max-width: 576px)
+        display: flex
+        justify-content: center
+    @media screen and (min-width: 576px)
+        display: none  
+.dots-bar__list
+    display: inline-flex
+    flex-wrap: nowrap
+.dots-bar__item
+    width: 6.7px
+    height: 6.7px
+    opacity: 0.8
+    border: solid 1px #151419
+    border-radius: 50%
+    background-color: #151419
+    margin:
+        left: 3px
+        right: 3px
+.dots-bar__item.active
+    background-color: #0099f0
+
+/* about-us */
+.about-us
+    width: 100%
+    height: 100%
+    background-color: #fff
+    padding:
+        top: 11.7rem
+        bottom: 9rem
+    text-align: center 
+    border-bottom: 1px solid #fff
+    margin-bottom: -2px
+    @media screen and (max-width: 576px)
+        display: none
+    @media screen and (min-width: 576px)
+        display: block
+.section-description
+    font-family: GothamPro
+    font-size: 30px
+    font-weight: normal
+    font-stretch: normal
+    font-style: normal
+    line-height: 1.67
+    letter-spacing: normal
+    text-align: center
+    color: #282630  
+    text-align: center 
+    margin-top: 10.3rem
+
+/* our-projects */
+.our-projects
+    width: 100%
+    height: 100%
+    background-color: #fff
+    position: relative
+    z-index: 10
+    overflow: hidden
+.our-projects__layer-wrap
+    width: 100%
+    height: 100%
+.our-projects__layer
+    width: 100%
+    height: 100%
+    position: absolute
+    z-index: 11
+    background-color: rgba(188, 113, 18, .4)
+    transform: translate(25%,-20%)
+    @media screen and (max-width: 576px)
+        opacity: 0
+    @media screen and (min-width: 576px)
+        opacity: 1
+        // transform: translate(20%)
+        // margin:
+        //     left: 20%
+        //     bottom: 10%
+.our-projects .container
+    width: 100%
+    height: 100%
+    position: relative
+    z-index: 12
+    // margin: 0 auto
+    @media screen and (max-width: 576px)
+        padding:
+            top: 5rem
+            bottom: 4.5remrem        
+    @media screen and (min-width: 576px)
+        padding:
+            top: 12rem
+            bottom: 8.2rem
+
+.our-project
+    background-image: url(../images/шпалы2.jpg)
+    background-size: cover
+    background-position: center center
+    background-repeat: no-repeat
+    padding: 30px
+    @media screen and (max-width: 576px)
+        height: 50rem
+    @media screen and (min-width: 576px)
+        height: 54rem
+.our-projects__our-project
+    overflow: hidden
+    position: relative
+    @media screen and (max-width: 576px)
+        padding:
+            left: 25px
+            right: 0px
+    @media screen and (min-width: 576px)
+        padding:
+            left: 0px
+            right: 0px
+.our-project.odd
+    margin-left: 30px
+.our-project.even
+    @media screen and (max-width: 576px)
+        margin-left: 30px
+    @media screen and (min-width: 576px)
+        margin-right: 30px
+
+.our-project__inner-border
+    width: auto
+    height: 100%
+    border: solid 7px #4eb2eb
+.our-project.odd .our-project__inner-border
+    margin:
+        left: -60px
+    @media screen and (max-width: 576px)
+        margin:
+            right: -60px
+    @media screen and (min-width: 576px)
+        margin:
+            right: auto
+.our-project.even .our-project__inner-border
+    @media screen and (max-width: 576px)
+        margin:
+            left: -60px
+            right: -60px
+    @media screen and (min-width: 576px)
+        margin:
+            left: auto
+            right: -60px
+
+.our-project__layer
+    height: 100%
+    background-color: rgba(35, 35, 37, .68)
+    position: absolute
+    // margin-top: -37px
+    top: 0
+    @media screen and (max-width: 576px)
+        width: 70%
+    @media screen and (min-width: 576px)
+        width: 50%
+.our-project.odd .our-project__layer
+    @media screen and (max-width: 576px)
+        right: 0
+    @media screen and (min-width: 576px)
+        right: 0
+.our-project.even .our-project__layer
+    @media screen and (max-width: 576px)
+        right: 0
+        left: auto
+    @media screen and (min-width: 576px)
+        left: 0
+        right: auto
+
+/* main-page */
+// @import './pages/main-page'
