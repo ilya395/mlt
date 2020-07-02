@@ -57,36 +57,38 @@ h2
         line-height: 1.21
 
 h3
-    font-weight: bold
-    font-stretch: normal
+    font-weight: normal
+    font-stretch: condensed
     font-style: normal
     letter-spacing: normal
-    color: #000000
+    text-align: left
+    color: #ffffff
 @media screen and (max-width: 320px)
     h3
-        font-size: 16px
-        line-height: normal
+        font-size: 2.8rem
+        line-height: 1.21
 @media screen and (min-width: 320px)
     h3
-        font-size: 16px
-        line-height: normal
+        font-size: 2.8rem
+        line-height: 1.21
 @media screen and (min-width: 576px)
     h3
-        font-size: 20px
-        line-height: normal
+        font-size: 5rem
+        line-height: 1.22
 h4
-    font-weight: bold
+    font-family: GothamPro
+    font-weight: 500
     font-stretch: normal
     font-style: normal
-    line-height: normal
     letter-spacing: normal
-    color: #000000
-@media screen and (max-width: 576px)
-    h4
-        font-size: 16px
-@media screen and (min-width: 576px)
-    h4
-        font-size: 16px
+    text-align: center
+    color: #304f61
+    @media screen and (max-width: 576px)
+        font-size: 14px
+        line-height: 1.14
+    @media screen and (min-width: 576px)
+        font-size: 35px
+        line-height: 1.11
 
 h5  
     font-weight: bold
@@ -121,6 +123,10 @@ p, span, .content-item__description
         font-size: 16px
         line-height: normal // 1.69
 
+.container
+    @media screen and (min-width: 1400px)
+        max-width: 1260px
+
 .not-visible
     display: none
 .hidden
@@ -130,6 +136,7 @@ p, span, .content-item__description
     position: relative
 
 .simple-button
+    display: inline-block
     text-decoration: none
     font-family: GothamPro
     font-weight: 500
@@ -142,7 +149,7 @@ p, span, .content-item__description
     background-color: #bc7112
     border: 1px solid #bc7112
     @media screen and (max-width: 576px)
-        font-size: 35px
+        font-size: 18px
         font-weight: normal
         padding: 1.5rem 1.85rem 1.5rem 1.85rem
     @media screen and (min-width: 576px)
@@ -561,6 +568,11 @@ p, span, .content-item__description
     @media screen and (min-width: 576px)
         height: 33rem
         margin-bottom: 11.6rem
+.offer-item__link
+    display: block
+    text-decoration: none
+    width: 100%
+    height: 100%
 .offer-item__layer
     width: 100%
     height: 100%
@@ -683,18 +695,18 @@ p, span, .content-item__description
     text-align: center 
     margin-top: 10.3rem
 
-/* our-projects */
-.our-projects
+/* catalog-parts */
+.catalog
     width: 100%
     height: 100%
     background-color: #fff
     position: relative
     z-index: 10
     overflow: hidden
-.our-projects__layer-wrap
+.catalog__layer-wrap
     width: 100%
     height: 100%
-.our-projects__layer
+.catalog__layer
     width: 100%
     height: 100%
     position: absolute
@@ -709,7 +721,7 @@ p, span, .content-item__description
         // margin:
         //     left: 20%
         //     bottom: 10%
-.our-projects .container
+.catalog .container
     width: 100%
     height: 100%
     position: relative
@@ -718,13 +730,13 @@ p, span, .content-item__description
     @media screen and (max-width: 576px)
         padding:
             top: 5rem
-            bottom: 4.5remrem        
+            bottom: 4.5rem       
     @media screen and (min-width: 576px)
         padding:
             top: 12rem
             bottom: 8.2rem
 
-.our-project
+.catalog-part
     background-image: url(../images/шпалы2.jpg)
     background-size: cover
     background-position: center center
@@ -734,7 +746,7 @@ p, span, .content-item__description
         height: 50rem
     @media screen and (min-width: 576px)
         height: 54rem
-.our-projects__our-project
+.catalog__catalog-part
     overflow: hidden
     position: relative
     @media screen and (max-width: 576px)
@@ -745,38 +757,38 @@ p, span, .content-item__description
         padding:
             left: 0px
             right: 0px
-.our-project.odd
-    margin-left: 30px
-.our-project.even
+.catalog-part.odd
+    margin-left: 30px + 10px
+.catalog-part.even
     @media screen and (max-width: 576px)
-        margin-left: 30px
+        margin-left: 30px  + 10px
     @media screen and (min-width: 576px)
-        margin-right: 30px
+        margin-right: 30px + 10px
 
-.our-project__inner-border
+.catalog-part__inner-border
     width: auto
     height: 100%
     border: solid 7px #4eb2eb
-.our-project.odd .our-project__inner-border
+.catalog-part.odd .catalog-part__inner-border
     margin:
-        left: -60px
+        left: -60px + 7px
     @media screen and (max-width: 576px)
         margin:
             right: -60px
     @media screen and (min-width: 576px)
         margin:
             right: auto
-.our-project.even .our-project__inner-border
+.catalog-part.even .catalog-part__inner-border
     @media screen and (max-width: 576px)
         margin:
-            left: -60px
+            left: -60px + 7px
             right: -60px
     @media screen and (min-width: 576px)
         margin:
             left: auto
-            right: -60px
+            right: -60px + 7px
 
-.our-project__layer
+.catalog-part__layer
     height: 100%
     background-color: rgba(35, 35, 37, .68)
     position: absolute
@@ -786,18 +798,358 @@ p, span, .content-item__description
         width: 70%
     @media screen and (min-width: 576px)
         width: 50%
-.our-project.odd .our-project__layer
+.catalog-part.odd .catalog-part__layer
     @media screen and (max-width: 576px)
         right: 0
     @media screen and (min-width: 576px)
         right: 0
-.our-project.even .our-project__layer
+.catalog-part.even .catalog-part__layer
     @media screen and (max-width: 576px)
         right: 0
         left: auto
     @media screen and (min-width: 576px)
         left: 0
         right: auto
+
+.catalog-part__partition
+    position: relative
+    height: 100%
+
+.catalog-part__list
+    height: 100%
+    display: flex
+    flex-direction: column
+
+.catalog-part__list-wrap
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    max-height: 100%
+    // width: 200%
+    // transform: translatex(-50%)
+
+.catalog-part__list-title
+    margin-top: 4rem
+.catalog-part.odd .catalog-part__list-title
+    @media screen and (max-width: 576px)
+        margin-top: 5rem
+        margin-left: 2.5rem
+        transform: translateX(0)
+    @media screen and (min-width: 576px)
+        margin-top: 5rem
+        margin-left: 0rem
+        transform: translateX(-80%)
+.catalog-part.even .catalog-part__list-title
+    @media screen and (max-width: 576px)
+        margin-top: 5rem
+        margin-left: 2.5rem
+        transform: translateX(0)
+    @media screen and (min-width: 576px)
+        margin-top: 5rem
+        margin-left: 0rem
+        transform: translateX(120%)
+
+.catalog-part__list-item
+    margin-top: 2rem
+.catalog-part.odd .catalog-part__list-item
+    @media screen and (max-width: 576px)
+        margin-top: 3rem
+        margin-left: 2.5rem
+    @media screen and (min-width: 576px)
+        margin-top: 2.0rem
+        margin-left: 3.0rem
+
+.catalog-part.even .catalog-part__list-item
+    @media screen and (max-width: 576px)
+        margin-top: 3rem
+        margin-left: 2.5rem
+    @media screen and (min-width: 576px)
+        margin-top: 2.0rem
+        margin-left: 5rem
+
+
+.catalog-part__list-item
+    text-decoration: none
+    font-family: GothamPro
+    font-weight: 500
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    color: #ffffff
+    @media screen and (max-width: 576px)
+        font-size: 18px
+        line-height: 1.17
+    @media screen and (min-width: 576px)
+        font-size: 20px
+        line-height: 1.1
+.catalog-part__list-item.hovered:hover
+    color: #0099f0
+
+.catalog-part.odd .catalog-part__list-item.catalog-part__list-item_link, .catalog-part.even .catalog-part__list-item.catalog-part__list-item_link
+    @media screen and (max-width: 576px)
+        margin-top: 4.6rem 
+    @media screen and (min-width: 576px)
+        margin-top: 4.6rem  
+.catalog-part__list-item.catalog-part__list-item_link
+    text-decoration: none
+    font-family: GothamPro
+    font-weight: 500
+    font-stretch: normal
+    font-style: normal
+    line-height: 1.1
+    letter-spacing: normal
+    text-align: left
+    color: #ffffff
+    @media screen and (max-width: 576px)
+        font-size: 18px
+    @media screen and (min-width: 576px)
+        font-size: 20px
+
+.catalog .simple-button
+    @media screen and (max-width: 576px)
+        display: inline-block
+        margin-top: 4.5rem
+    @media screen and (min-width: 576px) 
+        display: none  
+.catalog .block-with-button
+    display: flex
+    justify-content: center
+
+/* our-projects */
+.our-projects
+    width: 100%
+    height: 100%
+    background-color: #fff
+    position: relative
+    z-index: 10
+    overflow: hidden
+    margin-top: -2px
+    @media screen and (max-width: 576px)
+        display: none
+    @media screen and (min-width: 576px)
+        display: block
+.our-projects .row
+    margin-right: 0px
+    margin-left: 0px
+.our-projects__layer
+    width: 100%
+    height: 100%
+    z-index: 11
+    position: absolute
+    background-color: rgba(188, 113, 18, 0.4)
+    transform: translate(-30%, 75%)
+.choose-us .section-title
+    display: block
+    margin-left: auto
+    margin-right: auto
+    @media screen and (max-width: 576px)
+        margin-bottom: 5rem
+    @media screen and (min-width: 576px)
+        margin-bottom: 14.3rem  
+.our-projects .container
+    width: 100%
+    height: 100%
+    z-index: 12
+    position: relative
+    padding:
+        top: 8.4rem + 10.5rem
+        bottom: 6rem + 10.5rem
+.our-projects__container
+    border: solid 7px #0099f0
+    width: 100%
+    height: 99rem
+    padding:
+        left: calc(8.8rem - 7px)
+        right: calc(8.8rem - 7px)
+    position: relative
+
+.our-projects__title
+    position: absolute
+    z-index: 16
+    right: 1.0px
+    top: -5%
+    padding:
+        left: 9px/2
+        right: 9px/2
+    background-color: #fff
+
+.our-projects__our-project
+    position: relative
+    width: 100%
+    height: 100%
+.our-project
+    background-image: url(../images/проект__1.jpg)
+    background-size: cover
+    background-position: center center
+    background-repeat: no-repeat
+    height: 60rem
+    width: 51rem
+    position: absolute
+    box-shadow: -15px 20px 6px 0 rgba(0, 0, 0, 0.16)
+.our-project__link
+    width: 100%
+    height: 100%
+    text-decoration: none
+    display: block
+
+.our-project.one
+    top: -10.5rem
+    left: 0
+    z-index: 13
+.our-project.two
+    top: 50%
+    left: 50%
+    z-index: 14
+    transform: translate(-50%, -50%)
+.our-project.three
+    bottom: -10.5rem
+    right: 0
+    z-index: 15
+
+.our-project__footer
+    position: absolute
+    bottom: 0
+    right: 0
+    width: 51rem
+    height: 19.2rem
+    background-color: rgba(40, 38, 48, .71)
+    padding: 4.1rem 2.7rem
+.our-project__footer_text
+    font-family: GothamPro
+    font-size: 25px
+    font-weight: normal
+    font-stretch: normal
+    font-style: normal
+    line-height: 1.4
+    letter-spacing: normal
+    text-align: left
+    color: #ffffff
+
+/* choose-us */
+.choose-us
+    width: 100%
+    height: 100%
+    position: relative
+    z-index: 10
+    background-color: #fff
+    margin-top: -1px
+
+.choose-us__layer
+    position: absolute
+    width: 100%
+    height: 100%
+    z-index: 11
+    background-color: rgba(188, 113, 18, 0.4)
+    transform: translate(-30%, 0%)
+    @media screen and (max-width: 576px)
+        display: none
+    @media screen and (min-width: 576px)
+        display: block
+.choose-us .container
+    position: relative
+    width: 100%
+    height: 100%
+    z-index: 12
+    @media screen and (max-width: 576px)
+        padding:
+            top: 6rem
+            bottom: 0rem
+    @media screen and (min-width: 576px)
+        padding:
+            top: 6rem
+            bottom: 4.5rem
+
+.advantage__icon
+    display: flex
+    justify-content: center
+    @media screen and (max-width: 576px)
+        margin-bottom: 1.25rem
+    @media screen and (min-width: 576px)
+        margin-bottom: 3.6rem
+.advantage__icon img
+    @media screen and (max-width: 576px)
+        width: 5rem
+        height: 5rem
+    @media screen and (min-width: 576px)
+        width: 124px
+        height: 124px
+.choose-us__item .advantage__icon.icon-bigger-custom
+    @media screen and (max-width: 576px)
+        margin-top: -(8.4rem - 5rem)/2
+        margin-bottom: 0rem // 1.25rem
+    @media screen and (min-width: 576px)
+        margin-bottom: .5rem    
+.choose-us__item .advantage__icon.icon-bigger-custom img
+    @media screen and (max-width: 576px)
+        width: 7.9rem
+        height: 7.9rem
+    @media screen and (min-width: 576px)
+        width: 156px
+        height: 156px
+
+.advantage__title
+    text-align: center
+    @media screen and (max-width: 576px)
+        margin-bottom: 0.9rem
+    @media screen and (min-width: 576px)
+        margin-bottom: 2.4rem
+.advantage__description
+    font-family: GothamPro
+    font-weight: 500
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: center
+    color: #304f61
+    @media screen and (max-width: 576px)
+        font-size: 12px
+        line-height: 1.67
+        margin-bottom: 5.1rem
+    @media screen and (min-width: 576px)
+        font-size: 30px
+        line-height: 1.33
+        margin-bottom: 6.9rem
+
+.buttons-block
+    @media screen and (max-width: 576px)
+        padding:
+            top: .5rem
+            bottom: 6.4rem
+    @media screen and (min-width: 576px)
+        padding:
+            top: 12rem
+            bottom: 12rem
+    background-color: #fff
+    margin-top: -1px
+.buttons-block .buttons
+    display: flex
+    justify-content: space-around
+
+.buttons-block .desctop
+    @media screen and (max-width: 576px)
+        display: none
+    @media screen and (min-width: 576px)
+        display: flex 
+
+.buttons-block .mobile
+    @media screen and (max-width: 576px)
+        display: flex
+    @media screen and (min-width: 576px)
+        display: none
+
+.simple-button.simple-button_request
+    padding: 3rem 4.9rem 1.9rem 4.9rem
+
+.simple-button.simple-button_prise
+    padding: 3rem 7.4rem 2.1rem 7.4rem
+
+.simple-button.simple-button_contact
+    padding: 1.5rem 1.4rem 1.5rem 1.4rem
+
+.buttons-block .mobile .col-12
+    display: flex
+    justify-content: center
 
 /* main-page */
 // @import './pages/main-page'
