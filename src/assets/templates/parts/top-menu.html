@@ -1,4 +1,8 @@
-<div class="top-menu">
+<div 
+    class="top-menu" 
+    id="top-menu"
+    v-bind:class="{ active: isActive }"
+>
     <div class="container">
         <div class="row">
             <div class="top-menu__content-container col-12">
@@ -9,20 +13,30 @@
                 </div>
                 <nav class="navigation-bar">
                     <ul>
-                        <li>
-                            товары
+                        <li class="current-menu-item">
+                            <a href="#">
+                                товары
+                            </a>
                         </li>
                         <li>
-                            услуги
+                            <a href="#">
+                                услуги
+                            </a>
                         </li>
                         <li>
-                            акции
+                            <a href="#">
+                                акции
+                            </a>
                         </li>
                         <li>
-                            контакты
+                            <a href="#">
+                                контакты
+                            </a>
                         </li>
                         <li>
-                            о компании
+                            <a href="#">
+                                о компании
+                            </a>
                         </li>
                     </ul>
                     <div class="mobil-footer">
@@ -72,7 +86,11 @@
                         </div>
                     </a>
                 </div>
-                <div class="burger-button">
+                <div 
+                    class="burger-button"
+                    
+                    v-on:click="visibleElementInHeader"
+                >
                     <div class="burger-button__wrap">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                             <path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">

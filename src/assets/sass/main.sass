@@ -30,16 +30,13 @@ h1
     letter-spacing: normal
     color: #ffffff
     font-stretch: condensed
-@media screen and (max-width: 320px)
-    h1
+    @media screen and (max-width: 320px)
         font-size: 28px
         line-height: 1.21
-@media screen and (min-width: 320px)
-    h1
+    @media screen and (min-width: 320px)
         font-size: 28px
         line-height: 1.21
-@media screen and (min-width: 576px)
-    h1
+    @media screen and (min-width: 1200px)
         font-size: 72px
         line-height: 1.19
 h2
@@ -53,6 +50,9 @@ h2
         font-size: 2.6rem
         line-height: 1.23
     @media screen and (min-width: 576px)
+        font-size: 2.6rem
+        line-height: 1.23
+    @media screen and (min-width: 1200px)
         font-size: 7rem // 40px
         line-height: 1.21
 
@@ -63,16 +63,13 @@ h3
     letter-spacing: normal
     text-align: left
     color: #ffffff
-@media screen and (max-width: 320px)
-    h3
+    @media screen and (max-width: 320px)
         font-size: 2.8rem
         line-height: 1.21
-@media screen and (min-width: 320px)
-    h3
+    @media screen and (min-width: 320px)
         font-size: 2.8rem
         line-height: 1.21
-@media screen and (min-width: 576px)
-    h3
+    @media screen and (min-width: 1200px)
         font-size: 5rem
         line-height: 1.22
 h4
@@ -87,6 +84,9 @@ h4
         font-size: 14px
         line-height: 1.14
     @media screen and (min-width: 576px)
+        font-size: 14px
+        line-height: 1.14
+    @media screen and (min-width: 1200px)
         font-size: 35px
         line-height: 1.11
 
@@ -101,6 +101,9 @@ h5
         font-size: 24px
         line-height: 1.21
     @media screen and (min-width: 576px)
+        font-size: 24px
+        line-height: 1.21
+    @media screen and (min-width: 1200px)
         font-size: 30px
         line-height: 1.23
 
@@ -153,6 +156,10 @@ p, span, .content-item__description
         font-weight: normal
         padding: 1.5rem 1.85rem 1.5rem 1.85rem
     @media screen and (min-width: 576px)
+        font-size: 18px
+        font-weight: normal
+        padding: 1.5rem 1.85rem 1.5rem 1.85rem
+    @media screen and (min-width: 1200px)
         font-size: 35px
         font-weight: 500
         padding: 2.8rem 9.1rem 2.1rem 9.1rem
@@ -168,6 +175,10 @@ p, span, .content-item__description
         margin-top: 0rem
         background-color: transpatent
     @media screen and (min-width: 576px)
+        padding-top: 2.6rem
+        margin-top: 0rem
+        background-color: transpatent
+    @media screen and (min-width: 1200px)
         padding-top: 0rem
         margin-top: 9rem
         background-color: rgba(40, 38, 48, .4)
@@ -186,6 +197,11 @@ p, span, .content-item__description
         background-color: rgba(40, 38, 48, .4)
     @media screen and (min-width: 576px)
         padding:
+            top: 0rem
+            bottom: 0rem
+        background-color: rgba(40, 38, 48, .4)
+    @media screen and (min-width: 1200px)
+        padding:
             top: 1.7rem
             bottom: 1.7rem
         background-color: transparent
@@ -195,39 +211,75 @@ p, span, .content-item__description
     @media screen and (max-width: 576px)
         display: none
     @media screen and (min-width: 576px)
+        display: none
+    @media screen and (min-width: 1200px)
         display: flex
         align-items: center
+        flex-basis: content
+        flex-shrink: 0
+        flex-grow: 1
 .navigation-bar ul
+    width: 100%
     display: flex
+    // align-items: center
     @media screen and (max-width: 576px)
         flex-direction: column
     @media screen and (min-width: 576px)
+        flex-direction: column
+    @media screen and (min-width: 1200px)
         flex-direction: row
-.navigation-bar ul li
+        justify-content: space-between
+.navigation-bar ul li, .navigation-bar ul li a
     font-family: GothamPro
     font-stretch: normal
     font-style: normal
     letter-spacing: normal
     text-align: left
     color: #f6f5f9
-    margin:
-        left: 5px
-        right: 5px
     @media screen and (max-width: 576px)
         font-size: 20px
         font-weight: normal
         line-height: 1.1
     @media screen and (min-width: 576px)
+        font-size: 20px
+        font-weight: normal
+        line-height: 1.1
+    @media screen and (min-width: 768px)
         font-size: 30px
         font-weight: 500
         line-height: 1.13
+.navigation-bar ul li.current-menu-item 
+    position: relative
+    @media screen and (min-width: 1200px)
+        & a::after
+            content: ""
+            position: absolute
+            top: 0 - 60px
+            left: 0
+            height: 2px
+            width: 100%
+            background-color: #bc7112
+        & a::before
+            content: ""
+            position: absolute
+            bottom: 0 - 60px
+            left: 0
+            height: 2px
+            width: 100%
+            background-color: #bc7112
+
+.navigation-bar ul li a
+    text-decoration: none
+    margin:
+        left: 5px
+        right: 5px
 
 .top-menu.active .navigation-bar
         display: flex
         flex-direction: column
         position: absolute
         z-index: 100
-        margin-top: 7rem
+        margin-top: 6rem // 7rem
         width: 100%
         height: 90vh
         margin-left: -15px
@@ -244,7 +296,9 @@ p, span, .content-item__description
 .mobil-footer
     @media screen and (max-width: 576px)
         display: block
-    @media screen and (min-width: 576px)
+    @media screen and (max-width: 576px)
+        display: block
+    @media screen and (min-width: 1200px)
         display: none
 .mobil-footer .header__phone .phone-pref__item_icon img
     margin-top: -20px
@@ -254,6 +308,12 @@ p, span, .content-item__description
         width: 6.4rem
         height: 7rem
     @media screen and (min-width: 576px)
+        // width: 6.4rem
+        // height: 7rem
+    // @media screen and (min-width: 992px)
+        width: 100%
+        height: 100%
+    @media screen and (min-width: 1200px)
         width: 100%
         height: 100%
 
@@ -270,6 +330,8 @@ p, span, .content-item__description
     @media screen and (max-width: 576px)
         display: flex
     @media screen and (min-width: 576px)
+        display: flex
+    @media screen and (min-width: 1200px)
         display: none
 .burger-button__wrap svg
     width: 3rem
@@ -295,7 +357,7 @@ p, span, .content-item__description
 .header__layer
     width: 100%
     height: 100%
-    background-color: rgba(0, 0, 0, .25);
+    background-color: rgba(0, 0, 0, .25)
 .header__up-row
     display: flex
     flex-wrap: nowrap
@@ -305,6 +367,10 @@ p, span, .content-item__description
         padding: 
             top: 4.1rem
     @media screen and (min-width: 576px)
+        flex-direction: column
+        padding: 
+            top: 4.1rem
+    @media screen and (min-width: 1200px)
         flex-direction: row
         padding: 
             top: 2.3rem
@@ -321,6 +387,10 @@ p, span, .content-item__description
         margin:
             top: 17rem
     @media screen and (min-width: 576px)
+        order: -1
+        margin:
+            top: 17rem
+    @media screen and (min-width: 1200px)
         order: 0
         margin:
             top: calc(68.7rem - 12rem - 8.6rem - 6.8rem)
@@ -340,6 +410,16 @@ p, span, .content-item__description
         line-height: 1.17
         text-align: right
     @media screen and (min-width: 576px)
+        font-size: 18px
+        font-weight: 500
+        line-height: 1.17
+        text-align: right
+    @media screen and (min-width: 768px)
+        font-size: 30px
+        line-height: 1.13
+        font-weight: bold
+        text-align: right
+    @media screen and (min-width: 1200px)
         font-size: 30px
         line-height: 1.13
         font-weight: bold
@@ -349,9 +429,15 @@ p, span, .content-item__description
     display: inline-flex
     flex-wrap: nowrap
     @media screen and (max-width: 576px)
+        display: inline-flex
         justify-content: flex-end
         margin-top: 30px
     @media screen and (min-width: 576px)
+        display: flex
+        justify-content: flex-end
+        margin-top: 30px        
+    @media screen and (min-width: 1200px)
+        display: inline-flex
         justify-content: space-between
         margin-top: 0px
 .header__phone-pref
@@ -378,13 +464,25 @@ p, span, .content-item__description
         display: none
     .phone-pref__item_icon
         display: block
-    .phone-pref__item
+    // .phone-pref__item
 @media screen and (min-width: 576px)
+    .phone-pref__item_txt
+        display: none
+    .phone-pref__item_icon
+        display: block
+    // .phone-pref__item
+@media screen and (min-width: 768px)
     .phone-pref__item_txt
         display: block
     .phone-pref__item_icon
         display: none
-    .phone-pref__item
+    // .phone-pref__item
+@media screen and (min-width: 1200px)
+    .phone-pref__item_txt
+        display: block
+    .phone-pref__item_icon
+        display: none
+    // .phone-pref__item
 
 .header__phone-link
     text-decoration: none
@@ -394,13 +492,19 @@ p, span, .content-item__description
     letter-spacing: normal
     text-align: left
     color: #ffffff
-@media screen and (max-width: 576px)
-    .header__phone-link
+    @media screen and (max-width: 576px)
         font-size: 16px
         font-weight: 500
         line-height: 1.13
-@media screen and (min-width: 576px)
-    .header__phone-link
+    @media screen and (min-width: 576px)
+        font-size: 16px
+        font-weight: 500
+        line-height: 1.13
+    @media screen and (min-width: 768px)
+        font-size: 35px
+        font-weight: bold
+        line-height: 1.14
+    @media screen and (min-width: 1200px)
         font-size: 35px
         font-weight: bold
         line-height: 1.14
@@ -429,20 +533,27 @@ p, span, .content-item__description
         line-height: 1.13
 
 .header__link-to-prise
+    @media screen and (max-width: 320px)
+        display: flex
+        justify-content: flex-end
+        margin-top: 2rem
     @media screen and (min-width: 320px)
         display: flex
         justify-content: flex-end
         margin-top: 2rem
-    @media screen and (min-width: 576px)
+    @media screen and (min-width: 1200px)
         display: none
         margin-top: 0rem
 
 .header__link-to-prise.header__link-to-prise_top-menu
     align-items: center
+    @media screen and (max-width: 320px)
+        display: none
+        margin-top: 0rem
     @media screen and (min-width: 320px)
         display: none
         margin-top: 0rem
-    @media screen and (min-width: 576px)
+    @media screen and (min-width: 1200px)
         display: flex
         justify-content: flex-end
         margin-top: 0rem
@@ -450,21 +561,26 @@ p, span, .content-item__description
 .link-to-prise
     text-decoration: none
     display: block
-    
     background-color: rgba(255, 255, 255, .12)
+    box-sizing: border-box
     @media screen and (max-width: 576px)
         width: 20.7rem
         height: 5.2rem
         padding: .9rem 1.6rem .9rem 1.3rem
         border: solid 3px #bc7112
     @media screen and (min-width: 576px)
-        width: 33.2rem
+        width: 20.7rem
+        height: 5.2rem
+        padding: .9rem 1.6rem .9rem 1.3rem
+        border: solid 3px #bc7112
+    @media screen and (min-width: 1200px)
+        width: auto // 33.2rem
         height: 9rem
-        padding: 2.5rem 3.0rem
+        padding: 2.5rem 2.6rem// 3.1rem
         border: solid 5px #bc7112
 
 .link-to-prise__wrap
-    display: 
+    justify-content: center
     align-items: center
     width: 100%
     height: 100%
@@ -486,6 +602,9 @@ p, span, .content-item__description
         font-size: 18px
         font-weight: 300
     @media screen and (min-width: 576px)
+        font-size: 18px
+        font-weight: 300
+    @media screen and (min-width: 1200px)
         font-size: 35px
         font-weight: 500
 
@@ -512,6 +631,9 @@ p, span, .content-item__description
         height: auto // 55rem
         // background-position: 35% center
     @media screen and (min-width: 576px)
+        height: auto // 55rem
+        // background-position: 35% center
+    @media screen and (min-width: 1200px)
         height: 141.0rem // 95rem
         // background-position: center center
 .special-offer__layer
@@ -539,6 +661,9 @@ p, span, .content-item__description
         margin-top: 4.3rem
         flex-wrap: nowrap
     @media screen and (min-width: 576px)
+        margin-top: 4.3rem
+        flex-wrap: nowrap
+    @media screen and (min-width: 1200px)
         margin-top: 11.3rem
         flex-wrap: wrap  
 
@@ -548,21 +673,28 @@ p, span, .content-item__description
     @media screen and (max-width: 576px)
         display: none
     @media screen and (min-width: 576px)
+        display: none
+    @media screen and (min-width: 1200px)
         display: flex
         justify-content: center
         margin-top: calc(12rem - 11.6rem)
 
+.special-offer__offer-item
+    display: flex
+    justify-content: center
+
 .offer-item__block
-    width: 100%
     background-image: url(../images/taylor-smith-ADkyQ53QovE-unsplash.jpg)
     background-size: cover
     background-position: center center
     background-repeat: no-repeat
     position: relative
     @media screen and (max-width: 320px)
+        width: 100%
         height: 29rem
         margin-bottom: 1.83rem
     @media screen and (min-width: 320px)
+        width: 100%
         height: 32.5rem
         margin-bottom: 1.83rem
     @media screen and (min-width: 576px)
@@ -640,6 +772,8 @@ p, span, .content-item__description
     @media screen and (max-width: 576px)
         font-size: 2.4rem
     @media screen and (min-width: 576px)
+        font-size: 2.4rem
+    @media screen and (min-width: 1200px)
         font-size: 3rem
 
 .special-offer__dots-bar
@@ -650,6 +784,9 @@ p, span, .content-item__description
         display: flex
         justify-content: center
     @media screen and (min-width: 576px)
+        display: flex
+        justify-content: center
+    @media screen and (min-width: 1200px)
         display: none  
 .dots-bar__list
     display: inline-flex
@@ -681,6 +818,8 @@ p, span, .content-item__description
     @media screen and (max-width: 576px)
         display: none
     @media screen and (min-width: 576px)
+        display: none
+    @media screen and (min-width: 1200px)
         display: block
 .section-description
     font-family: GothamPro
@@ -881,6 +1020,9 @@ p, span, .content-item__description
         font-size: 18px
         line-height: 1.17
     @media screen and (min-width: 576px)
+        font-size: 18px
+        line-height: 1.17
+    @media screen and (min-width: 1200px)
         font-size: 20px
         line-height: 1.1
 .catalog-part__list-item.hovered:hover
@@ -928,6 +1070,8 @@ p, span, .content-item__description
     @media screen and (max-width: 576px)
         display: none
     @media screen and (min-width: 576px)
+        display: none
+    @media screen and (min-width: 1200px)
         display: block
 .our-projects .row
     margin-right: 0px
@@ -1107,6 +1251,10 @@ p, span, .content-item__description
         line-height: 1.67
         margin-bottom: 5.1rem
     @media screen and (min-width: 576px)
+        font-size: 12px
+        line-height: 1.67
+        margin-bottom: 5.1rem
+    @media screen and (min-width: 1200px)
         font-size: 30px
         line-height: 1.33
         margin-bottom: 6.9rem
@@ -1150,6 +1298,246 @@ p, span, .content-item__description
 .buttons-block .mobile .col-12
     display: flex
     justify-content: center
+
+/* footer */
+.footer
+    width: 100%
+    height: 100%
+
+.footer .row.wrap-plz
+    .col-12, .col-md-6, .col-6
+        padding-left: 5px
+        padding-right: 5px
+
+.footer__upper-row
+    display: flex
+    flex-wrap: nowrap
+    flex-direction: row
+    align-items: center
+    @media screen and (max-width: 576px)
+        padding: 
+            top: 2.5rem
+    @media screen and (min-width: 576px)
+        padding: 
+            top: 7.5rem        
+
+.site-logo
+    display: block
+    object-fit: contain
+    @media screen and (max-width: 576px)
+        width: 56px
+        height: 62px
+    @media screen and (min-width: 576px)
+        width: 106px
+        height: 116px
+
+.site-company-name
+    font-family: GothamPro
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    color: #ffffff
+    @media screen and (max-width: 576px)
+        font-size: 16px
+        font-weight: normal
+        line-height: 1.13
+    @media screen and (min-width: 576px)
+        font-size: 16px
+        font-weight: normal
+        line-height: 1.13
+    @media screen and (min-width: 1200px)
+        font-size: 25px
+        font-weight: 500
+        line-height: 1.12
+
+.footer .site-logo picture img
+    width: 100%
+    height: 100%
+
+.wrap-plz
+    // display: flex
+    // flex-wrap: wrap
+    // flex-direction: row
+    width: 100%
+    display: grid
+    margin-top: 2rem
+    @media screen and (max-width: 576px)
+        padding-left: 0rem
+    @media screen and (min-width: 576px)
+        padding-left: 13rem
+
+    @media screen and (max-width: 576px)
+        margin: 0 auto
+        justify-content: center
+        grid-template-columns: 50% 50%
+        grid-template-rows: auto auto
+        grid-template-areas: "column-up column-up" "column-left column-down"
+    @media screen and (min-width: 576px)
+        grid-template-columns: 1fr 2fr
+        grid-template-rows: 1fr 1fr
+        grid-template-areas: "column-left column-up" "column-left column-down"
+.footer__column_left
+    grid-area: column-left
+.footer__column_up
+    grid-area: column-up
+.footer__column_down
+    grid-area: column-down
+
+
+.footer__navigation li
+    margin-bottom: 3.3rem
+.footer__navigation li a, .footer__column-title
+    text-decoration: none
+    font-family: GothamPro
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    color: #f9f9fb
+    @media screen and (max-width: 576px)
+        font-size: 16px
+        font-weight: 300
+        line-height: 1.06
+    @media screen and (min-width: 576px)
+        font-size: 16px
+        font-weight: 300
+        line-height: 1.06
+    @media screen and (min-width: 1200px)
+        font-size: 25px
+        font-weight: normal
+        line-height: 1.12
+
+.footer__column-title
+    @media screen and (max-width: 576px)
+        margin-bottom: 2.5rem
+    @media screen and (min-width: 576px)
+        margin-bottom: 3rem   
+    
+.footer__column-description
+    font-family: GothamPro
+    font-weight: normal
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    color: rgba(255, 255, 255, .6)
+    @media screen and (max-width: 576px)
+        line-height: 1.08
+        font-size: 12px
+    @media screen and (min-width: 576px)
+        line-height: 1.08
+        font-size: 12px
+    @media screen and (min-width: 1200px)
+        line-height: 1.1
+        font-size: 20px
+
+.footer__column_row
+    display: flex
+    padding-right: 0px
+    padding-left: 0px
+
+.footer__column_up
+    height: 120px   
+.footer__column_down
+    @media screen and (max-width: 576px)
+        flex-wrap: wrap
+        // order: -1
+    @media screen and (min-width: 576px)
+        flex-wrap: nowrap
+        // order: 0
+
+.footer__column_title_big-title
+    @media screen and (max-width: 576px)
+        font-size: 14px
+        font-weight: normal
+        line-height: 1.14
+        text-align: left
+    @media screen and (min-width: 576px)
+        font-size: 14px
+        font-weight: normal
+        line-height: 1.14
+        text-align: left
+    @media screen and (min-width: 1200px)
+        font-size: 25px
+        font-weight: 500
+        line-height: 1.12
+        text-align: left
+
+.info-row
+    display: flex
+    @media screen and (max-width: 576px)
+        flex-wrap: wrap
+        padding-left: 0rem
+    @media screen and (min-width: 576px)
+        flex-wrap: nowrap
+        justify-content: space-between
+        padding-left: 12rem
+.lower-text
+    font-family: GothamPro
+    font-weight: normal
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    color: #ffffff
+    @media screen and (max-width: 576px)
+        font-size: 10px
+        line-height: 1.1
+    @media screen and (min-width: 576px)
+        font-size: 10px
+        line-height: 1.1
+    @media screen and (min-width: 1200px)
+        font-size: 14px
+        line-height: 1.14
+
+.info-row__outer-wrap
+    @media screen and (max-width: 576px)
+        margin-top: 11.4rem
+        margin-bottom: 5rem
+        margin-left: 0rem
+        margin-right: 0rem
+    @media screen and (min-width: 576px)
+        margin-top: 22.4rem
+        margin-bottom: 8rem
+.about-icons
+    font-family: GothamPro
+    font-weight: normal
+    font-stretch: normal
+    font-style: normal
+    line-height: 1.1
+    letter-spacing: normal
+    text-align: left
+    color: #fff
+    @media screen and (max-width: 576px)
+        font-size: 10px
+        line-height: 1.1
+    @media screen and (min-width: 576px)
+        font-size: 10px
+        line-height: 1.1
+    @media screen and (min-width: 1200px)
+        font-size: 14px
+        line-height: 1.14
+    & span
+        color: #0099f0
+
+.footer-button picture
+    display: none
+.link-to-prise.footer-button 
+    @media screen and (max-width: 576px)
+        width: 100%
+    .link-to-prise__wrap
+        justify-content: center
+    span
+        @media screen and (max-width: 576px)
+            font-size: 14px
+            font-weight: 300
+            line-height: 1.14
+.footer-button_requisites 
+    @media screen and (max-width: 576px)
+        display: block
+    @media screen and (min-width: 576px)
+        display: none
 
 /* main-page */
 // @import './pages/main-page'
