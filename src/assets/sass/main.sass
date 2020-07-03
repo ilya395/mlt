@@ -21,7 +21,7 @@ body
 .work-area
 	width: 100%
 	height: 100%
-h1, h2, h3, h4, h5, h6, p, span, .content-item__description, .more-button
+h1, h2, h3, h4, h5, h6
     font-family: 'Roboto Condensed', sans-serif
 h1
     font-weight: bold
@@ -279,7 +279,7 @@ p, span, .content-item__description
         flex-direction: column
         position: absolute
         z-index: 100
-        margin-top: 6rem // 7rem
+        margin-top: 6.3rem // 7rem
         width: 100%
         height: 90vh
         margin-left: -15px
@@ -1102,21 +1102,27 @@ p, span, .content-item__description
 .our-projects__container
     border: solid 7px #0099f0
     width: 100%
-    height: 99rem
     padding:
         left: calc(8.8rem - 7px)
         right: calc(8.8rem - 7px)
     position: relative
+    @media screen and (min-width: 1200px)
+        height: 55rem
+    @media screen and (min-width: 1600px)
+        height: 99rem
 
 .our-projects__title
     position: absolute
     z-index: 16
-    right: 1.0px
-    top: -5%
-    padding:
-        left: 9px/2
-        right: 9px/2
     background-color: #fff
+    @media screen and (min-width: 1200px)
+        top: -8%
+        right: 3rem
+        padding:
+            left: 9px
+            right: 9px
+    @media screen and (min-width: 1600px)
+        top: -5%
 
 .our-projects__our-project
     position: relative
@@ -1127,15 +1133,20 @@ p, span, .content-item__description
     background-size: cover
     background-position: center center
     background-repeat: no-repeat
-    height: 60rem
-    width: 51rem
     position: absolute
     box-shadow: -15px 20px 6px 0 rgba(0, 0, 0, 0.16)
+    @media screen and (min-width: 1200px)
+        height: 40rem
+        width: 35rem
+    @media screen and (min-width: 1600px)
+        height: 60rem
+        width: 51rem
 .our-project__link
     width: 100%
     height: 100%
     text-decoration: none
     display: block
+    position: relative
 
 .our-project.one
     top: -10.5rem
@@ -1155,13 +1166,15 @@ p, span, .content-item__description
     position: absolute
     bottom: 0
     right: 0
-    width: 51rem
-    height: 19.2rem
+    width: 100% // 51rem
+    height: auto // 19.2rem
     background-color: rgba(40, 38, 48, .71)
-    padding: 4.1rem 2.7rem
+    @media screen and (min-width: 1200px)
+        padding: 1.5rem 2.5rem
+    @media screen and (min-width: 1600px)
+        padding: 4.1rem 2.7rem
 .our-project__footer_text
     font-family: GothamPro
-    font-size: 25px
     font-weight: normal
     font-stretch: normal
     font-style: normal
@@ -1169,6 +1182,10 @@ p, span, .content-item__description
     letter-spacing: normal
     text-align: left
     color: #ffffff
+    @media screen and (min-width: 1200px)
+        font-size: 18px
+    @media screen and (min-width: 1600px)
+        font-size: 25px
 
 /* choose-us */
 .choose-us
@@ -1356,17 +1373,15 @@ p, span, .content-item__description
     height: 100%
 
 .wrap-plz
-    // display: flex
-    // flex-wrap: wrap
-    // flex-direction: row
     width: 100%
     display: grid
     margin-top: 2rem
     @media screen and (max-width: 576px)
         padding-left: 0rem
     @media screen and (min-width: 576px)
+        padding-left: 0rem
+    @media screen and (min-width: 1200px)
         padding-left: 13rem
-
     @media screen and (max-width: 576px)
         margin: 0 auto
         justify-content: center
@@ -1374,6 +1389,12 @@ p, span, .content-item__description
         grid-template-rows: auto auto
         grid-template-areas: "column-up column-up" "column-left column-down"
     @media screen and (min-width: 576px)
+        margin: 0 auto
+        justify-content: center
+        grid-template-columns: 50% 50%
+        grid-template-rows: auto auto
+        grid-template-areas: "column-up column-up" "column-left column-down"
+    @media screen and (min-width: 768px)
         grid-template-columns: 1fr 2fr
         grid-template-rows: 1fr 1fr
         grid-template-areas: "column-left column-up" "column-left column-down"
@@ -1413,6 +1434,11 @@ p, span, .content-item__description
         margin-bottom: 2.5rem
     @media screen and (min-width: 576px)
         margin-bottom: 3rem   
+.footer__column_down .footer__column-title
+    @media screen and (max-width: 576px)
+        margin-bottom: 3.4rem
+    @media screen and (min-width: 576px)
+        margin-bottom: 3rem 
     
 .footer__column-description
     font-family: GothamPro
@@ -1444,8 +1470,10 @@ p, span, .content-item__description
         flex-wrap: wrap
         // order: -1
     @media screen and (min-width: 576px)
-        flex-wrap: nowrap
+        flex-wrap: wrap
         // order: 0
+    @media screen and (min-width: 768px)
+        flex-wrap: nowrap
 
 .footer__column_title_big-title
     @media screen and (max-width: 576px)
@@ -1526,6 +1554,10 @@ p, span, .content-item__description
 .link-to-prise.footer-button 
     @media screen and (max-width: 576px)
         width: 100%
+        padding: .8rem 1.9rem
+        height: auto
+    @media screen and (min-width: 576px)
+        padding: 2rem 4.2rem
     .link-to-prise__wrap
         justify-content: center
     span
@@ -1533,11 +1565,37 @@ p, span, .content-item__description
             font-size: 14px
             font-weight: 300
             line-height: 1.14
+        @media screen and (min-width: 576px)
+            font-size: 14px
+            font-weight: 300
+            line-height: 1.14
+        @media screen and (min-width: 1200px)
+            font-size: 25px
+            font-weight: 500
+            line-height: 1.12            
 .footer-button_requisites 
     @media screen and (max-width: 576px)
         display: block
     @media screen and (min-width: 576px)
         display: none
+
+.footer__column_down .footer-button_prise
+    @media screen and (max-width: 576px)
+        margin-top: -6rem
+        margin-bottom: 1.5rem
+
+.footer .container .row.wrap-plz
+    .footer__column .empty-space_left
+        @media screen and (max-width: 576px)
+            padding-left: 5px
+        @media screen and (max-width: 768px)
+            padding-left: 25px
+    .row.wrap-plz .footer__column .empty-space_right
+        @media screen and (max-width: 576px)
+            padding-right: 5px
+        @media screen and (max-width: 768px)
+            padding-right: 25px
+        
 
 /* main-page */
 // @import './pages/main-page'
