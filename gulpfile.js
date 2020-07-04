@@ -12,7 +12,7 @@ const cache = require('gulp-cache'); // Подключаем библиотек�
 const autoprefixer = require('gulp-autoprefixer');// Подключаем библиотеку для автоматического добавления префиксов             
 const babel = require("gulp-babel");
 const include = require('gulp-file-include'); // соединение частей файла/файлов в родительском файле через инклуды
-const workHtml = `main`;
+const workHtml = `catalog`; // main // catalog
 
 /* тут начинаются таски */
 
