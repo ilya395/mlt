@@ -440,6 +440,36 @@ p, span, .content-item__description {
     .top-menu.top-menu_inner.active .navigation-bar {
       margin-top: 8.8rem; }
 
+.top-menu.top-menu_other {
+  background-color: transparent; }
+  @media screen and (min-width: 1200px) {
+    .top-menu.top-menu_other {
+      border-top: solid 1px rgba(40, 38, 48, 0.62);
+      border-bottom: solid 1px rgba(40, 38, 48, 0.62); } }
+  .top-menu.top-menu_other .navigation-bar ul li a {
+    color: #282630; }
+  @media screen and (min-width: 1200px) {
+    .top-menu.top-menu_other.current-menu-item a::after {
+      background-color: #bc7112; }
+    .top-menu.top-menu_other.current-menu-item a::before {
+      background-color: #bc7112; } }
+  .top-menu.top-menu_other .link-to-prise__wrap span {
+    color: #282630; }
+  .top-menu.top-menu_other .top-menu__content-container {
+    background-color: transparent; }
+    @media screen and (min-width: 1200px) {
+      .top-menu.top-menu_other .top-menu__content-container {
+        border-top: solid 1px transparent;
+        border-bottom: solid 1px transparent; } }
+  .top-menu.top-menu_other .burger-button__wrap svg {
+    color: #282630; }
+  .top-menu.top-menu_other.active .burger-button__wrap svg {
+    color: #fff; }
+  .top-menu.top-menu_other.active .navigation-bar ul li a {
+    color: #fff; }
+  .top-menu.top-menu_other.active .link-to-prise__wrap span {
+    color: #fff; }
+
 .navigation-bar ul li a {
   text-decoration: none;
   margin-left: 5px;
@@ -2570,3 +2600,165 @@ p, span, .content-item__description {
     color: #ffffff; }
   .partition-block__list li a.hovered:hover {
     color: #0a84cb; }
+
+.inner-catalog__button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  @media screen and (max-width: 576px) {
+    .inner-catalog__button {
+      padding-top: 5rem;
+      padding-bottom: 5rem; } }
+  @media screen and (min-width: 576px) {
+    .inner-catalog__button {
+      padding-top: 5rem;
+      padding-bottom: 5rem; } }
+  @media screen and (min-width: 1200px) {
+    .inner-catalog__button {
+      padding-top: 12rem;
+      padding-bottom: 12rem; } }
+
+@media screen and (max-width: 576px) {
+  .simple-button_catalog-btn {
+    padding: 1.5rem 1.85rem; } }
+
+@media screen and (min-width: 576px) {
+  .simple-button_catalog-btn {
+    padding: 1.5rem 1.85rem; } }
+
+@media screen and (min-width: 1200px) {
+  .simple-button_catalog-btn {
+    padding: 3rem 4.9rem 1.9rem 6rem; } }
+
+/* inner page: inner-about */
+.inner-about {
+  width: 100%;
+  height: 100%;
+  background-color: #fff; }
+
+@media screen and (max-width: 576px) {
+  .inner-about__partition-block {
+    padding-bottom: 6rem; } }
+
+@media screen and (min-width: 576px) {
+  .inner-about__partition-block {
+    padding-bottom: 6rem; } }
+
+@media screen and (min-width: 1200px) {
+  .inner-about__partition-block {
+    padding-bottom: 27rem; } }
+
+.inner-about__partition-block p {
+  font-family: GothamPro;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: rgba(40, 38, 48, 0.8); }
+  @media screen and (max-width: 576px) {
+    .inner-about__partition-block p {
+      line-height: 1.1;
+      font-size: 18px;
+      padding-bottom: 3rem; } }
+  @media screen and (min-width: 576px) {
+    .inner-about__partition-block p {
+      line-height: 1.1;
+      font-size: 18px;
+      padding-bottom: 3rem; } }
+  @media screen and (min-width: 1200px) {
+    .inner-about__partition-block p {
+      line-height: 1.1;
+      font-size: 30px;
+      padding-bottom: 4rem; } }
+
+.inner-about__text-content {
+  z-index: 21; }
+  .inner-about__text-content .header__email {
+    color: #282630; }
+  .inner-about__text-content .header__phone-pref .phone-pref__item_txt {
+    color: #282630; }
+    @media screen and (min-width: 1200px) {
+      .inner-about__text-content .header__phone-pref .phone-pref__item_txt {
+        display: block; } }
+  .inner-about__text-content .header__phone .header__phone-link {
+    color: #282630; }
+  .inner-about__text-content .catalog-part__list-title {
+    display: block;
+    color: #5b5a62; }
+    @media screen and (max-width: 576px) {
+      .inner-about__text-content .catalog-part__list-title {
+        font-size: 24px;
+        line-height: 1.21;
+        padding-bottom: 2.5rem; } }
+    @media screen and (min-width: 576px) {
+      .inner-about__text-content .catalog-part__list-title {
+        font-size: 24px;
+        line-height: 1.21;
+        padding-bottom: 2.5rem; } }
+    @media screen and (min-width: 1200px) {
+      .inner-about__text-content .catalog-part__list-title {
+        font-size: 60px;
+        line-height: 1.2;
+        padding-bottom: 10.8rem; } }
+
+.inner-about__image-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20; }
+  .inner-about__image-content .square__azure {
+    position: absolute;
+    z-index: 21;
+    top: 51rem;
+    left: 60%;
+    opacity: 0.7;
+    border: solid 10px #22b9e8;
+    width: 42rem;
+    height: 33rem; }
+    .inner-about__image-content .square__azure.square__azure_second {
+      top: 111rem; }
+      .inner-about__image-content .square__azure.square__azure_second .square__with-image {
+        background-image: url("../images/photo_2020-06-17_23-11-12.jpg"); }
+    .inner-about__image-content .square__azure.square__azure_small {
+      z-index: 25;
+      width: 120px;
+      height: 96px;
+      top: 42rem;
+      left: 66rem; }
+      .inner-about__image-content .square__azure.square__azure_small .square__orange {
+        z-index: 22;
+        width: 154px;
+        height: 125px;
+        top: -100%;
+        left: -100%; }
+  .inner-about__image-content .square__orange {
+    position: absolute;
+    z-index: 22;
+    left: 50%;
+    top: 60%;
+    width: 270px;
+    height: 270px;
+    opacity: 0.6;
+    border: solid 5px #bc7112; }
+  .inner-about__image-content .square__with-image {
+    position: absolute;
+    z-index: 23;
+    width: 270px;
+    height: 240px;
+    left: 40%;
+    top: 45%;
+    opacity: 0.7;
+    background-image: url("../images/photo_2020-06-17_23-11-13_(2).jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; }
