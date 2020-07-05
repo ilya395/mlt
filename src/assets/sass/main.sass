@@ -164,26 +164,54 @@ p, span, .content-item__description
         font-weight: 500
         padding: 2.8rem 9.1rem 2.1rem 9.1rem
 
-
 /* top-menu */ 
 .top-menu
     position: absolute
     z-index: 100
     width: 100%
     @media screen and (max-width: 576px)
-        padding-top: 2.6rem
+        padding-top: 3.6rem
         margin-top: 0rem
-        background-color: transpatent
+        background-color: transparent
     @media screen and (min-width: 576px)
-        padding-top: 2.6rem
+        padding-top: 3.6rem
         margin-top: 0rem
-        background-color: transpatent
+        background-color: transparent
     @media screen and (min-width: 1200px)
         padding-top: 0rem
         margin-top: 9rem
         background-color: rgba(40, 38, 48, .4)
+        
 .top-menu.active
     background-color: rgba(40, 38, 48, .62)
+    .container
+        left: 50%
+        transform: translateX(-50%)
+        z-index: 100
+        position: absolute
+    &::after
+        position: absolute
+        z-index: 98
+        content: ""
+        background-image: url(../images/track-railway__mob-menu.jpg)
+        background-size: cover
+        background-position: center center
+        background-repeat: no-repeat
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        height: 100vh
+    &::before
+        position: absolute
+        z-index: 99
+        content: ""    
+        background-color: rgba(40, 38, 48, 0.62)
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        height: 100vh    
 .top-menu__content-container
     display: flex
     flex-wrap: nowrap
@@ -268,6 +296,57 @@ p, span, .content-item__description
             width: 100%
             background-color: #bc7112
 
+.top-menu.top-menu_inner
+    background-color: transparent // #313335
+    @media screen and (max-width: 576px)
+        border-top: solid 1px transparent
+        border-bottom: solid 1px transparent
+    @media screen and (min-width: 576px)
+        border-top: solid 1px transparent
+        border-bottom: solid 1px transparent
+    @media screen and (min-width: 1200px)
+        border-top: solid 1px #fff
+        border-bottom: solid 1px #fff
+    .navigation-bar ul li.current-menu-item
+        @media screen and (min-width: 1200px)
+            & a::after
+                background-color: #0a84cb
+            & a::before
+                background-color: #0a84cb
+    .top-menu__content-container
+        @media screen and (max-width: 375px)
+            padding-top: 1.2rem
+            padding-bottom: 1.2rem
+            border-top: solid 1px #fff
+            border-bottom: solid 1px #fff
+            background-color: transparent
+        @media screen and (min-width: 375px)
+            padding-top: 2.5rem
+            padding-bottom: 2.5rem
+            border-top: solid 1px #fff
+            border-bottom: solid 1px #fff
+            background-color: transparent
+        @media screen and (min-width: 576px)
+            padding-top: 1.7rem
+            padding-bottom: 1.7rem
+            border-top: solid 1px #fff
+            border-bottom: solid 1px #fff
+            background-color: transparent
+        @media screen and (min-width: 1200px)
+            border-top: solid 1px transparent
+            border-bottom: solid 1px transparent
+    // .header__link-to-prise.header__link-to-prise_top-menu
+    //     display: block
+    &.active
+        background-color: rgba(40, 38, 48, 1)
+        .top-menu__content-container
+            @media screen and (max-width: 576px)
+                border-top: solid 1px rgba(255, 255, 255, .62)
+                border-bottom: solid 1px rgba(255, 255, 255, .62)
+                // background-color: rgba(40, 38, 48, 0.62)
+        .navigation-bar
+            margin-top: 6.3rem + 2.5rem
+
 .navigation-bar ul li a
     text-decoration: none
     margin:
@@ -283,7 +362,7 @@ p, span, .content-item__description
         width: 100%
         height: 90vh
         margin-left: -15px
-        background-color: rgba(40, 38, 48, .62)
+        // background-color: rgba(40, 38, 48, .62)
 .top-menu.active .navigation-bar ul
     width: 100%
     align-items: flex-end
@@ -1613,12 +1692,12 @@ p, span, .content-item__description
     .info-from-top-page
         @media screen and (max-width: 576px)
             margin-top: 1.2rem
-            margin-bottom: 1.25rem + 5.5rem
+            margin-bottom: 11.5rem // 1.25rem + 5.5rem
         @media screen and (min-width: 576px)
             margin-top: 1.2rem
-            margin-bottom: 1.25rem + 5.5rem
+            margin-bottom: 11.5rem // 1.25rem + 5.5rem
         @media screen and (min-width: 768px)
-            margin-top: 2.1rem
+            margin-top: 1.2rem
             margin-bottom: 30rem        
     .catalog-part__list-title
         @media screen and (max-width: 576px)
@@ -1658,7 +1737,7 @@ p, span, .content-item__description
             line-height: 1.11
     .header__phone
         margin-top: 0
-        .phone-pref__item_icon
+        .phone-pref__item_icon, .phone-pref__item_txt
             @media screen and (max-width: 576px)
                 display: none
             @media screen and (min-width: 576px)
@@ -1691,9 +1770,10 @@ p, span, .content-item__description
 .inner-catalog__partition-block
     width: 100%
     position: relative
+    overflow: hidden
     @media screen and (max-width: 576px)
         min-height: 650px
-        overflow: hidden
+        // overflow: hidden
     @media screen and (min-width: 576px)
         min-height: 600px
 

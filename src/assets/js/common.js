@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
             visibleElementInHeader: function () { // v-on:click="isActive = !isActive"
                 this.isActive = !this.isActive;
                 //
-                const elemInHeader = document.querySelector('.header');
+                const elemInHeader = document.querySelector('header');
                 elemInHeader.classList.contains('active') 
                     ? elemInHeader.classList.remove('active') 
                     : elemInHeader.classList.add('active');
