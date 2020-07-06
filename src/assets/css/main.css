@@ -2335,6 +2335,11 @@ p, span, .content-item__description {
 @media screen and (min-width: 768px) {
   .tricky-title .info-from-top-page {
     margin-top: 1.2rem;
+    margin-bottom: 15rem; } }
+
+@media screen and (min-width: 1200px) {
+  .tricky-title .info-from-top-page {
+    margin-top: 1.2rem;
     margin-bottom: 30rem; } }
 
 @media screen and (max-width: 576px) {
@@ -2719,37 +2724,110 @@ p, span, .content-item__description {
   .inner-about__image-content .square__azure {
     position: absolute;
     z-index: 21;
-    top: 51rem;
-    left: 60%;
-    opacity: 0.7;
     border: solid 10px #22b9e8;
-    width: 42rem;
-    height: 33rem; }
-    .inner-about__image-content .square__azure.square__azure_second {
-      top: 111rem; }
-      .inner-about__image-content .square__azure.square__azure_second .square__with-image {
-        background-image: url("../images/photo_2020-06-17_23-11-12.jpg"); }
+    border-radius: 4px; }
+    @media screen and (max-width: 576px) {
+      .inner-about__image-content .square__azure {
+        width: 20rem;
+        height: 15rem;
+        top: 30rem;
+        left: 30%;
+        opacity: 0.3; } }
+    @media screen and (min-width: 576px) {
+      .inner-about__image-content .square__azure {
+        width: 20rem;
+        height: 15rem;
+        top: 30rem;
+        left: 50%;
+        opacity: 0.3; } }
+    @media screen and (min-width: 768px) {
+      .inner-about__image-content .square__azure {
+        top: 27rem;
+        left: 70%; } }
+    @media screen and (min-width: 1200px) {
+      .inner-about__image-content .square__azure {
+        width: 42rem;
+        height: 33rem;
+        top: 51rem;
+        left: 60%;
+        opacity: 0.7; } }
+    @media screen and (max-width: 576px) {
+      .inner-about__image-content .square__azure.square__azure_second {
+        top: 60rem; } }
+    @media screen and (min-width: 576px) {
+      .inner-about__image-content .square__azure.square__azure_second {
+        top: 60rem; } }
+    @media screen and (min-width: 768px) {
+      .inner-about__image-content .square__azure.square__azure_second {
+        top: 55rem; } }
+    @media screen and (min-width: 1200px) {
+      .inner-about__image-content .square__azure.square__azure_second {
+        top: 111rem; } }
+    .inner-about__image-content .square__azure.square__azure_second .square__with-image {
+      background-image: url("../images/photo_2020-06-17_23-11-12.jpg"); }
     .inner-about__image-content .square__azure.square__azure_small {
-      z-index: 25;
-      width: 120px;
-      height: 96px;
-      top: 42rem;
-      left: 66rem; }
+      z-index: 25; }
+      @media screen and (max-width: 576px) {
+        .inner-about__image-content .square__azure.square__azure_small {
+          width: 6rem;
+          height: 5rem;
+          top: 10%;
+          left: 70%;
+          border: solid 5px #22b9e8; } }
+      @media screen and (min-width: 576px) {
+        .inner-about__image-content .square__azure.square__azure_small {
+          width: 8rem;
+          height: 6rem;
+          top: 13.5%;
+          left: 40%;
+          border: solid 5px #22b9e8; } }
+      @media screen and (min-width: 1200px) {
+        .inner-about__image-content .square__azure.square__azure_small {
+          width: 120px;
+          height: 96px;
+          top: 42rem;
+          left: 66rem;
+          border: solid 8px #22b9e8; } }
       .inner-about__image-content .square__azure.square__azure_small .square__orange {
-        z-index: 22;
-        width: 154px;
-        height: 125px;
-        top: -100%;
-        left: -100%; }
+        z-index: 22; }
+        @media screen and (max-width: 576px) {
+          .inner-about__image-content .square__azure.square__azure_small .square__orange {
+            width: 10rem;
+            height: 8rem;
+            top: -130%;
+            left: -130%; } }
+        @media screen and (min-width: 576px) {
+          .inner-about__image-content .square__azure.square__azure_small .square__orange {
+            width: 11rem;
+            height: 9rem;
+            top: -100%;
+            left: -100%; } }
+        @media screen and (min-width: 1200px) {
+          .inner-about__image-content .square__azure.square__azure_small .square__orange {
+            width: 15.4rem;
+            height: 12.5rem;
+            top: -100%;
+            left: -100%; } }
   .inner-about__image-content .square__orange {
     position: absolute;
     z-index: 22;
     left: 50%;
     top: 60%;
-    width: 270px;
-    height: 270px;
     opacity: 0.6;
-    border: solid 5px #bc7112; }
+    border: solid 5px #bc7112;
+    border-radius: 4px; }
+    @media screen and (max-width: 576px) {
+      .inner-about__image-content .square__orange {
+        width: 15rem;
+        height: 15rem; } }
+    @media screen and (min-width: 576px) {
+      .inner-about__image-content .square__orange {
+        width: 15rem;
+        height: 15rem; } }
+    @media screen and (min-width: 1200px) {
+      .inner-about__image-content .square__orange {
+        width: 27rem;
+        height: 27rem; } }
   .inner-about__image-content .square__with-image {
     position: absolute;
     z-index: 23;
@@ -2762,3 +2840,15 @@ p, span, .content-item__description {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat; }
+    @media screen and (max-width: 576px) {
+      .inner-about__image-content .square__with-image {
+        width: 15rem;
+        height: 13rem; } }
+    @media screen and (min-width: 576px) {
+      .inner-about__image-content .square__with-image {
+        width: 15rem;
+        height: 13rem; } }
+    @media screen and (min-width: 1200px) {
+      .inner-about__image-content .square__with-image {
+        width: 27rem;
+        height: 24rem; } }
