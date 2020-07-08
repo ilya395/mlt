@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+
+	<link rel="stylesheet" href="assets/css/libs.min.css">
+	<link rel="stylesheet" href="assets/css/main.css">
+
+	<!-- developer -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- production -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script> -->
+
+	<script src="assets/js/libs.min.js"></script>
+	<script src="assets/js/common.js"></script>
+</head>
+<body>
+<div class="work-area">
+
+    <div class="content-block">
+<div 
+    class="top-menu" 
+    id="top-menu"
+    v-bind:class="{ active: isActive }"
+>
+    <div class="container">
+        <div class="row">
+            <div class="top-menu__content-container col-12">
+                <div class="site-logo">
+                    <picture>
+                        <img src="/assets/images/logo.png" alt="" src="/assets/images/logo@2x.png 2x, /assets/images/logo@3x.png 3x">
+                    </picture>
+                </div>
+                <nav class="navigation-bar">
+                    <ul>
+                        <li class="current-menu-item">
+                            <a href="../index-catalog.html">
+                                товары
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../index-offers.html">
+                                услуги
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../index-stock.html">
+                                акции
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../index-contacts.html">
+                                контакты
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../index-about.html">
+                                о компании
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="mobil-footer">
+                        <div class="header__up-row col-12">
+                            <div class="header__email">
+                                gds_kazan16@mail.ru
+                            </div>
+                            <div class="header__phone">
+                                <div class="header__phone-pref">
+                                    <div class="phone-pref__item phone-pref__item_txt">
+                                        тел./факс
+                                    </div>
+                                    <div class="phone-pref__item phone-pref__item_icon">
+                                        <picture>
+                                            <img src="/assets/images/phone_(2).png" alt="" srcset="/assets/images/phone_(2)@2x.png 2x, /assets/images/phone_(2)@3x.png 3x">
+                                        </picture>
+                                    </div>                        
+                                </div>
+                                <a href="tel:8(843)2925536" class="header__phone-link">
+                                    8 (843) 292 - 55 - 36
+                                </a>
+                            </div>
+                            <div class="header__link-to-prise">
+                                <a href="#" class="link-to-prise">
+                                    <div class="link-to-prise__wrap">
+                                        <picture>
+                                            <img src="/assets/images/download.png" alt="" srcset="/assets/images/download@2x.png 2x, /assets/images/download@3x.png 3x">
+                                        </picture>
+                                        <span>
+                                            Скачать прайс
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="header__link-to-prise header__link-to-prise_top-menu">
+                    <a href="#" class="link-to-prise">
+                        <div class="link-to-prise__wrap">
+                            <picture>
+                                <img src="/assets/images/download.png" alt="" srcset="/assets/images/download@2x.png 2x, /assets/images/download@3x.png 3x">
+                            </picture>
+                            <span>
+                                Скачать прайс
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                <div 
+                    class="burger-button"
+                    
+                    v-on:click="visibleElementInHeader"
+                >
+                    <div class="burger-button__wrap">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <div class="offers">
+
+                <div class="container">
+                    <div class="row">
+
+                        <header class="col-12 tricky-title">
+                            <div class="info-from-top-page">
+                                <div class="header__email">
+                                    gds_kazan16@mail.ru
+                                </div>
+                                <div class="header__phone">
+                                    <div class="header__phone-pref">
+                                        <div class="phone-pref__item phone-pref__item_txt">
+                                            тел./факс
+                                        </div>
+                                        <div class="phone-pref__item phone-pref__item_icon">
+                                            <picture>
+                                                <img src="/assets/images/phone_(2).png" alt="" srcset="/assets/images/phone_(2)@2x.png 2x, /assets/images/phone_(2)@3x.png 3x">
+                                            </picture>
+                                        </div>                        
+                                    </div>
+                                    <a href="tel:8(843)2925536" class="header__phone-link">
+                                        8 (843) 292 - 55 - 36
+                                    </a>
+                                </div>
+                            </div>
+                        </header>
+
+                        <section class="inner-catalog__partition-block col-12">
+                            <div class="partition-block__layer">
+                                <div class="partition-block__another-layer">
+                                    <div class="partition-block__inner-layer">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="partition-block__inner-border hovered">
+                            </div>
+                            <div class="partition-block__content">
+                                <div class="col-12 col-md-4">
+                                    <h2 class="h2 partition-block__title">
+                                        СВЕРЛЕНИЕ РЕЛЬС
+                                    </h2>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <div class="partition-block__list">
+                                        <p>
+                                            Мы можем рассверлить любые рельсы самыми современными 
+                                            инструментами гладко и аккуратно, мы приедем к вам сами или примем 
+                                            ваши рельсы на нашем производстве. Срок выполнения работ 10 
+                                            рабочих дней. Работаем по 50% предоплате. Оставьте заявку, и мы 
+                                            свяжемся с вами для уточнения деталей
+                                        </p>
+                                        <a href="#" class="link-to-prise offer-button">
+                                            <div class="link-to-prise__wrap">
+                                                <picture>
+                                                    <img src="/assets/images/download.png" alt="" srcset="/assets/images/download@2x.png 2x, /assets/images/download@3x.png 3x">
+                                                </picture>
+                                                <span>
+                                                    Оставить заявку
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="inner-catalog__partition-block col-12">
+                            <div class="partition-block__layer">
+                                <div class="partition-block__another-layer">
+                                    <div class="partition-block__inner-layer">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="partition-block__inner-border hovered">
+                            </div>
+                            <div class="partition-block__content">
+                                <div class="col-12 col-md-4">
+                                    <h2 class="h2 partition-block__title">
+                                        РЕЗКА РЕЛЬС
+                                    </h2>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <div class="partition-block__list">
+                                        <p>
+                                            Мы можем порезать любые рельсы самыми современными 
+                                            инструментами гладко и аккуратно, мы приедем к вам сами или примем 
+                                            ваши рельсы на нашем производстве. Срок выполнения работ 10 
+                                            рабочих дней. Работаем по 50% предоплате. Оставьте заявку, и мы 
+                                            свяжемся с вами для уточнения деталей
+                                        </p>
+                                        <a href="#" class="link-to-prise offer-button">
+                                            <div class="link-to-prise__wrap">
+                                                <picture>
+                                                    <img src="/assets/images/download.png" alt="" srcset="/assets/images/download@2x.png 2x, /assets/images/download@3x.png 3x">
+                                                </picture>
+                                                <span>
+                                                    Оставить заявку
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+
+            </div>
+
+        <footer class="footer">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-12 footer__upper-row">
+                        <div class="site-logo">
+                            <picture>
+                                <img src="/assets/images/logo.png" alt="" src="/assets/images/logo@2x.png 2x, /assets/images/logo@3x.png 3x">
+                            </picture>
+                        </div>
+                        <div class="site-company-name">
+                            ООО "ЖИЛДОРСТРОЙ"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row wrap-plz">
+
+                    <div class="footer__column footer__column_left">
+                        <div class="col-12">
+                            <div class="footer__navigation">
+                                <ul>
+                                    <li>
+                                        <a href="#">услуги</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">акции</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">товары</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">о компании</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">контакты</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer__column footer__column_row footer__column_up">
+                        <div class="col-6 empty-space_right">
+                            <div class="footer__column-title">
+                                офис
+                            </div>
+                            <div class="footer__column-description">
+                                Республика Татарстан, 
+                                г. Казань , ул. Можайского, 
+                                д. 90 офис 405
+                            </div>
+                        </div>
+                        <div class="col-6 empty-space_left">
+                            <div class="footer__column-title">
+                                склад
+                            </div>
+                            <div class="footer__column-description">
+                                Республика Татарстан, 
+                                г. Казань , ул. Можайского, 
+                                д. 90 офис 405
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer__column footer__column_row footer__column_down">
+                        <div class="col-12 col-md-6 empty-space_right">
+                            <div class="footer__column-title footer__column_title_big-title">
+                                8 (843) 292 - 55 - 36
+                            </div>
+                            <div class="footer__column-title footer__column_title_big-title">
+                                gds_kazan16@mail.ru
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 empty-space_left">
+
+                            <a href="#" class="link-to-prise footer-button footer-button_prise">
+                                <div class="link-to-prise__wrap">
+                                    <picture>
+                                        <img src="/assets/images/download.png" alt="" srcset="/assets/images/download@2x.png 2x, /assets/images/download@3x.png 3x">
+                                    </picture>
+                                    <span>
+                                        Скачать прайс
+                                    </span>
+                                </div>
+                            </a>
+
+                            <a href="#" class="link-to-prise footer-button footer-button_requisites">
+                                <div class="link-to-prise__wrap">
+                                    <picture>
+                                        <img src="/assets/images/download.png" alt="" srcset="/assets/images/download@2x.png 2x, /assets/images/download@3x.png 3x">
+                                    </picture>
+                                    <span>
+                                        Реквизиты
+                                    </span>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row info-row__outer-wrap">
+                    <div class="col-12 info-row">
+                        <div class="lower-text">
+                            © ООО "ЖИЛДОРСТРОЙ" 2020
+                        </div>
+                        <div class="about-icons">
+                            Icons made by <span>vectors-market</span> from <span>Flaticon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+</body>
+</html>
