@@ -1014,7 +1014,7 @@ p, span, .content-item__description {
   color: #ffffff; }
   @media screen and (max-width: 576px) {
     .link-to-prise__wrap span {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 300; } }
   @media screen and (min-width: 576px) {
     .link-to-prise__wrap span {
@@ -2190,6 +2190,10 @@ p, span, .content-item__description {
     line-height: 1.14;
     text-align: left; } }
 
+@media screen and (max-width: 370px) {
+  .footer__column_title_big-title {
+    font-size: 13px; } }
+
 @media screen and (min-width: 576px) {
   .footer__column_title_big-title {
     font-size: 14px;
@@ -2289,7 +2293,7 @@ p, span, .content-item__description {
 @media screen and (max-width: 576px) {
   .link-to-prise.footer-button {
     width: 100%;
-    padding: .8rem 1.9rem;
+    padding: .8rem 1.25rem;
     height: auto; } }
 
 @media screen and (min-width: 576px) {
@@ -2769,6 +2773,9 @@ p, span, .content-item__description {
   bottom: 0;
   left: 0;
   z-index: 20; }
+  @media screen and (max-width: 370px) {
+    .inner-about__image-content {
+      display: none; } }
   .inner-about__image-content .square__azure {
     position: absolute;
     z-index: 21;
@@ -3204,7 +3211,7 @@ p, span, .content-item__description {
   text-align: left;
   outline: none;
   padding: 0 20px;
-  height: 30px;
+  height: 36px;
   width: 100%; }
 
 .modal-content__warning {
