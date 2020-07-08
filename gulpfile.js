@@ -12,11 +12,11 @@ const cache = require('gulp-cache'); // Подключаем библиотек�
 const autoprefixer = require('gulp-autoprefixer');// Подключаем библиотеку для автоматического добавления префиксов             
 const babel = require("gulp-babel");
 const include = require('gulp-file-include'); // соединение частей файла/файлов в родительском файле через инклуды
-const workHtml = `about`; // main // catalog
+const workHtml = `main`; // main // catalog // about // offers // contacts // post
 
 /* тут начинаются таски */
 
-	/* task для сбора html */
+	/* task для сбора html () */
 	const concatHtmlAll = () => {
 		return gulp.src([
 			'src/assets/templates/*.html',
@@ -29,6 +29,7 @@ const workHtml = `about`; // main // catalog
 	}
 	exports.concatHtmlAll = concatHtmlAll;
 
+	/* отравляем код рабочего файла в index.html, потомучто в него смотрит gulp */
 	const concatHtmlWork = () => {
 		return gulp.src([
 			`src/assets/templates/${workHtml}.html`,

@@ -134,6 +134,12 @@ p, span, .content-item__description
     display: none
 .hidden
     overflow: hidden
+.active-block
+    display: block
+.active-flex
+    display: flex
+.transparent
+    opacity: 0
 
 .content-block
     position: relative
@@ -364,12 +370,21 @@ p, span, .content-item__description
         color: #282630
     .top-menu__content-container
         background-color: transparent
+        @media screen and (max-width: 375px)
+            padding-top: 1.2rem
+            padding-bottom: 1.2rem
+        @media screen and (min-width: 375px)
+            padding-top: 2.5rem
+            padding-bottom: 2.5rem
+        @media screen and (min-width: 576px)
+            padding-top: 1.7rem
+            padding-bottom: 1.7rem
+            background-color: transparent
         @media screen and (min-width: 1200px)
             border-top: solid 1px transparent
             border-bottom: solid 1px transparent
     .burger-button__wrap svg
         color: #282630
-    
     &.active
         .burger-button__wrap svg
             color: #fff
@@ -377,6 +392,21 @@ p, span, .content-item__description
             color: #fff
         .link-to-prise__wrap span
             color: #fff
+
+    .top-menu__content-container
+        @media screen and (max-width: 375px)
+            padding-top: 1.2rem
+            padding-bottom: 1.2rem
+        @media screen and (min-width: 375px)
+            padding-top: 2.5rem
+            padding-bottom: 2.5rem
+        @media screen and (min-width: 576px)
+            padding-top: 1.7rem
+            padding-bottom: 1.7rem
+            background-color: transparent
+        @media screen and (min-width: 1200px)
+            border-top: solid 1px transparent
+            border-bottom: solid 1px transparent
     
 .navigation-bar ul li a
     text-decoration: none
@@ -1725,15 +1755,15 @@ p, span, .content-item__description
     .info-from-top-page
         @media screen and (max-width: 576px)
             margin-top: 1.2rem
-            margin-bottom: 11.5rem // 1.25rem + 5.5rem
+            margin-bottom: 13rem // 11.5rem // 1.25rem + 5.5rem
         @media screen and (min-width: 576px)
             margin-top: 1.2rem
-            margin-bottom: 11.5rem // 1.25rem + 5.5rem
+            margin-bottom: 13rem // 11.5rem // 1.25rem + 5.5rem
         @media screen and (min-width: 768px)
             margin-top: 1.2rem
             margin-bottom: 15rem  
         @media screen and (min-width: 1200px)
-            margin-top: 1.2rem
+            margin-top: 2.1rem // 1.2rem
             margin-bottom: 30rem        
     .catalog-part__list-title
         @media screen and (max-width: 576px)
@@ -2008,6 +2038,9 @@ p, span, .content-item__description
             padding:
                 bottom: 4rem
 
+.inner-about .row
+    position: relative
+
 .inner-about__text-content
     z-index: 21
     .header__email
@@ -2019,6 +2052,8 @@ p, span, .content-item__description
                 display: block
     .header__phone .header__phone-link
         color: #282630
+        @media screen and (min-width: 1200px)
+            font-weight: normal
     .catalog-part__list-title
         display: block
         color: #5b5a62
@@ -2033,7 +2068,7 @@ p, span, .content-item__description
         @media screen and (min-width: 1200px)
             font-size: 60px
             line-height: 1.2
-            padding-bottom: 10.8rem
+            padding-bottom: 10.8rem - 4.5rem
 
 .inner-about__image-content
     position: absolute
@@ -2086,7 +2121,7 @@ p, span, .content-item__description
             @media screen and (max-width: 576px)
                 width: 6rem
                 height: 5rem
-                top: 10%
+                top: 17.5rem // 10%
                 left: 70%
                 border: solid 5px #22b9e8
             @media screen and (min-width: 576px)
@@ -2099,7 +2134,7 @@ p, span, .content-item__description
                 width: 120px
                 height: 96px
                 top: 42rem
-                left: 66rem
+                left: 56rem // 66rem
                 border: solid 8px #22b9e8
             .square__orange
                 z-index: 22
@@ -2159,3 +2194,290 @@ p, span, .content-item__description
         @media screen and (min-width: 1200px)
             width: 27rem
             height: 24rem
+
+/* inner page: offers */
+.offers
+    background-color: #313335
+    .row
+        @media screen and (max-width: 576px)
+            padding-bottom: 5rem
+        @media screen and (min-width: 576px)
+            padding-bottom: 5rem
+        @media screen and (min-width: 1200px)
+            padding-bottom: 12rem
+    // .info-from-top-page
+    //     @media screen and (max-width: 576px)
+    //         margin-bottom:
+    .partition-block__inner-layer
+        // width: 100%
+        // height: 100%
+        background-color: rgba(35, 35, 37, .68) // background-color: rgba(78, 178, 235, 0.7)
+    .partition-block__another-layer
+        width: 100%
+        height: 100%
+        background-color: rgba(0, 0, 0, .5)
+    .partition-block__list
+        margin-bottom: 1.6rem
+        @media screen and (max-width: 576px)
+            margin-right: 0rem
+        @media screen and (max-width: 576px)
+            margin-right: 0rem
+        @media screen and (min-width: 1200px)
+            margin-top: 18rem - 3rem - 7rem
+            margin-right: 7rem
+    p
+        font-family: GothamPro
+        font-size: 18px
+        font-weight: normal
+        font-stretch: normal
+        font-style: normal
+        line-height: 1.94
+        letter-spacing: normal
+        text-align: left
+        color: #ffffff
+    .offer-button
+        margin-bottom: 0
+        @media screen and (max-width: 576px)
+            margin-left: 0
+            margin-right: auto
+            margin-top: 2rem
+        @media screen and (min-width: 576px)
+            margin-left: 0
+            margin-right: auto
+            margin-top: 2rem
+        @media screen and (min-width: 1200px)
+            margin-left: auto
+            margin-right: 0
+            margin-top: 11rem
+        picture
+            @media screen and (max-width: 576px)
+                display: none
+
+/* inner page: contacts */
+.contacts
+    width: 100%
+    height: 100%
+    background-color: #ffffff
+    .row
+        position: relative
+    .inner-about__text-content
+        display: flex
+        flex-wrap: wrap
+        position: relative
+        width: 100%
+    // .contacts__info
+    //     @media screen and (max-width: 576px)
+    //         margin-bottom: 3.9rem
+    //     @media screen and (min-width: 576px)
+    //         margin-bottom: 3.9rem
+    //     @media screen and (min-width: 1200px)
+    //         margin-bottom: 8.9rem
+    .header__phone .header__phone-link
+        color: #282630
+        @media screen and (min-width: 1200px)
+            font-weight: normal
+    .contacts__content-part
+        @media screen and (max-width: 576px)
+            margin:
+                top: 2rem
+                bottom: 2rem
+        @media screen and (min-width: 576px)
+            margin:
+                top: 2rem
+                bottom: 2rem
+        @media screen and (min-width: 1200px)
+            margin:
+                top: 4.5rem
+                bottom: 4.5rem
+
+
+.contacts__partition-title
+    font-family: GothamPro
+    font-weight: normal
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    color: #d09b58
+    @media screen and (max-width: 576px)
+        font-size: 16px // 12px
+        // font-weight: bold
+        line-height: 1.08
+    @media screen and (min-width: 576px)
+        font-size: 16px // 12px
+        // font-weight: bold
+        line-height: 1.08
+    @media screen and (min-width: 1200px)
+        font-size: 35px
+        // font-weight: bold
+        line-height: 1.11
+
+.partition-description__small-text
+    opacity: 0.8
+    font-family: GothamPro
+    font-weight: normal
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    color: #282630
+    @media screen and (max-width: 576px)
+        font-size: 16px // 12px
+        line-height: 1.08
+    @media screen and (min-width: 576px)
+        font-size: 16px // 12px
+        line-height: 1.08
+    @media screen and (min-width: 1200px)
+        font-size: 25px
+        line-height: 1.12
+
+.partition-description__contacts
+    display: flex
+    flex-wrap: wrap
+    .partition-description__small-text_name
+        flex-basis: 33.33333%
+        flex-shrink: 1
+        flex-grow: 0
+    .partition-description__small-text_value
+        flex-basis: 66.66666%
+        flex-shrink: 1
+        flex-grow: 0
+        text-align: right
+    .partition-description__small-text_name, .partition-description__small-text_value
+        color: #5b5a62
+        margin-bottom: 3rem
+        @media screen and (max-width: 576px) 
+            font-size: 18px
+            font-weight: 500
+            line-height: 1.08
+        @media screen and (min-width: 576px)  
+            font-size: 18px
+            font-weight: 500
+            line-height: 1.08 
+        @media screen and (min-width: 1200px)
+            font-size: 30px
+            font-weight: 500
+            line-height: 1.13
+.contacts__partition-wrap
+    @media screen and (max-width: 576px)
+        margin-bottom: 4rem
+    @media screen and (min-width: 576px)
+        margin-bottom: 4rem
+    @media screen and (min-width: 1200px)
+        margin-bottom: 8.3rem
+.contacts__partition-title
+    margin-bottom: 2rem
+.partition-description__small-text
+    margin-bottom: 3.5rem
+        
+.form-block
+    @media screen and (min-width: 1200px)
+        padding: 
+            left: 6rem
+            right: 6rem
+.form-block__title
+    font-family: GothamPro
+    font-weight: normal
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: center
+    color: #d09b58
+    opacity: 0.8
+    margin-bottom: 1.1rem
+    @media screen and (max-width: 576px)
+        font-size: 16px // 12px
+        line-height: 1.08
+    @media screen and (min-width: 576px)
+        font-size: 16px // 12px
+        line-height: 1.08
+    @media screen and (min-width: 1200px)
+        font-size: 35px
+        line-height: 1.11
+.form-block__sub-title
+    opacity: 0.8
+    font-family: GothamPro
+    font-weight: normal
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: center
+    color: #282630
+    margin-bottom: 2.4rem
+    @media screen and (max-width: 576px)
+        font-size: 16px // 12px
+        line-height: 1.08
+    @media screen and (min-width: 576px)
+        font-size: 16px // 12px
+        line-height: 1.08
+    @media screen and (min-width: 1200px)
+        font-size: 20px // 25px
+        line-height: 1.12
+.form-block__content
+    display: flex
+    flex-direction: column
+    align-items: center
+.form-block__field
+    width: 300px
+    margin-bottom: 3rem
+.form-block__label, .modal-content__warning
+    font-family: GothamPro
+    font-size: 12px
+    font-weight: 300
+    font-stretch: normal
+    font-style: italic
+    line-height: 1.08
+    letter-spacing: normal
+    text-align: left
+    color: #b2a6a6
+    margin-bottom: 5px
+.form-block__input
+    background-color: #ffffff
+    color: #282630
+    border: 1px solid #707070
+    border-radius: 3px
+    font-size: 16px
+    font-family: GothamPro
+    font-weight: normal
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    text-align: left
+    outline: none
+    padding: 0 20px
+    height: 30px
+    width: 100%
+.modal-content__warning
+    text-align: center
+    margin-top: 2rem
+.simple-button_for-form
+    font-size: 20px
+    font-weight: 500
+    line-height: 1.12
+    padding: 1.5rem 4rem 1.5rem 4rem
+
+.form-block__messages
+    width: 100%
+    height: auto
+    position: relative
+.form-block__success
+    text-align: center
+    display: block
+    width: 100%
+    height: auto
+    position: absolute
+    padding: 30px
+    background-color: #66bb6a
+    transform: translateY(0%)
+    transition: opacity .6s linear, transform .6s linear
+    span
+        font-family: GothamPro
+        font-weight: normal
+        font-stretch: normal
+        font-style: normal
+        letter-spacing: normal
+        text-align: center
+        color: #fff
+        margin-bottom: 2.4rem
+    &.active
+        transform: translateY(-230%)
