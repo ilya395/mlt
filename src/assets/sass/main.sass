@@ -1723,12 +1723,15 @@ p, span, .content-item__description
 
 .footer__column_down .footer-button_prise
     @media screen and (max-width: 576px)
-        margin-top: -6rem
+        margin-top: -1rem // -6rem
         margin-bottom: 1.5rem
 
 // .footer .container .row.wrap-plz
 .row.wrap-plz .footer__column .empty-space_left
     @media screen and (max-width: 576px)
+        // display: flex
+        // flex-direction: column
+        // justify-content: space-between
         padding-left: 5px
     @media screen and (min-width: 768px)
         padding-left: 4rem
@@ -2304,11 +2307,11 @@ p, span, .content-item__description
     text-align: left
     color: #d09b58
     @media screen and (max-width: 576px)
-        font-size: 16px // 12px
+        font-size: 24px // 16px // 12px
         // font-weight: bold
         line-height: 1.08
     @media screen and (min-width: 576px)
-        font-size: 16px // 12px
+        font-size: 24px // 16px // 12px
         // font-weight: bold
         line-height: 1.08
     @media screen and (min-width: 1200px)
@@ -2390,10 +2393,10 @@ p, span, .content-item__description
     opacity: 0.8
     margin-bottom: 1.1rem
     @media screen and (max-width: 576px)
-        font-size: 16px // 12px
+        font-size: 24px // 16px // 12px
         line-height: 1.08
     @media screen and (min-width: 576px)
-        font-size: 16px // 12px
+        font-size: 24px // 16px // 12px
         line-height: 1.08
     @media screen and (min-width: 1200px)
         font-size: 35px
@@ -2425,31 +2428,37 @@ p, span, .content-item__description
     width: 300px
     margin-bottom: 3rem
 .form-block__label, .modal-content__warning
+    display: inline-block
     font-family: GothamPro
-    font-size: 12px
     font-weight: 300
     font-stretch: normal
     font-style: italic
     line-height: 1.08
     letter-spacing: normal
     text-align: left
-    color: #b2a6a6
+    color: #282630 // #b2a6a6
+    opacity: .8
     margin-bottom: 5px
+    @media screen and (max-width: 576px)
+        font-size: 12px
+    @media screen and (min-width: 576px)
+        font-size: 16px   
 .form-block__input
     background-color: #ffffff
     color: #282630
     border: 1px solid #707070
     border-radius: 3px
-    font-size: 16px
+    font-size: 24px
     font-family: GothamPro
     font-weight: normal
     font-stretch: normal
     font-style: normal
     letter-spacing: normal
-    text-align: left
+    text-align: center
+    vertical-align: middle
     outline: none
     padding: 0 20px
-    height: 36px
+    height: 50px
     width: 100%
 .modal-content__warning
     text-align: center
