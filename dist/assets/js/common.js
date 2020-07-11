@@ -1,4 +1,5 @@
 window.addEventListener('load', () => {
+
     const topMenu = new Vue({
         el: "#top-menu",
         data: {
@@ -20,4 +21,5 @@ window.addEventListener('load', () => {
             }
         }
     });
+    
 });

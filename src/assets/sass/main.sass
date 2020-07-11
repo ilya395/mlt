@@ -261,8 +261,15 @@ p, span, .content-item__description
     @media screen and (min-width: 576px)
         flex-direction: column
     @media screen and (min-width: 1200px)
+        margin:
+            right: 15px + 5px
+            left: 15px
         flex-direction: row
         justify-content: space-between
+    @media screen and (min-width: 1400px)
+        margin:
+            right: 45px + 5px
+            left: 45px
 .navigation-bar ul li, .navigation-bar ul li a
     font-family: GothamPro
     font-stretch: normal
@@ -443,6 +450,9 @@ p, span, .content-item__description
 .mobil-footer .header__phone .phone-pref__item_icon img
     margin-top: -20px
 
+.top-menu  .site-logo
+    display: flex
+    align-items: center
 .site-logo img
     @media screen and (max-width: 576px)
         width: 6.4rem
@@ -720,6 +730,8 @@ p, span, .content-item__description
         height: 9rem
         padding: 2.5rem 2.6rem// 3.1rem
         border: solid 5px #bc7112
+.header__link-to-prise.header__link-to-prise_top-menu .link-to-prise
+    padding: 1.8rem 2rem
 
 .link-to-prise__wrap
     justify-content: center
@@ -1042,8 +1054,10 @@ p, span, .content-item__description
     margin-left: 30px + 10px
 .catalog-part.even
     @media screen and (max-width: 576px)
-        margin-left: 30px  + 10px
+        margin-left: 30px + 10px
     @media screen and (min-width: 576px)
+        margin-left: 30px + 10px
+    @media screen and (min-width: 992px)
         margin-right: 30px + 10px
 
 .catalog-part__inner-border
@@ -1065,6 +1079,10 @@ p, span, .content-item__description
             left: -60px + 7px
             right: -60px
     @media screen and (min-width: 576px)
+        margin:
+            left: -60px + 7px
+            right: auto
+    @media screen and (min-width: 992px)
         margin:
             left: auto
             right: -60px + 7px
@@ -1089,6 +1107,9 @@ p, span, .content-item__description
         right: 0
         left: auto
     @media screen and (min-width: 576px)
+        right: 0
+        left: auto
+    @media screen and (min-width: 992px)
         left: 0
         right: auto
 
@@ -1125,6 +1146,10 @@ p, span, .content-item__description
         transform: translateX(0)
     @media screen and (min-width: 576px)
         margin-top: 5rem
+        margin-left: 2.5rem
+        transform: translateX(-80%)
+    @media screen and (min-width: 992px)
+        margin-top: 5rem
         margin-left: 0rem
         transform: translateX(120%)
 
@@ -1143,6 +1168,9 @@ p, span, .content-item__description
         margin-top: 3rem
         margin-left: 2.5rem
     @media screen and (min-width: 576px)
+        margin-top: 3rem
+        margin-left: 2.5rem
+    @media screen and (min-width: 992px)
         margin-top: 2.0rem
         margin-left: 5rem
 
@@ -1168,10 +1196,13 @@ p, span, .content-item__description
 .catalog-part__list-item.hovered:hover
     color: #0099f0
 
-.catalog-part.odd .catalog-part__list-item.catalog-part__list-item_link, .catalog-part.even .catalog-part__list-item.catalog-part__list-item_link
+.catalog-part.odd .catalog-part__list-item.catalog-part__list-item_link, 
+.catalog-part.even .catalog-part__list-item.catalog-part__list-item_link
     @media screen and (max-width: 576px)
         margin-top: 4.6rem 
     @media screen and (min-width: 576px)
+        margin-top: 4.6rem
+    @media screen and (min-width: 992px)
         margin-top: 4.6rem  
 .catalog-part__list-item.catalog-part__list-item_link
     text-decoration: none
@@ -1278,6 +1309,9 @@ p, span, .content-item__description
     @media screen and (min-width: 1200px)
         height: 40rem
         width: 35rem
+    @media screen and (min-width: 1400px)
+        height: 43rem
+        width: 38rem
     @media screen and (min-width: 1600px)
         height: 60rem
         width: 51rem
@@ -1478,7 +1512,7 @@ p, span, .content-item__description
         padding: 
             top: 7.5rem        
 
-.site-logo
+.footer .site-logo
     display: block
     object-fit: contain
     @media screen and (max-width: 576px)
@@ -1723,8 +1757,8 @@ p, span, .content-item__description
 
 .footer__column_down .footer-button_prise
     @media screen and (max-width: 576px)
-        margin-top: -1rem // -6rem
-        margin-bottom: 1.5rem
+        margin-top: -3rem // -1rem // -6rem
+        margin-bottom: 4rem // 1.5rem
 
 // .footer .container .row.wrap-plz
 .row.wrap-plz .footer__column .empty-space_left
@@ -1740,6 +1774,11 @@ p, span, .content-item__description
         padding-right: 5px
     @media screen and (min-width: 768px)
         padding-right: 4rem
+.footer__column_down 
+    .row.wrap-plz .footer__column .empty-space_right,
+    .row.wrap-plz .footer__column .empty-space_left
+    @media screen and (min-width: 768px)
+        padding-top: 3.3rem    
         
 
 /* main-page */
@@ -1781,9 +1820,11 @@ p, span, .content-item__description
             text-align: left
             color: #ffffff
         @media screen and (min-width: 576px)
-            display: none
+            display: block // none
             padding-top: 2.5rem
             padding-bottom: 2.5rem  
+        @media screen and (min-width: 993px)
+            display: none
     .header__email
         font-family: GothamPro
         font-size: 12px
@@ -2087,22 +2128,23 @@ p, span, .content-item__description
     left: 0
     z-index: 20
     .square__azure
+        display: block
         position: absolute
         z-index: 21
-        border: solid 10px #22b9e8
+        border: solid 10px rgba(34, 185, 232, .3)// #22b9e8
         border-radius: 4px
         @media screen and (max-width: 576px)
             width: 20rem
             height: 15rem
             top: 30rem
             left: 30%
-            opacity: 0.3
+            // opacity: 0.3
         @media screen and (min-width: 576px)
             width: 20rem
             height: 15rem
             top: 30rem
             left: 50%
-            opacity: 0.3
+            // opacity: 0.3
         @media screen and (min-width: 768px)
             top: 27rem
             left: 70%
@@ -2111,12 +2153,19 @@ p, span, .content-item__description
             height: 33rem
             top: 51rem
             left: 60%
-            opacity: 0.7
+            // opacity: 0.7
+        &.square__azure_first
+            @media screen and (max-width: 576px)
+                display: none
+            @media screen and (min-width: 576px)
+                display: block
         &.square__azure_second
             @media screen and (max-width: 576px)
                 top: 60rem
+                display: none
             @media screen and (min-width: 576px)
                 top: 60rem
+                display: block
             @media screen and (min-width: 768px)
                 top: 55rem
             @media screen and (min-width: 1200px)
@@ -2130,19 +2179,19 @@ p, span, .content-item__description
                 height: 5rem
                 top: 17.5rem // 10%
                 left: 70%
-                border: solid 5px #22b9e8
+                border: solid 5px rgba(34, 185, 232, .3)// #22b9e8
             @media screen and (min-width: 576px)
                 width: 8rem
                 height: 6rem
                 top: 13.5%
                 left: 40%
-                border: solid 5px #22b9e8
+                border: solid 5px rgba(34, 185, 232, .3) // #22b9e8
             @media screen and (min-width: 1200px)
                 width: 120px
                 height: 96px
                 top: 42rem
                 left: 56rem // 66rem
-                border: solid 8px #22b9e8
+                border: solid 8px rgba(34, 185, 232, .3) // #22b9e8
             .square__orange
                 z-index: 22
                 // top: -100%
@@ -2160,15 +2209,15 @@ p, span, .content-item__description
                 @media screen and (min-width: 1200px)
                     width: 15.4rem
                     height: 12.5rem
-                    top: -100%
-                    left: -100%
+                    top: -65px // -100%
+                    left: -94px // -100%
     .square__orange
         position: absolute
         z-index: 22
         left: 50%
         top: 60%
-        opacity: 0.6
-        border: solid 5px #bc7112
+        // opacity: 0.6
+        border: solid 5px rgba(188, 113, 18, .3) // #bc7112
         border-radius: 4px
         @media screen and (max-width: 576px)
             width: 15rem
@@ -2187,7 +2236,7 @@ p, span, .content-item__description
         left: 40%
         top: 45%
         // object-fit: contain
-        opacity: 0.7
+        // opacity: 0.7
         background-image: url('../images/photo_2020-06-17_23-11-13_(2).jpg')
         background-size: cover
         background-position: center center
@@ -2296,7 +2345,24 @@ p, span, .content-item__description
             margin:
                 top: 4.5rem
                 bottom: 4.5rem
-
+        &.contacts__map iframe
+            height: 55.5rem
+            @media screen and (max-width: 576px)
+                width: 100%
+            @media screen and (min-width: 576px)
+                width: 100%
+            @media screen and (min-width: 1200px)
+                width: 100%       
+    @media screen and (min-width: 1200px)
+        .col-md-6
+            &:nth-child(odd)
+                padding:
+                    left: 30px
+                    right: 15px
+            &:nth-child(even)
+                padding:
+                    left: 15px
+                    right: 30px
 
 .contacts__partition-title
     font-family: GothamPro
@@ -2494,3 +2560,52 @@ p, span, .content-item__description
         margin-bottom: 2.4rem
     &.active
         transform: translateY(-230%)
+
+/* modal */
+.modal
+    width: 100vw
+    height: 100vh
+    display: none
+    justify-content: center
+    align-items: center
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 115
+    background-color: rgba(35, 35, 37, .68)
+    &.active
+        display: flex
+.modal__wrap
+    display: block
+    @media screen and (max-width: 576px)
+        min-width: 100%
+    @media screen and (min-width: 576px)
+        min-width: 50rem
+    height: auto
+    min-height: 20rem
+    background-color: #fff
+    display: flex
+    justify-content: center
+    align-items: center 
+    position: relative
+.modal__container
+    text-align: center
+    vertical-align: middle
+    width: 100%
+    height: 100%
+    // display: flex
+    // justify-content: center
+    // align-items: center   
+.modal__close-btn
+    position: absolute 
+    top: 2rem
+    right: 2rem
+    font-family: GothamPro
+    font-weight: normal
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: normal
+    font-size: 2rem
+    cursor: pointer 
