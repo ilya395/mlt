@@ -1299,6 +1299,15 @@ p, span, .content-item__description
     position: relative
     width: 100%
     height: 100%
+    display: flex
+    flex-direction: row
+.our-project__container
+    display: none
+    position: relative
+    width: 100%
+    height: 100%
+    &.active
+        display: block   
 .our-project
     background-image: url(../images/проект__1.jpg)
     background-size: cover
@@ -1336,6 +1345,31 @@ p, span, .content-item__description
     right: 0
     z-index: 15
 
+.our-project__container
+    .moving-one
+        opacity: 0
+        transform: translateX(100%)
+        transition: all .5s linear 0s
+    .moving-two
+        opacity: 0
+        transform: translate(-50%, -50%) translateX(50%)
+        transition: all .5s linear .2s
+    .moving-three
+        opacity: 0
+        transform: translateX(25%)
+        transition: all .5s linear .4s
+    &.movie
+        .moving-one
+            opacity: 1
+            transform: translateX(0%)
+        .moving-two
+            opacity: 1
+            transform: translate(-50%, -50%) translateX(0%)
+        .moving-three
+            opacity: 1
+            transform: translateX(0%)
+
+
 .our-project__footer
     position: absolute
     bottom: 0
@@ -1360,6 +1394,14 @@ p, span, .content-item__description
         font-size: 18px
     @media screen and (min-width: 1600px)
         font-size: 25px
+
+.our-project__dots-bar
+    display: flex
+    justify-content: center
+    align-items: center
+    position: absolute
+    bottom: 2rem
+    left: 8rem
 
 /* choose-us */
 .choose-us
@@ -1769,11 +1811,17 @@ p, span, .content-item__description
         padding-left: 5px
     @media screen and (min-width: 768px)
         padding-left: 4rem
+    @media screen and (min-width: 1400px)
+        padding-left: 4rem * 2
 .row.wrap-plz .footer__column .empty-space_right
     @media screen and (max-width: 576px)
         padding-right: 5px
     @media screen and (min-width: 768px)
         padding-right: 4rem
+        padding-left: 2rem
+    @media screen and (min-width: 1400px)
+        padding-right: 4rem * 2
+        padding-left: 4rem
 .footer__column_down 
     .row.wrap-plz .footer__column .empty-space_right,
     .row.wrap-plz .footer__column .empty-space_left
@@ -2444,7 +2492,12 @@ p, span, .content-item__description
     margin-bottom: 3.5rem
         
 .form-block
+    @media screen and (max-width: 576px)
+        width: 100%
+    @media screen and (min-width: 576px)
+        width: 100%
     @media screen and (min-width: 1200px)
+        width: 100%
         padding: 
             left: 6rem
             right: 6rem
@@ -2493,7 +2546,11 @@ p, span, .content-item__description
 .form-block__field
     width: 300px
     margin-bottom: 3rem
+    display: flex
+    flex-direction: column
+    align-items: flex-start
 .form-block__label, .modal-content__warning
+    text-decoration: none
     display: inline-block
     font-family: GothamPro
     font-weight: 300
@@ -2541,7 +2598,8 @@ p, span, .content-item__description
     position: relative
 .form-block__success
     text-align: center
-    display: block
+    display: none
+    opacity: 0
     width: 100%
     height: auto
     position: absolute
@@ -2559,6 +2617,9 @@ p, span, .content-item__description
         color: #fff
         margin-bottom: 2.4rem
     &.active
+        display: block
+    &.movie
+        opacity: 1
         transform: translateY(-230%)
 
 /* modal */
@@ -2575,8 +2636,12 @@ p, span, .content-item__description
     left: 0
     z-index: 115
     background-color: rgba(35, 35, 37, .68)
+    opacity: 0
+    transition: opacity .3s linear
     &.active
         display: flex
+    &.movie
+        opacity: 1
 .modal__wrap
     display: block
     @media screen and (max-width: 576px)
@@ -2595,9 +2660,20 @@ p, span, .content-item__description
     vertical-align: middle
     width: 100%
     height: 100%
+    @media screen and (min-width: 768px)
+        padding:
+            top: 3rem
+            bottom: 3rem
     // display: flex
     // justify-content: center
-    // align-items: center   
+    // align-items: center
+    & .form-block
+        @media screen and (max-width: 576px)
+            width: 100%
+        @media screen and (min-width: 576px)
+            width: 50rem
+        @media screen and (min-width: 1200px)
+            width: 80rem 
 .modal__close-btn
     position: absolute 
     top: 2rem

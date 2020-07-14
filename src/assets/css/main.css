@@ -1769,7 +1769,24 @@ p, span, .content-item__description {
 .our-projects__our-project {
   position: relative;
   width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+
+.our-project__container {
+  display: none;
+  position: relative;
+  width: 100%;
   height: 100%; }
+  .our-project__container.active {
+    display: block; }
 
 .our-project {
   background-image: url(../images/проект__1.jpg);
@@ -1817,6 +1834,51 @@ p, span, .content-item__description {
   right: 0;
   z-index: 15; }
 
+.our-project__container .moving-one {
+  opacity: 0;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: all .5s linear 0s;
+  -o-transition: all .5s linear 0s;
+  transition: all .5s linear 0s; }
+
+.our-project__container .moving-two {
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) translateX(50%);
+      -ms-transform: translate(-50%, -50%) translateX(50%);
+          transform: translate(-50%, -50%) translateX(50%);
+  -webkit-transition: all .5s linear .2s;
+  -o-transition: all .5s linear .2s;
+  transition: all .5s linear .2s; }
+
+.our-project__container .moving-three {
+  opacity: 0;
+  -webkit-transform: translateX(25%);
+      -ms-transform: translateX(25%);
+          transform: translateX(25%);
+  -webkit-transition: all .5s linear .4s;
+  -o-transition: all .5s linear .4s;
+  transition: all .5s linear .4s; }
+
+.our-project__container.movie .moving-one {
+  opacity: 1;
+  -webkit-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%); }
+
+.our-project__container.movie .moving-two {
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%) translateX(0%);
+      -ms-transform: translate(-50%, -50%) translateX(0%);
+          transform: translate(-50%, -50%) translateX(0%); }
+
+.our-project__container.movie .moving-three {
+  opacity: 1;
+  -webkit-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%); }
+
 .our-project__footer {
   position: absolute;
   bottom: 0;
@@ -1846,6 +1908,23 @@ p, span, .content-item__description {
   @media screen and (min-width: 1600px) {
     .our-project__footer_text {
       font-size: 25px; } }
+
+.our-project__dots-bar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  bottom: 2rem;
+  left: 8rem; }
 
 /* choose-us */
 .choose-us {
@@ -2402,13 +2481,23 @@ p, span, .content-item__description {
   .row.wrap-plz .footer__column .empty-space_left {
     padding-left: 4rem; } }
 
+@media screen and (min-width: 1400px) {
+  .row.wrap-plz .footer__column .empty-space_left {
+    padding-left: 8rem; } }
+
 @media screen and (max-width: 576px) {
   .row.wrap-plz .footer__column .empty-space_right {
     padding-right: 5px; } }
 
 @media screen and (min-width: 768px) {
   .row.wrap-plz .footer__column .empty-space_right {
-    padding-right: 4rem; } }
+    padding-right: 4rem;
+    padding-left: 2rem; } }
+
+@media screen and (min-width: 1400px) {
+  .row.wrap-plz .footer__column .empty-space_right {
+    padding-right: 8rem;
+    padding-left: 4rem; } }
 
 @media screen and (min-width: 768px) {
   .footer__column_down {
@@ -3202,8 +3291,17 @@ p, span, .content-item__description {
 .partition-description__small-text {
   margin-bottom: 3.5rem; }
 
+@media screen and (max-width: 576px) {
+  .form-block {
+    width: 100%; } }
+
+@media screen and (min-width: 576px) {
+  .form-block {
+    width: 100%; } }
+
 @media screen and (min-width: 1200px) {
   .form-block {
+    width: 100%;
     padding-left: 6rem;
     padding-right: 6rem; } }
 
@@ -3270,9 +3368,23 @@ p, span, .content-item__description {
 
 .form-block__field {
   width: 300px;
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
 
 .form-block__label, .modal-content__warning {
+  text-decoration: none;
   display: inline-block;
   font-family: GothamPro;
   font-weight: 300;
@@ -3326,7 +3438,8 @@ p, span, .content-item__description {
 
 .form-block__success {
   text-align: center;
-  display: block;
+  display: none;
+  opacity: 0;
   width: 100%;
   height: auto;
   position: absolute;
@@ -3350,6 +3463,9 @@ p, span, .content-item__description {
     color: #fff;
     margin-bottom: 2.4rem; }
   .form-block__success.active {
+    display: block; }
+  .form-block__success.movie {
+    opacity: 1;
     -webkit-transform: translateY(-230%);
         -ms-transform: translateY(-230%);
             transform: translateY(-230%); }
@@ -3373,12 +3489,18 @@ p, span, .content-item__description {
   bottom: 0;
   left: 0;
   z-index: 115;
-  background-color: rgba(35, 35, 37, 0.68); }
+  background-color: rgba(35, 35, 37, 0.68);
+  opacity: 0;
+  -webkit-transition: opacity .3s linear;
+  -o-transition: opacity .3s linear;
+  transition: opacity .3s linear; }
   .modal.active {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
+  .modal.movie {
+    opacity: 1; }
 
 .modal__wrap {
   display: block;
@@ -3410,6 +3532,19 @@ p, span, .content-item__description {
   vertical-align: middle;
   width: 100%;
   height: 100%; }
+  @media screen and (min-width: 768px) {
+    .modal__container {
+      padding-top: 3rem;
+      padding-bottom: 3rem; } }
+  @media screen and (max-width: 576px) {
+    .modal__container .form-block {
+      width: 100%; } }
+  @media screen and (min-width: 576px) {
+    .modal__container .form-block {
+      width: 50rem; } }
+  @media screen and (min-width: 1200px) {
+    .modal__container .form-block {
+      width: 80rem; } }
 
 .modal__close-btn {
   position: absolute;

@@ -119,8 +119,8 @@ const workHtml = `main`; // main // catalog // about // offers // contacts // po
 	        // 'src/libs/lottie/lottie_svg.js',
 	        // 'src/libs/owlcarousel/owl.carousel.js',
 	        // 'src/libs/touch/jquery.touchSwipe.min.js'
-	        'src/assets/libs/libs.js',
-	        // 'src/assets/libs/jsInstagramFeed/InstagramFeed.min.js'
+	        'src/assets/libs/inputmask.js',
+	        'src/assets/libs/phone-ru.min.js'
 	        ])
 	        .pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
 	        .pipe(uglify()) // Сжимаем JS файл
