@@ -23,7 +23,7 @@
 
     <div class="content-block">
 <div 
-    class="top-menu top-menu_other" 
+    class="top-menu top-menu_inner" 
     id="top-menu"
     v-bind:class="{ active: isActive }"
 >
@@ -126,185 +126,286 @@
         </div>
     </div>
 </div>
-
-        <div class="inner-about post">
+        <div class="inner-catalog">
             <div class="container">
                 <div class="row">
 
-                    <!-- <div class="inner-about__image-content">
-                        <div class="image-content__pattern">
-                            <div class="square__azure">
-                                <div class="square__orange">
-                                </div>
-                                <div class="square__with-image">
-                                </div>
+                    <header class="col-12 tricky-title">
+                        <div class="info-from-top-page">
+                            <div class="header__email">
+                                gds_kazan16@mail.ru
                             </div>
-                            <div class="square__azure square__azure_second">
-                                <div class="square__orange">
-                                </div>
-                                <div class="square__with-image">
-                                </div>
-                            </div>
-                            <div class="square__azure square__azure_small">
-                                <div class="square__orange">
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <div class="inner-about__text-content">
-
-                        <header class="col-12 tricky-title">
-                            <div class="info-from-top-page info-from-top-page_without-back">
-                                <div class="header__email">
-                                    gds_kazan16@mail.ru
-                                </div>
-                                <div class="header__phone">
-                                    <div class="header__phone-pref">
-                                        <div class="phone-pref__item phone-pref__item_txt">
-                                            тел./факс
-                                        </div>
-                                        <div class="phone-pref__item phone-pref__item_icon">
-                                            <picture>
-                                                <img src="/assets/images/phone_(2).png" alt="" srcset="/assets/images/phone_(2)@2x.png 2x, /assets/images/phone_(2)@3x.png 3x">
-                                            </picture>
-                                        </div>                        
+                            <div class="header__phone">
+                                <div class="header__phone-pref">
+                                    <div class="phone-pref__item phone-pref__item_txt">
+                                        тел./факс
                                     </div>
-                                    <a href="tel:8(843)2925536" class="header__phone-link">
-                                        8 (843) 292 - 55 - 36
-                                    </a>
+                                    <div class="phone-pref__item phone-pref__item_icon">
+                                        <picture>
+                                            <img src="/assets/images/phone_(2).png" alt="" srcset="/assets/images/phone_(2)@2x.png 2x, /assets/images/phone_(2)@3x.png 3x">
+                                        </picture>
+                                    </div>                        
                                 </div>
-                            </div>
-                            <h1 class="h1 catalog-part__list-title">
-                                Заголовок записи
-                            </h1>
-                        </header>
-
-                        <div class="col-12 inner-about__partition-block">
-                            <div class="col-12 col-md-5 inner-about__block">
-                                <img src="assets/images/проект_111.jpg" alt="">
-                            </div>
-                            <div class="col-12 col-md-7 inner-about__block">
-                                <h4 class="post__title">
-                                    Рельсы  Б/У крановые ГОСТ 3456-00-99
-                                </h4>
-                                <p>
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. Рельсы р 50 предназначены для строительства без стыковых путей дороги с широкой колеей. Они изготавливаются в соответствии с ГОСТ Р  51685 - 2000 и рассчитаны на нагрузку в пределах 10 - 25 млн.т.км /км. в год.
-                                </p>
-                                <p>
-                                    Мы можем предложить к рельсам вот такие и вот такие услуги.
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. Рельсы р 50 предназначены для строительства без стыковых путей дороги с широкой колеей. Они изготавливаются в соответствии с ГОСТ Р  51685 - 2000 и рассчитаны на нагрузку в пределах 10 - 25 млн.т.км /км. в год.
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. 
-                                </p>
-                                <div class="post__row">
-                                    <a href="#" class="link-to-prise post__botton">
-                                        <span>
-                                            Оставить заявку
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 inner-about__block">
-                                <p>
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. Рельсы р 50 предназначены для строительства без стыковых путей дороги с широкой колеей. Они изготавливаются в соответствии с ГОСТ Р  51685 - 2000 и рассчитаны на нагрузку в пределах 10 - 25 млн.т.км /км. в год.
-                                </p>
-                                <p>
-                                    Мы можем предложить к рельсам вот такие и вот такие услуги.
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. Рельсы р 50 предназначены для строительства без стыковых путей дороги с широкой колеей. Они изготавливаются в соответствии с ГОСТ Р  51685 - 2000 и рассчитаны на нагрузку в пределах 10 - 25 млн.т.км /км. в год.
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. 
-                                </p>
-                                <picture>
-                                    <img
-                                        src="assets/images/проект_22.png"
-                                        srcset="assets/images/проект_22@2x.png 2x, assets/images/проект_22@3x.png 3x"
-                                    >
-                                </picture>
-                                <ul>
-                                    <li>рельсы</li>
-                                    <li>рельсы</li>
-                                    <li>шпалы</li>
-                                    <li>шпалы</li>
-                                    <li>ехал</li>
-                                    <li>ехал?</li>
-                                </ul>
-                                <p>
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. Рельсы р 50 предназначены для строительства без стыковых путей дороги с широкой колеей. Они изготавливаются в соответствии с ГОСТ Р  51685 - 2000 и рассчитаны на нагрузку в пределах 10 - 25 млн.т.км /км. в год.
-                                </p>
-                                <p>
-                                    <b>Мы можем предложить к рельсам вот такие и вот такие услуги.</b>
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. Рельсы р 50 предназначены для строительства без стыковых путей дороги с широкой колеей. Они изготавливаются в соответствии с ГОСТ Р  51685 - 2000 и рассчитаны на нагрузку в пределах 10 - 25 млн.т.км /км. в год.
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. 
-                                </p>
-                            </div>
-                            <div class="col-12 inner-about__block">
-                                <p class="post__info-in-end-page">
-                                    Для заказа и более подробной информации Вы можете <a link="#" class="link-to-request">оставить заявку</a>, <a link="#" class="link-to-download">скачать прайс</a>, а так же связаться с нами по номеру <b>8 (843) 292 - 55 - 36</b>
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- <div class="col-12 inner-about__partition-block">
-
-                            <img src="assets/images/проект_111.jpg" alt="" style="max-width: 45rem">
-
-                            <div class="post__title">
-                                Рельсы  Б/У крановые ГОСТ 3456-00-99
-                            </div>
-                            <div>
-                                Все железные дороги, как и сто лет назад, собираются из отрезков рельс. Рельсы р 50 предназначены для строительства без стыковых путей дороги с широкой колеей. Они изготавливаются в соответствии с ГОСТ Р  51685 - 2000 и рассчитаны на нагрузку в пределах 10 - 25 млн.т.км /км. в год.
-                            </div>
-                            <div>
-                                Мы можем предложить к рельсам вот такие и вот такие услуги.
-                                Все железные дороги, как и сто лет назад, собираются из отрезков рельс. Рельсы р 50 предназначены для строительства без стыковых путей дороги с широкой колеей. Они изготавливаются в соответствии с ГОСТ Р  51685 - 2000 и рассчитаны на нагрузку в пределах 10 - 25 млн.т.км /км. в год.
-                                Все железные дороги, как и сто лет назад, собираются из отрезков рельс. 
-                            </div>
-                            <div class="post__row">
-                                <a href="#" class="link-to-prise post__botton">
-                                    <span>
-                                        Оставить заявку
-                                    </span>
+                                <a href="tel:8(843)2925536" class="header__phone-link">
+                                    8 (843) 292 - 55 - 36
                                 </a>
                             </div>
+                        </div>
+                        <h1 class="h1 catalog-part__list-title">
+                            ТОВАРЫ
+                        </h1>
+                    </header>
 
-                            <div class="col-12 inner-about__block">
-                                <p>
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. Рельсы р 50 предназначены для строительства без стыковых путей дороги с широкой колеей. Они изготавливаются в соответствии с ГОСТ Р  51685 - 2000 и рассчитаны на нагрузку в пределах 10 - 25 млн.т.км /км. в год.
-                                </p>
-                                <p>
-                                    Мы можем предложить к рельсам вот такие и вот такие услуги.
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. Рельсы р 50 предназначены для строительства без стыковых путей дороги с широкой колеей. Они изготавливаются в соответствии с ГОСТ Р  51685 - 2000 и рассчитаны на нагрузку в пределах 10 - 25 млн.т.км /км. в год.
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. 
-                                </p>
-                                <picture>
-                                    <img
-                                        src="assets/images/проект_22.png"
-                                        srcset="assets/images/проект_22@2x.png 2x, assets/images/проект_22@3x.png 3x"
-                                    >
-                                </picture>
-                                <ul>
-                                    <li>рельсы</li>
-                                    <li>рельсы</li>
-                                    <li>шпалы</li>
-                                    <li>шпалы</li>
-                                    <li>ехал</li>
-                                    <li>ехал?</li>
+                    <section class="inner-catalog__partition-block col-12">
+                        <div class="partition-block__layer">
+                            <div class="partition-block__inner-layer">
+                            </div>
+                        </div>
+                        <div class="partition-block__inner-border hovered">
+
+                        </div>
+                        <div class="partition-block__content">
+                            <div class="col-12 col-md-4">
+                                <div class="partition-block__wrap-title">
+                                    <h2 class="h2 partition-block__title">
+                                        ШПАЛЫ
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-8 partition-block__wrap-list">
+                                <ul class="partition-block__list">
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
                                 </ul>
-                                <p>
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. Рельсы р 50 предназначены для строительства без стыковых путей дороги с широкой колеей. Они изготавливаются в соответствии с ГОСТ Р  51685 - 2000 и рассчитаны на нагрузку в пределах 10 - 25 млн.т.км /км. в год.
-                                </p>
-                                <p>
-                                    <b>Мы можем предложить к рельсам вот такие и вот такие услуги.</b>
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. Рельсы р 50 предназначены для строительства без стыковых путей дороги с широкой колеей. Они изготавливаются в соответствии с ГОСТ Р  51685 - 2000 и рассчитаны на нагрузку в пределах 10 - 25 млн.т.км /км. в год.
-                                    Все железные дороги, как и сто лет назад, собираются из отрезков рельс. 
-                                </p>
                             </div>
-                            <div class="col-12 inner-about__block">
-                                <p class="post__info-in-end-page">
-                                    Для заказа и более подробной информации Вы можете <a link="#" class="link-to-request">оставить заявку</a>, <a link="#" class="link-to-download">скачать прайс</a>, а так же связаться с нами по номеру <b>8 (843) 292 - 55 - 36</b>
-                                </p>
-                            </div>
-                        </div> -->
+                        </div>
+                    </section>
 
+                    <section class="inner-catalog__partition-block col-12">
+                        <div class="partition-block__layer">
+                            <div class="partition-block__inner-layer">
+                            </div>
+                        </div>
+                        <div class="partition-block__inner-border hovered">
+
+                        </div>
+                        <div class="partition-block__content">
+                            <div class="col-12 col-md-4">
+                                <div class="partition-block__wrap-title">
+                                    <h2 class="h2 partition-block__title">
+                                        ШПАЛЫ
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-8 partition-block__wrap-list">
+                                <ul class="partition-block__list">
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="hovered">
+                                            Рельсы КР100, КР120, КР140
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="col-12 inner-catalog__button">
+                        <a href="#" class="simple-button simple-button_catalog-btn">
+                            ОСТАВИТЬ ЗАЯВКУ
+                        </a>
                     </div>
 
                 </div>

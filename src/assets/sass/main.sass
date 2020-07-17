@@ -360,6 +360,9 @@ p, span, .content-item__description
                 // background-color: rgba(40, 38, 48, 0.62)
         .navigation-bar
             margin-top: 6.3rem + 2.5rem
+        .header__link-to-prise.header__link-to-prise_top-menu
+            @media screen and (max-width: 1200px)
+                display: none
 
 .top-menu.top-menu_other
     background-color: transparent
@@ -1952,14 +1955,24 @@ p, span, .content-item__description
     position: relative
     overflow: hidden
     @media screen and (max-width: 576px)
-        min-height: 650px
+        min-height: 12.9rem
         // overflow: hidden
+        margin-bottom: 2.5rem
     @media screen and (min-width: 576px)
         min-height: 600px
+    &.active
+        @media screen and (max-width: 576px)
+            min-height: 650px
+
 
 .partition-block__layer
     width: auto
-    height: 100%
+    @media screen and (max-width: 576px)
+        height: 12.9rem
+    @media screen and (min-width: 576px)
+        height: 100%
+    @media screen and (min-width: 1200px)
+        height: 100%
     background-image: url(../images/рельсы.jpg)
     background-size: cover
     background-position: center center
@@ -1968,19 +1981,23 @@ p, span, .content-item__description
     z-index: 10
     top: 0
     bottom: 0
-    left: 0
     @media screen and (max-width: 576px)
         right: 0
+        // left: 2.5rem
         margin-right: 0
         margin-left: 0
+        left: 1.5rem
     @media screen and (min-width: 576px)
         right: 0
+        // left: 2.5rem
         margin-right: 0
         margin-left: 0
+        left: 1.5rem
     @media screen and (min-width: 1200px)
         right: 0
         margin-right: 32px + 12px
         margin-left: 32px + 12px
+        left: 0
 
 .partition-block__inner-border
     position: absolute
@@ -2006,14 +2023,26 @@ p, span, .content-item__description
     flex-wrap: wrap
 .inner-catalog__partition-block:hover .partition-block__inner-border.hovered
     border: solid 7px #0099f0
+.inner-catalog__partition-block
+    & .partition-block__inner-border
+        left: 15px // 25px
+        @media screen and (max-width: 576px)
+            height: 12.9rem
+        @media screen and (min-width: 576px)
+            height: auto
+    &.active .partition-block__inner-border
+        left: 35px // 50px
+        top: 25px
+        height: auto
+
 
 .partition-block__inner-layer
     position: absolute
     @media screen and (max-width: 576px)
         width: 80%
-        background-color: rgba(78, 178, 235, .7)
+        background-color: transpaent // rgba(78, 178, 235, .7)
     @media screen and (min-width: 576px)
-        width: 80%
+        width: 70%
         background-color: rgba(78, 178, 235, .7)
     @media screen and (min-width: 1200px)
         width: 66.66666%
@@ -2029,12 +2058,49 @@ p, span, .content-item__description
     display: flex
     flex-direction: row
     flex-wrap: wrap
-    padding:
-        top: 3rem
-        bottom: 3rem
+    @media screen and (max-width: 576px)
+        padding:
+            top: 4rem
+            bottom: 3rem
+    @media screen and (min-width: 576px)
+        padding:
+            top: 3rem
+            bottom: 3rem
     z-index: 12
+.inner-catalog__partition-block
+    & .partition-block__content
+        @media screen and (max-width: 576px)
+            padding-top: 4rem
+            padding-bottom: 4rem
+
+.partition-block__wrap-title
+    z-index: 10
+    @media screen and (max-width: 576px)
+        padding:
+            top: .8rem
+            bottom: .8rem
+            left: 5rem
+        &::after
+            content: ""
+            position: absolute
+            width: 100vw
+            height: 100% 
+            background-color: rgba(98, 100, 102, .8)
+            top: 0
+            left: -1.5rem
+            right: 0
+            z-index: -9
+    @media screen and (min-width: 576px)
+        padding:
+            left: 3rem
+            top: 1.5rem
+    @media screen and (min-width: 1200px)
+        padding:
+            left: 0rem
+            top: 0rem
 
 .partition-block__title
+    z-index: 11
     font-weight: normal
     font-stretch: condensed
     font-style: normal
@@ -2044,14 +2110,21 @@ p, span, .content-item__description
         font-size: 28px
         line-height: 1.21
         text-align: left
-        margin-top: 5rem - 3rem
-        margin-left: 7.5rem
+        // margin-top: 5rem - 3rem
+        // margin-left: 7.5rem
+        &::after
+            content: url("../images/icons8.png")
+            position: absolute
+            width: 3.4rem
+            height: 3.4rem
+            top: auto
+            right: 0
     @media screen and (min-width: 576px)
         font-size: 28px
         line-height: 1.21
         text-align: left
-        margin-top: 5rem - 3rem
-        margin-left: 7.5rem
+        // margin-top: 5rem - 3rem
+        // margin-left: 7.5rem
     @media screen and (min-width: 1200px)
         font-size: 50px
         line-height: 1.22
@@ -2059,28 +2132,43 @@ p, span, .content-item__description
         margin-top: 6rem - 3rem - 2rem // 2.5rem
         margin-left: 6rem
 
+.inner-catalog__partition-block
+    & .partition-block__wrap-list
+        display: none
+    &.active .partition-block__wrap-list
+        display: block
+        margin-top: 5rem
+    &.active .partition-block__title
+        &::after
+            transform: rotate(180deg)
+
 .partition-block__list
     display: flex
     flex-wrap: wrap
     flex-direction: row // column
     @media screen and (max-width: 576px)
         margin-top: 1.6rem
-        margin-left: 7.5rem
+        margin-left: 5rem // 7.5rem
     @media screen and (min-width: 576px)
         margin-top: 1.6rem
-        margin-left: 7.5rem
+        margin-left: 5rem // 7.5rem
+    @media screen and (min-width: 768px)
+        margin-left: 0rem
     @media screen and (min-width: 1200px)
         margin-top: 12rem - 3rem - 2rem // 9.65rem
         margin-left: 5rem
     li
-        margin-bottom: 2rem
+        margin-bottom: 2.2rem
+        @media screen and (min-width: 576px)
+            margin-right: 2rem
+        @media screen and (min-width: 1200px)
+            margin-right: 0
     li:nth-child(even)
         @media screen and (min-width: 1200px)
             margin-left: 8.9rem
     li a
         text-decoration: none
         font-family: GothamPro
-        font-size: 18px
         font-weight: 500
         font-stretch: normal
         font-style: normal
@@ -2088,6 +2176,10 @@ p, span, .content-item__description
         letter-spacing: normal
         text-align: left
         color: #ffffff
+        @media screen and (max-width: 576px)
+            font-size: 16px
+        @media screen and (min-width: 576px)
+            font-size: 18px
     li a.hovered:hover
         // font-weight: bold
         color: #0a84cb
