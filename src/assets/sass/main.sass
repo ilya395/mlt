@@ -1873,7 +1873,7 @@ p, span, .content-item__description
             margin-bottom: 13rem // 11.5rem // 1.25rem + 5.5rem
         @media screen and (min-width: 768px)
             margin-top: 1.2rem
-            margin-bottom: 15rem  
+            margin-bottom: 20rem // 15rem  
         @media screen and (min-width: 1200px)
             margin-top: 2.1rem // 1.2rem
             margin-bottom: 30rem
@@ -1964,7 +1964,6 @@ p, span, .content-item__description
         @media screen and (max-width: 576px)
             min-height: 650px
 
-
 .partition-block__layer
     width: auto
     @media screen and (max-width: 576px)
@@ -2001,7 +2000,7 @@ p, span, .content-item__description
 
 .partition-block__inner-border
     position: absolute
-    top: 25px
+    
     bottom: 25px
     left: 15px
     z-index: 11
@@ -2009,12 +2008,15 @@ p, span, .content-item__description
     @media screen and (max-width: 576px)
         border: solid 7px #0099f0
         right: -15px
+        top: 0px
     @media screen and (min-width: 576px)
         border: solid 7px #0099f0
         right: -15px
+        top: 25px
     @media screen and (min-width: 1200px)
         border: solid 7px transparent
         right: 15px
+        top: 25px
     padding:
         right: 25px
         left: 25px
@@ -2025,11 +2027,15 @@ p, span, .content-item__description
     border: solid 7px #0099f0
 .inner-catalog__partition-block
     & .partition-block__inner-border
-        left: 15px // 25px
+        // left: 15px // 25px
         @media screen and (max-width: 576px)
             height: 12.9rem
+            left: 15px
         @media screen and (min-width: 576px)
             height: auto
+            left: 0
+        @media screen and (min-width: 576px)
+            left: 15px
     &.active .partition-block__inner-border
         left: 35px // 50px
         top: 25px
@@ -2133,14 +2139,15 @@ p, span, .content-item__description
         margin-left: 6rem
 
 .inner-catalog__partition-block
-    & .partition-block__wrap-list
-        display: none
-    &.active .partition-block__wrap-list
-        display: block
-        margin-top: 5rem
-    &.active .partition-block__title
-        &::after
-            transform: rotate(180deg)
+    @media screen and (max-width: 576px)
+        & .partition-block__wrap-list
+            display: none
+        &.active .partition-block__wrap-list
+            display: block
+            margin-top: 5rem
+        &.active .partition-block__title
+            &::after
+                transform: rotate(180deg)
 
 .partition-block__list
     display: flex
@@ -2189,11 +2196,11 @@ p, span, .content-item__description
     justify-content: center
     @media screen and (max-width: 576px)
         padding:
-            top: 5rem
+            top: 5rem - 2.5rem
             bottom: 5rem
     @media screen and (min-width: 576px)
         padding:
-            top: 5rem
+            top: 5rem - 2.5rem
             bottom: 5rem
     @media screen and (min-width: 1200px)
         padding:
