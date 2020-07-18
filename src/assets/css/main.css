@@ -204,7 +204,7 @@ p, span, .content-item__description {
       padding: 1.5rem 1.85rem 1.5rem 1.85rem; } }
   @media screen and (min-width: 1200px) {
     .simple-button {
-      font-size: 35px;
+      font-size: 30px;
       font-weight: 500;
       padding: 2.8rem 9.1rem 2.1rem 9.1rem; } }
 
@@ -1350,6 +1350,7 @@ p, span, .content-item__description {
           flex-wrap: nowrap; }
 
 .dots-bar__item {
+  cursor: pointer;
   width: 6.7px;
   height: 6.7px;
   opacity: 0.8;
@@ -1473,6 +1474,10 @@ p, span, .content-item__description {
 @media screen and (min-width: 576px) {
   .catalog-part.even {
     margin-left: 40px; } }
+
+@media screen and (min-width: 768px) {
+  .catalog-part.even {
+    margin-left: 0px; } }
 
 @media screen and (min-width: 992px) {
   .catalog-part.even {
