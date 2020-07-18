@@ -2990,12 +2990,42 @@ p, span, .content-item__description
 
 /* inner page: post */
 .post
+    .mobile-block
+        @media screen and (max-width: 576px)
+            display: block
+        @media screen and (min-width: 576px)
+            display: block
+        @media screen and (min-width: 768px)
+            display: none
+        @media screen and (min-width: 1200px)
+            display: none
+    .desktop-block
+        @media screen and (max-width: 576px)
+            display: none
+        @media screen and (min-width: 576px)
+            display: none
+        @media screen and (min-width: 768px)
+            display: block
+        @media screen and (min-width: 1200px)
+            display: block    
+    .tricky-title .info-from-top-page
+        @media screen and (max-width: 576px)
+            margin-bottom: 17rem
+    .catalog-part__list-title
+        display: none
     .inner-about__partition-block
         display: flex
         flex-wrap: wrap
+        @media screen and (max-width: 576px)
+            padding:
+                top: 3.9rem - 3rem
+        @media screen and (min-width: 576px)
+            padding:
+                top: 3.9rem - 3rem
         @media screen and (min-width: 1200px)
             padding:
                 bottom: 12.7rem - 2rem - 6rem
+                top: 12rem
             margin:
                 left: -15px
                 right: -15px
@@ -3067,6 +3097,9 @@ p, span, .content-item__description
                 line-height: 1.39
     & img
         width: 100%
+        object-fit: contain
+        border-radius: 33px
+        box-shadow: 5px 3px 6px 0 rgba(0, 0, 0, 0.16)
         // float: left
         // @media screen and (max-width: 1200px)
         //     min-height: 32.5rem
@@ -3096,6 +3129,8 @@ p, span, .content-item__description
         text-decoration: underline
         @media screen and (max-width: 1200px)
             font-size: 16px
+            padding:
+                bottom: 2.5rem
         @media screen and (min-width: 1200px)
             font-size: 30px
             padding:
@@ -3126,3 +3161,15 @@ p, span, .content-item__description
                 font-size: 16px
             @media screen and (min-width: 1200px)
                 font-size: 30px
+    & .inner-about__block_with-image
+        @media screen and (min-width: 576px)
+            padding:
+                right: 3rem
+    & .inner-about__block_with-title
+        @media screen and (min-width: 576px)
+            padding:
+                left: 3rem
+    & .post__row
+        @media screen and (min-width: 1200px)
+            margin-top: 2rem
+

@@ -3904,6 +3904,45 @@ p, span, .content-item__description {
           font-size: 30px; } }
 
 /* inner page: post */
+@media screen and (max-width: 576px) {
+  .post .mobile-block {
+    display: block; } }
+
+@media screen and (min-width: 576px) {
+  .post .mobile-block {
+    display: block; } }
+
+@media screen and (min-width: 768px) {
+  .post .mobile-block {
+    display: none; } }
+
+@media screen and (min-width: 1200px) {
+  .post .mobile-block {
+    display: none; } }
+
+@media screen and (max-width: 576px) {
+  .post .desktop-block {
+    display: none; } }
+
+@media screen and (min-width: 576px) {
+  .post .desktop-block {
+    display: none; } }
+
+@media screen and (min-width: 768px) {
+  .post .desktop-block {
+    display: block; } }
+
+@media screen and (min-width: 1200px) {
+  .post .desktop-block {
+    display: block; } }
+
+@media screen and (max-width: 576px) {
+  .post .tricky-title .info-from-top-page {
+    margin-bottom: 17rem; } }
+
+.post .catalog-part__list-title {
+  display: none; }
+
 .post .inner-about__partition-block {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3912,9 +3951,16 @@ p, span, .content-item__description {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
+  @media screen and (max-width: 576px) {
+    .post .inner-about__partition-block {
+      padding-top: 0.9rem; } }
+  @media screen and (min-width: 576px) {
+    .post .inner-about__partition-block {
+      padding-top: 0.9rem; } }
   @media screen and (min-width: 1200px) {
     .post .inner-about__partition-block {
       padding-bottom: 4.7rem;
+      padding-top: 12rem;
       margin-left: -15px;
       margin-right: -15px; } }
 
@@ -3989,7 +4035,12 @@ p, span, .content-item__description {
         line-height: 1.39; } }
 
 .post img {
-  width: 100%; }
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 33px;
+  -webkit-box-shadow: 5px 3px 6px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 5px 3px 6px 0 rgba(0, 0, 0, 0.16); }
 
 .post .post__title {
   font-family: GothamPro;
@@ -4003,7 +4054,8 @@ p, span, .content-item__description {
   text-decoration: underline; }
   @media screen and (max-width: 1200px) {
     .post .post__title {
-      font-size: 16px; } }
+      font-size: 16px;
+      padding-bottom: 2.5rem; } }
   @media screen and (min-width: 1200px) {
     .post .post__title {
       font-size: 30px;
@@ -4048,3 +4100,15 @@ p, span, .content-item__description {
   @media screen and (min-width: 1200px) {
     .post .link-to-prise.post__botton span {
       font-size: 30px; } }
+
+@media screen and (min-width: 576px) {
+  .post .inner-about__block_with-image {
+    padding-right: 3rem; } }
+
+@media screen and (min-width: 576px) {
+  .post .inner-about__block_with-title {
+    padding-left: 3rem; } }
+
+@media screen and (min-width: 1200px) {
+  .post .post__row {
+    margin-top: 2rem; } }
