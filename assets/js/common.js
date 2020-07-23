@@ -3,7 +3,8 @@
 //////////////////////////////////////////////////////////////////////////////
 
 const URL_TO_PRISE = '';
-const NAME_OF_PRISE = ''
+const NAME_OF_PRISE = '';
+const AJAX_REQUEST_CONTENT_DATA = 'ajax_request_content';
 
 const templateForm = (obj) => {
     const html =  `
@@ -53,7 +54,9 @@ const templateContent = (obj) => {
                 <img src="${obj.preview}" >
             </div>
             <div class="interactive-content__title">
-                ${obj.title}
+                <h3 class="h3 interactive-content__title-wrap">
+                    ${obj.title}
+                </h3>
             </div>
             <div class="interactive-content__sub-title">
                 ${obj.subTitle}
@@ -123,19 +126,24 @@ const contentBlock = function(object) {
                 }
             )
         }
-        let formData = `action=ajax_request_content&type=${type}&id=${id}`;
+        let formData = `action=${AJAX_REQUEST_CONTENT_DATA}&type=${type}&id=${id}`;
         if (
-            type && id
+            type != '' && id != ''
         ) {
             sendAjax(formData);
+        } else {
+            console.log('lol kek chrburek');
         }
     }
 
     const methods = {
         init() {
             // targetElem.innerHTML = '';
-            console.log('ok!', targetElem.innerHTML);
-            // fetchForm();
+            // console.log('ok!', targetElem.innerHTML);
+            fetchForm();
+        },
+        clear() {
+            console.log('clear contentBlock');
         }
     }
     return methods;
@@ -250,7 +258,7 @@ const FormInPage = function(object) {
         }
     }
 
-    function handler(e) {
+    function _handler(e) {
         e.preventDefault();
         methods.submitForm();        
     }
@@ -277,13 +285,13 @@ const FormInPage = function(object) {
             console.log(formData, button);
         },
         init() {
-            formWrap.querySelector('button').addEventListener('click', handler);
+            formWrap.querySelector('button').addEventListener('click', _handler);
         },
         download() {
             _makingDownload();
         },
         clear() {
-            formWrap.querySelector('button').removeEventListener('click', handler);
+            formWrap.querySelector('button').removeEventListener('click', _handler);
         }
     }
     
@@ -350,7 +358,12 @@ let popupModal = function(object) {
             elemForMovie.classList.add('active');
             raf(function(){
                 elemForMovie.classList.add('movie');
-            })
+            });
+            //
+            const body = document.querySelector('body');
+            body.classList.contains('hidden')
+                ? body.classList.remove('hidden')
+                : body.classList.add('hidden');
         },
         close() {
             console.log('close modal');
@@ -361,7 +374,12 @@ let popupModal = function(object) {
                 elemForMovie.removeEventListener('transitionend', handlerCloseModal)
             }
             elemForMovie.addEventListener('transitionend', handlerCloseModal)
-            elemForMovie.classList.remove('movie');            
+            elemForMovie.classList.remove('movie');  
+            //
+            const body = document.querySelector('body');
+            body.classList.contains('hidden')
+                ? body.classList.remove('hidden')
+                : body.classList.add('hidden');          
         },
         putListenerForClosing() {
             console.log('start: putListenerForClosing');
@@ -461,6 +479,55 @@ const dropdown = function(object) {
     return methods;
 }
 
+const slider = function(object) {
+
+    const {
+        urlToContainer,
+        urlToItems,
+        urlToDots,
+    } = object;
+
+    const container = document.querySelector(urlToContainer);
+    const items = document.querySelectorAll(urlToItems);
+    const dots = document.querySelectorAll(urlToDots);
+
+    function openNewSlide(num) {
+        items.forEach((item, index) => {
+            index == num ? item.classList.add('active', 'movie') : item.classList.remove('active', 'movie');
+        });
+    }
+
+    function run() { // для свайпов
+
+    }
+
+    function jump() { // для дотов
+        function handle(e) {
+            const i = this;
+            console.log(e.target, this);
+            dots.forEach((item, index) => {
+                index == i ? item.classList.add('active') : item.classList.remove('active');
+            });
+            openNewSlide(i);
+        }
+        dots.forEach((item) => {
+            // item.addEventListener('click', handle);
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].addEventListener('click', handle.bind(i));
+            }
+        });
+    }
+
+    const methods = {
+        init() {
+            // клики на доты
+            jump();
+            // свайпы влево-вправо
+        },
+    }
+    return methods;
+}
+
 //////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// логика ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -503,7 +570,7 @@ window.addEventListener('load', () => {
 
                     const modalForContent = popupModal({
                         startElem: element,
-                        titleMark: '',// element.dataset.title,
+                        titleMark: '', // element.dataset.title,
                         content: {
                             object: contentBlock,
                             data: {
@@ -512,8 +579,8 @@ window.addEventListener('load', () => {
                                 // subTitle: 'Оставьте Ваши контактные данные, и мы свяжемся с Вами в ближайшее время',
                                 // formTitle: element.dataset.title,
                                 // readyToDownload: false,
-                                type: element.dataset.type,
-                                id: element.dataset.id,
+                                type: item.dataset.type,
+                                id: +item.dataset.id,
                             },
                         },        
                     });
@@ -525,6 +592,14 @@ window.addEventListener('load', () => {
             item.addEventListener('click', handler);
         });
 
+        //
+
+        const sliderWithProjects = slider({
+            urlToContainer: '.our-projects .our-projects__our-project',
+            urlToItems: '.our-projects .our-project__container',
+            urlToDots: '.our-projects .dots-bar__item',            
+        });
+        sliderWithProjects.init();
     }
 
     document.querySelector('.content-block').addEventListener('click', (e) => {

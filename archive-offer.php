@@ -57,6 +57,9 @@
                     foreach( $posts as $post ):
                         setup_postdata($post);
                 ?>
+
+                <a name="offer_<?php the_ID(); ?>"></a>
+
                 <section class="inner-catalog__partition-block col-12">
                     <?php
                         $back_img = 'none';
@@ -94,8 +97,8 @@
                                 </span>
                             </div>
                             <div class="col-12 col-md-6 partition-block__button">
-                                <a href="#" class="link-to-prise link-to-prise__stock" data-object="request_offer" data-title="<?php echo get_the_title(); ?>">
-                                    <span>
+                                <a href="#" class="link-to-prise link-to-prise__stock" data-object="request" data-title="Акция | <?php echo get_the_title(); ?>">
+                                    <span data-object="request" data-title="Акция | <?php echo get_the_title(); ?>">
                                         Оставить заявку
                                     </span> 
                                 </a>

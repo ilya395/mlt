@@ -73,12 +73,12 @@
                     <div class="col-12 col-sm-8 partition-block__wrap-list">
                         <div class="partition-block__list">
                             <?php echo get_the_content(); ?>
-                            <a href="#" class="link-to-prise offer-button">
-                                <div class="link-to-prise__wrap">
-                                    <picture>
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/download.png" alt="" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/download@2x.png 2x, <?php echo get_template_directory_uri(); ?>/assets/images/download@3x.png 3x">
+                            <a href="#" class="link-to-prise offer-button" data-object="request" data-title="Услуга | <?php echo get_the_title(); ?>">
+                                <div class="link-to-prise__wrap" data-object="request" data-title="Услуга | <?php echo get_the_title(); ?>">
+                                    <picture data-object="request" data-title="Услуга | <?php echo get_the_title(); ?>">
+                                        <img data-object="request" data-title="Услуга | <?php echo get_the_title(); ?>" src="<?php echo get_template_directory_uri(); ?>/assets/images/download.png" alt="" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/download@2x.png 2x, <?php echo get_template_directory_uri(); ?>/assets/images/download@3x.png 3x">
                                     </picture>
-                                    <span>
+                                    <span data-object="request" data-title="Услуга | <?php echo get_the_title(); ?>">
                                         Оставить заявку
                                     </span>
                                 </div>

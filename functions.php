@@ -269,3 +269,45 @@ function way_js_vars() {
 
 // 	// return $options;
 //   } );
+
+// обработка ajax
+add_action('wp_ajax_ajax_request_content', 'ajax_content'); // ajax от админа или авторизованого пользователя
+add_action('wp_ajax_nopriv_ajax_request_content', 'ajax_content'); // ajax от неавторизованного пользователя
+// обработка ajax звпроса
+function ajax_content() {
+
+	$post_type = (string)htmlspecialchars(trim($_POST['type']));
+	$id = (int)htmlspecialchars(trim($_POST['id']));
+
+	$args = array( // получает любые записи
+        'numberposts' => -1,
+        'orderby'     => 'date',
+        'order'       => 'DESC',
+        'post_type'   => $post_type, // тип получаемых записей
+        // 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+	);
+	$posts = get_posts($args);
+	// var_dump($posts);
+	global $post;
+
+	$data = [];
+
+	foreach ($posts as $post):
+		if ($post->ID == $id):
+			setup_postdata($post);
+			// var_dump($post);
+			$data = array(
+				'title' => get_the_title(),
+				'content' => get_the_content(),
+				'preview' => get_the_post_thumbnail_url(),
+				'sub-title' => wp_trim_words(get_the_excerpt(), 12, ''),
+			);
+		endif;
+	endforeach;
+
+	$result = json_encode($data);
+    wp_reset_postdata();
+    echo $result;
+    
+    wp_die();
+}

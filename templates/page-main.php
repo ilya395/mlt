@@ -113,7 +113,7 @@
                     ?>
                         <div class="special-offer__offer-item col-12 col-md-6 col-lg-4">
                             <article class="offer-item__block" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
-                                <a href="<?php echo get_the_permalink(); ?>" class="offer-item__link">
+                                <a href="/offer/#offer_<?php the_ID(); ?>" class="offer-item__link">
                                     <div class="offer-item__layer">
                                         <div class="offer-item__border">
                                             <h5 class="offer-item__main-title">
@@ -164,7 +164,7 @@
 
                     </div>
                     <div class="special-offer__button col-12">
-                        <a href="#" class="special-offer__link simple-button">
+                        <a href="<?php home_url() ?>/offer" class="special-offer__link simple-button">
                             СМОТРЕТЬ ВСЕ
                         </a>
                     </div>
@@ -386,70 +386,6 @@
                         <?php 
                             echo $str;
                         ?>
-
-                        <!-- <div class="our-project__container col-12 movie active">
-                            <article class="our-project one moving-one">
-                                <a href="#" class="our-project__link">
-                                    <footer class="our-project__footer our-project__footer_text">
-                                        Реконструкция железнодорожных 
-                                        путей на Казанской ТЭЦ-2 в г. 
-                                        Казани, РТ (2016 год)
-                                    </footer>
-                                </a>
-                            </article>
-
-                            <article class="our-project two moving-two">
-                                <a href="#" class="our-project__link">
-                                    <footer class="our-project__footer our-project__footer_text">
-                                        Реконструкция железнодорожных 
-                                        путей на Казанской ТЭЦ-2 в г. 
-                                        Казани, РТ (2016 год)
-                                    </footer>
-                                </a>
-                            </article>
-
-                            <article class="our-project three moving-three">
-                                <a href="#" class="our-project__link">
-                                    <footer class="our-project__footer our-project__footer_text">
-                                        Реконструкция железнодорожных 
-                                        путей на Казанской ТЭЦ-2 в г. 
-                                        Казани, РТ (2016 год)
-                                    </footer>
-                                </a>
-                            </article>
-                        </div>
-
-                        <div class="our-project__container col-12">
-                            <article class="our-project one moving-one">
-                                <a href="#" class="our-project__link">
-                                    <footer class="our-project__footer our-project__footer_text">
-                                        Реконструкция железнодорожных 
-                                        путей на Казанской ТЭЦ-2 в г. 
-                                        Казани, РТ (2016 год)
-                                    </footer>
-                                </a>
-                            </article>
-
-                            <article class="our-project two moving-two">
-                                <a href="#" class="our-project__link">
-                                    <footer class="our-project__footer our-project__footer_text">
-                                        Реконструкция железнодорожных 
-                                        путей на Казанской ТЭЦ-2 в г. 
-                                        Казани, РТ (2016 год)
-                                    </footer>
-                                </a>
-                            </article>
-
-                            <article class="our-project three moving-three">
-                                <a href="#" class="our-project__link">
-                                    <footer class="our-project__footer our-project__footer_text">
-                                        Реконструкция железнодорожных 
-                                        путей на Казанской ТЭЦ-2 в г. 
-                                        Казани, РТ (2016 год)
-                                    </footer>
-                                </a>
-                            </article>
-                        </div> -->
 
                     </div>
                     <div class="our-project__dots-bar">
