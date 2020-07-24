@@ -237,6 +237,19 @@ var popupModal = function popupModal(object) {
 
 
 window.addEventListener('load', function () {
+  var loader = document.getElementById('loader');
+
+  function handler() {
+    loader.classList.add('not-loader'); //
+
+    loader.removeEventListener('transitionend', handler);
+  }
+
+  loader.addEventListener('transitionend', handler);
+  loader.classList.add('transparent');
+}); // DOMContentLoaded
+
+window.addEventListener('load', function () {
   var topMenu = new Vue({
     el: "#top-menu",
     data: {

@@ -4657,6 +4657,32 @@ p, span, .content-item__description {
   .post .inner-about__block {
     margin-bottom: 6rem; } }
 
+.post .inner-about__block-background {
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/проект_111.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 33px; }
+  @media screen and (max-width: 1200px) {
+    .post .inner-about__block-background {
+      min-height: -webkit-calc(100vw - 15px*2);
+      min-height: calc(100vw - 15px*2); } }
+  @media screen and (min-width: 576px) {
+    .post .inner-about__block-background {
+      min-height: -webkit-calc(100vw - 15px*2);
+      min-height: calc(100vw - 15px*2); } }
+  @media screen and (min-width: 768px) {
+    .post .inner-about__block-background {
+      min-height: 30rem; } }
+  @media screen and (min-width: 992px) {
+    .post .inner-about__block-background {
+      min-height: 40rem; } }
+  @media screen and (min-width: 992px) {
+    .post .inner-about__block-background {
+      min-height: 50rem; } }
+
 .post p {
   font-family: GothamPro;
   font-weight: normal;
@@ -4824,3 +4850,146 @@ p, span, .content-item__description {
   @media screen and (min-width: 1200px) {
     .offers .partition-block__layer, .inner-catalog .partition-block__layer {
       left: 0; } }
+
+/* loader */
+.loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 1000;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all .3s linear;
+  -o-transition: all .3s linear;
+  transition: all .3s linear; }
+  .loader.dark {
+    background-color: #313335; }
+  .loader.light {
+    background-color: #ffffff; }
+  .loader.transparent {
+    opacity: 0; }
+  .loader.not-loader {
+    z-index: -1000;
+    display: none; }
+
+.loader__wrap {
+  display: block; }
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px; }
+
+.lds-roller div {
+  -webkit-animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  -webkit-transform-origin: 40px 40px;
+      -ms-transform-origin: 40px 40px;
+          transform-origin: 40px 40px; }
+
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  margin: -4px 0 0 -4px; }
+
+.loader.dark .lds-roller div:after {
+  background: #bc7112; }
+
+.loader.light .lds-roller div:after {
+  background: #313335; }
+
+.lds-roller div:nth-child(1) {
+  -webkit-animation-delay: -0.036s;
+          animation-delay: -0.036s; }
+
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px; }
+
+.lds-roller div:nth-child(2) {
+  -webkit-animation-delay: -0.072s;
+          animation-delay: -0.072s; }
+
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px; }
+
+.lds-roller div:nth-child(3) {
+  -webkit-animation-delay: -0.108s;
+          animation-delay: -0.108s; }
+
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px; }
+
+.lds-roller div:nth-child(4) {
+  -webkit-animation-delay: -0.144s;
+          animation-delay: -0.144s; }
+
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px; }
+
+.lds-roller div:nth-child(5) {
+  -webkit-animation-delay: -0.18s;
+          animation-delay: -0.18s; }
+
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px; }
+
+.lds-roller div:nth-child(6) {
+  -webkit-animation-delay: -0.216s;
+          animation-delay: -0.216s; }
+
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px; }
+
+.lds-roller div:nth-child(7) {
+  -webkit-animation-delay: -0.252s;
+          animation-delay: -0.252s; }
+
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px; }
+
+.lds-roller div:nth-child(8) {
+  -webkit-animation-delay: -0.288s;
+          animation-delay: -0.288s; }
+
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px; }
+
+@-webkit-keyframes lds-roller {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes lds-roller {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }

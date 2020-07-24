@@ -283,6 +283,17 @@ let popupModal = function(object) {
 /////////////////////////////////// логика ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    function handler() {
+        loader.classList.add('not-loader');
+        //
+        loader.removeEventListener('transitionend', handler);
+    }
+    loader.addEventListener('transitionend', handler);
+    loader.classList.add('transparent');
+}); // DOMContentLoaded
+
 window.addEventListener('load', () => {
 
     const topMenu = new Vue({
