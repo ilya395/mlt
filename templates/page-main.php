@@ -101,48 +101,56 @@
                         ); 
                         $posts = get_posts($args);
                         $count_offer = 0;
+                        $active = '';
                     ?>
 
                     <div class="special-offer__wrap-with-offers">
 
-                    <?php
-                        foreach( $posts as $post ):
-                            setup_postdata($post);
+                        <div class="special-offer__wrap-with-wrapper">
+                            <?php
+                                foreach( $posts as $post ):
+                                    setup_postdata($post);
 
-                            $count_offer += 1;
-                    ?>
-                        <div class="special-offer__offer-item col-12 col-md-6 col-lg-4">
-                            <article class="offer-item__block" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
-                                <a href="/offer/#offer_<?php the_ID(); ?>" class="offer-item__link">
-                                    <div class="offer-item__layer">
-                                        <div class="offer-item__border">
-                                            <h5 class="offer-item__main-title">
-                                                <?php echo get_the_title(); ?>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <footer class="offer-item__footer">
-                                        <div class="offer-item__footer-wrap">
-                                            <div class="offer-item__footer-border">
-                                                <div class="offer-item__footer-text">
-                                                    <?php
-                                                        if( has_excerpt() ){
-                                                            echo get_the_excerpt();
-                                                        } else {
-                                                            echo 'Акция'; // the_content();
-                                                        }
-                                                        // echo get_the_excerpt();
-                                                    ?>
+                                    $count_offer += 1;
+                                    if ($count_offer == 1):
+                                        $active = 'movie active';
+                                    else:
+                                        $active = '';
+                                    endif;
+                            ?>
+                                <div class="special-offer__offer-item col-12 col-md-6 col-lg-4 <?php echo $active; ?>">
+                                    <article class="offer-item__block" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
+                                        <a href="/offer/#offer_<?php the_ID(); ?>" class="offer-item__link">
+                                            <div class="offer-item__layer">
+                                                <div class="offer-item__border">
+                                                    <h5 class="offer-item__main-title">
+                                                        <?php echo get_the_title(); ?>
+                                                    </h5>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </footer>
-                                </a>
-                            </article>
-                        </div>
-                    <?php
-                        endforeach; 
-                    ?>                    
+                                            <footer class="offer-item__footer">
+                                                <div class="offer-item__footer-wrap">
+                                                    <div class="offer-item__footer-border">
+                                                        <div class="offer-item__footer-text">
+                                                            <?php
+                                                                if( has_excerpt() ){
+                                                                    echo get_the_excerpt();
+                                                                } else {
+                                                                    echo 'Акция'; // the_content();
+                                                                }
+                                                                // echo get_the_excerpt();
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </footer>
+                                        </a>
+                                    </article>
+                                </div>
+                            <?php
+                                endforeach; 
+                            ?>                              
+                        </div>                  
 
                         <div class="special-offer__dots-bar">
                             <div class="dots-bar__list">
@@ -314,7 +322,7 @@
                     $block_count = 0;
 
                     $iter_block_start_active = '<div class="our-project__container col-12 movie active">';
-                    $iter_block_start_simple = '<div class="our-project__container col-12 movie">';
+                    $iter_block_start_simple = '<div class="our-project__container col-12">';
                     $iter_block_end = '</div>';
 
                     foreach( $posts as $post ):

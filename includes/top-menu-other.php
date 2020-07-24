@@ -46,11 +46,11 @@
                             </div>
                             <div class="header__link-to-prise">
                                 <a href="#" class="link-to-prise" data-object="prise" data-title="скачать прайс">
-                                    <div class="link-to-prise__wrap">
-                                        <picture>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/download.png" alt="" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/download@2x.png 2x, <?php echo get_template_directory_uri(); ?>/assets/images/download@3x.png 3x">
-                                        </picture>
-                                        <span>
+                                    <div class="link-to-prise__wrap" data-object="prise" data-title="скачать прайс">
+                                        <picture data-object="prise" data-title="скачать прайс">
+                                            <img data-object="prise" data-title="скачать прайс" src="<?php echo get_template_directory_uri(); ?>/assets/images/download.png" alt="" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/download@2x.png 2x, <?php echo get_template_directory_uri(); ?>/assets/images/download@3x.png 3x">
+                                        </picture data-object="prise" data-title="скачать прайс">
+                                        <span data-object="prise" data-title="скачать прайс">
                                             Скачать прайс
                                         </span>
                                     </div>
@@ -61,11 +61,11 @@
                 </nav>
                 <div class="header__link-to-prise header__link-to-prise_top-menu">
                     <a href="#" class="link-to-prise" data-object="prise" data-title="скачать прайс">
-                        <div class="link-to-prise__wrap">
-                            <picture>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/download.png" alt="" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/download@2x.png 2x, <?php echo get_template_directory_uri(); ?>/assets/images/download@3x.png 3x">
-                            </picture>
-                            <span>
+                        <div class="link-to-prise__wrap" data-object="prise" data-title="скачать прайс">
+                            <picture data-object="prise" data-title="скачать прайс">
+                                <img data-object="prise" data-title="скачать прайс" src="<?php echo get_template_directory_uri(); ?>/assets/images/download.png" alt="" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/download@2x.png 2x, <?php echo get_template_directory_uri(); ?>/assets/images/download@3x.png 3x">
+                            </picture data-object="prise" data-title="скачать прайс">
+                            <span data-object="prise" data-title="скачать прайс">
                                 Скачать прайс
                             </span>
                         </div>

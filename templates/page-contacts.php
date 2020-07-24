@@ -132,7 +132,7 @@
 
                 <div class="col-12 col-md-6 contacts__content-part contacts__form">
                     <div class="form-block">
-                        <div class="form-block__title">
+                        <!-- <div class="form-block__title">
                             Ваша заявка
                         </div>
                         <div class="form-block__sub-title">
@@ -164,7 +164,7 @@
                         </form>
                         <div class="modal-content__warning">
                             Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 

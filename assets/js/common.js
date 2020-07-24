@@ -5,6 +5,7 @@
 const URL_TO_PRISE = '';
 const NAME_OF_PRISE = '';
 const AJAX_REQUEST_CONTENT_DATA = 'ajax_request_content';
+const AJAX_REQUEST_SUBMIT_FORM = 'ajax_submit_form';
 
 const templateForm = (obj) => {
     const html =  `
@@ -233,7 +234,6 @@ const FormInPage = function(object) {
             .then(
                 response => {
                     console.log(response)
-                    // draw(response)
                     movieSuccessMessage()
                     name.value = ''
                     phone.value = ''
@@ -250,7 +250,7 @@ const FormInPage = function(object) {
                 }
             )
         }
-        let formData = `action=ajax_submit_form&name=${name ? name.value : ''}&phone=${phone ? phone.value : ''}&title=${title}`;
+        let formData = `action=${AJAX_REQUEST_SUBMIT_FORM}&name=${name ? name.value : ''}&phone=${phone ? phone.value : ''}&title=${title ? title.value : ''}`;
         if (
             name.value != '' && name.value.length < 25 && phone.value != '' && imOkey(phone.value) == true
         ) {
@@ -491,39 +491,185 @@ const slider = function(object) {
     const items = document.querySelectorAll(urlToItems);
     const dots = document.querySelectorAll(urlToDots);
 
-    function openNewSlide(num) {
-        items.forEach((item, index) => {
-            index == num ? item.classList.add('active', 'movie') : item.classList.remove('active', 'movie');
+    let startX,
+        startY,
+        distanceX, distanceY,
+        minInterval = 150, // минимальное расстояние для swipe
+        minTimeMovie = 400, // максимальное время прохождения установленного расстояния  
+        startTime, // время контакта с поверхностью сенсора
+        elapsedTime // время жизнь swipe
+
+    function _openNewSlide(num) {
+        // console.log(num);
+        // dots
+        dots.forEach((item, index) => {
+            index == num ? item.classList.add('active') : item.classList.remove('active');
         });
+
+        // items
+        let activeItem = null;
+        let activeIndex = 0;
+        let nextItem = null;
+        let nextIndex = num;
+        items.forEach((item, index) => {
+            // index == num ? item.classList.add('active', 'movie') : item.classList.remove('active', 'movie');
+
+            //
+            if (item.classList.contains('active')) {
+                activeItem = item;
+                activeIndex = index;
+            }
+            if (index == nextIndex) {
+                nextItem = item;
+            }
+        });
+        //
+        function handler() {
+            activeItem.classList.remove('active');
+            //
+            activeItem.removeEventListener('transitionend', handler);
+            //
+            nextItem.classList.add('active');
+            raf(function() {
+                nextItem.classList.add('movie');
+            });
+        }
+        activeItem.addEventListener('transitionend', handler);
+        activeItem.classList.remove('movie');
+    }
+
+    function move(option) {
+        // console.log(option);
+        let activeItem = 0;
+        let activeIndex = 0;
+        items.forEach((item, index) => {
+            if (item.classList.contains('active')) {
+                activeIndex = index;
+                // item.classList.remove('active');
+            }
+        });
+
+        let nextIndex = 0;
+
+        nextIndex = option == 'forward' ? activeIndex + 1 : activeIndex - 1;
+        console.log(activeIndex, nextIndex);
+        if (nextIndex > items.length - 1) {
+            nextIndex = 0;
+        }
+        if (nextIndex < 0) {
+            nextIndex = items.length - 1;
+        }
+        console.log(activeIndex, nextIndex);
+        _openNewSlide(nextIndex);
+    }
+
+    function _showMustGoOn(  
+        distanceX, 
+        distanceY
+    ){  
+            
+        if(Math.abs(distanceX) > Math.abs(distanceY)){
+            // листай
+            if(distanceX > 0){
+                // вправо
+                // alert('вправо: ' + ' x: ' + distanceX + '; y: ' + distanceY);
+                move('back');
+                
+            }else{
+                // влево
+                // alert('влево: ' + '; x: ' + distanceX + '; y: ' + distanceY);
+                move('forward');
+            }
+        }else{
+            // скроль
+            if(distanceY > 0){
+                // вниз
+                // alert('вниз: ' + '; x: ' + distanceX + '; y: ' + distanceY);
+                move('back');
+            }else{
+                // вверх
+                // alert('вверх: ' + '; x: ' + distanceX + '; y: ' + distanceY);
+                move('forward');
+            }
+        }   
+        
     }
 
     function run() { // для свайпов
 
+        const objectForSwipes = document.querySelector('.special-offer .special-offer__wrap-with-wrapper');
+
+        // свайпы/swipes
+        objectForSwipes.addEventListener('touchstart', function(e){
+
+            console.log('### touchstart');
+            
+            // if (!document.querySelector('.menu-block').contains(event.target)) {
+                let touchObject = e.changedTouches[0];
+                distanceX = 0;
+                distanceY = 0;
+                startX = touchObject.pageX
+                startY = touchObject.pageY
+                startTime = new Date().getTime() // время контакта с поверхностью сенсора
+                e.preventDefault();                
+            // }
+
+        }, false);
+      
+        objectForSwipes.addEventListener('touchmove', function(e){
+            e.preventDefault() // отключаем стандартную реакцию скроллинга
+        }, false)
+      
+        objectForSwipes.addEventListener('touchend', function(e){
+
+            console.log('#### touchend');
+
+            // if (!document.querySelector('.menu-block').contains(event.target)) {
+                let touchObject = e.changedTouches[0];
+                distanceX = touchObject.pageX - startX; // получаем пройденную дистанцию
+                distanceY = touchObject.pageY - startY;
+                elapsedTime = new Date().getTime() - startTime; // узнаем пройденное время
+                // проверяем затраченное время,горизонтальное перемещение >= minInterval, и вертикальное перемещение <= 100
+                // var swiperightBol = (elapsedTime <= minTimeMovie && dist >= minInterval && Math.abs(touchObject.pageY - startY) <= 100);
+                console.log(elapsedTime, Math.abs(distanceX), distanceX);
+                if (
+                    elapsedTime <= minTimeMovie
+                    && Math.abs(distanceY) <= 100
+                    && Math.abs(distanceX) >= minInterval
+                ) {
+                    console.log('#### _showMustGoOn: GO!');
+                    _showMustGoOn(distanceX, distanceY);
+                }
+                e.preventDefault();
+            // }
+            
+        }, false)
     }
 
     function jump() { // для дотов
         function handle(e) {
             const i = this;
             console.log(e.target, this);
-            dots.forEach((item, index) => {
-                index == i ? item.classList.add('active') : item.classList.remove('active');
-            });
-            openNewSlide(i);
+
+            _openNewSlide(i);
         }
-        dots.forEach((item) => {
-            // item.addEventListener('click', handle);
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].addEventListener('click', handle.bind(i));
-            }
-        });
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].addEventListener('click', handle.bind(i));
+        }
     }
 
     const methods = {
         init() {
             // клики на доты
             jump();
-            // свайпы влево-вправо
         },
+        initWithSwipe() {
+            // клики на доты
+            jump();
+            // свайпы влево-вправо
+            run();
+        }
     }
     return methods;
 }
@@ -593,13 +739,35 @@ window.addEventListener('load', () => {
         });
 
         //
+        if (window.innerWidth >= 1200) {
+            const sliderWithProjects = slider({
+                urlToContainer: '.our-projects .our-projects__our-project',
+                urlToItems: '.our-projects .our-project__container',
+                urlToDots: '.our-projects .dots-bar__item',            
+            });
+            sliderWithProjects.init();
+        }
+        if (window.innerWidth < 768) {
+            const sliderWithOffers = slider({
+                urlToContainer: '.special-offer .special-offer__wrap-with-offers',
+                urlToItems: '.special-offer .special-offer__offer-item',
+                urlToDots: '.special-offer .dots-bar__item', 
+            });
+            sliderWithOffers.initWithSwipe();
+        }
 
-        const sliderWithProjects = slider({
-            urlToContainer: '.our-projects .our-projects__our-project',
-            urlToItems: '.our-projects .our-project__container',
-            urlToDots: '.our-projects .dots-bar__item',            
+    }
+
+    if (window.location.pathname == '/contacts/') {
+        const formOnContactPage = FormInPage({
+            url: '.contacts .contacts__content-part.contacts__form',
+            title: 'Ваша заявка', // заголовок формы
+            subTitle: 'Оставьте Ваши контактные данные, и мы свяжемся с Вами в ближайшее время', // подзаголовок
+            formTitle: 'Оставлена заявка на странице контактов', // в скрытое поле формы - заголовок формы
+            readyToDownload: false, // будем скачивать или нет            
         });
-        sliderWithProjects.init();
+        formOnContactPage.init();
+        // formOnContactPage.buidtMyForm();
     }
 
     document.querySelector('.content-block').addEventListener('click', (e) => {
@@ -651,8 +819,10 @@ window.addEventListener('load', () => {
             });
 
             modalForFrom.init();            
+        } else if (e.target.dataset.object == 'requisites') {
+            e.preventDefault();
         } else {
-            console.log(e.target);
+            console.log('#### e.target: ', e.target);
         }
     });
     

@@ -311,3 +311,122 @@ function ajax_content() {
     
     wp_die();
 }
+
+// обработка ajax
+add_action('wp_ajax_ajax_submit_form', 'ajax_form'); // ajax от админа или авторизованого пользователя
+add_action('wp_ajax_nopriv_ajax_submit_form', 'ajax_form'); // ajax от неавторизованного пользователя
+// обработка ajax звпроса
+function ajax_form() {
+    $title = (string)htmlspecialchars(trim($_POST['title']));
+    $name = (string)htmlspecialchars(trim($_POST['name']));
+    $phone = (string)htmlspecialchars(trim($_POST['phone']));
+    
+    // данные для сообщения
+    $message = array(
+        "Заголовок" => $title,
+        "Имя" => $name,
+        "Телефон" => $phone,
+    );
+
+    //формируем сообщение
+    $text="----------- Заказ звонка с сайта ООО Жилдорстроя -----------\n";
+    foreach($message as $key => $value) {
+         $text .= "".$key.": ".$value."\n";
+    };
+    //
+    $res = array(
+        'text' => $message,
+    );
+    // отправляем ссобщение
+    if ($name != "" and $phone != "") {
+        if (message_to_telegram($text) == true) { // заменить на отправку на email
+            $res[0]['success'] = 'Okay';
+            $res[0]['to_telegram'] = 'Done';
+        } else {
+            $res[0]['error'] = 'Not_okay';
+		}
+		//
+        if (message_to_email($title, $name, $phone) == true) { // заменить на отправку на email
+            $res[1]['success'] = 'Okay';
+            $res[1]['to_email'] = 'Done';
+        } else {
+            $res[1]['error'] = 'Not_okay';
+        }  
+    } else {
+        // echo json_encode($res['error']);
+        $res['error'] = 'Not_okay';
+    };
+	$a = json_encode($res);
+	echo $a;
+
+    wp_die();
+}
+
+function message_to_telegram($text){
+
+	// //  open connection
+	$ch = curl_init();
+	$bot_token = '919656472:AAFtg4HI0cmd_fkpdJbSomlBMeJPCGIL9jM';
+	
+	$bot_url = 'https://api.telegram.org/bot' . $bot_token .'/sendMessage';
+	
+	$post = array(
+		'chat_id' => '-1001352697643', // 
+		'text' => $text,
+	);
+	//  set the url
+	curl_setopt($ch, CURLOPT_URL, $bot_url);
+	//  number of POST vars
+	curl_setopt($ch, CURLOPT_POST, 1);
+	//  POST data
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+	//  To display result of curl
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	// set proxy
+	curl_setopt($ch, CURLOPT_PROXY, 'socks5://tgdm:superslivaestbanan@149.56.15.105:7653');
+	// execute post
+	$result = curl_exec($ch);
+	
+	//  close connection
+	curl_close($ch);
+	
+	return true;
+	
+};
+
+function message_to_email($title, $name, $phone) {
+    
+    //response generation function
+    $response = "";
+    //function to generate response
+    // function generate_response($type, $message){
+    //     global $response;
+    //     if($type == "success") $response = "<div class='success'>{$message}</div>";
+    //     else $response = "<div class='error'>{$message}</div>";
+    // };
+
+    //php mailer variables
+    $to = get_option('admin_email') . ', ';
+    $to .= "ilya.ef@group-dvm.net"; // "info@whitealley.ru";
+    $subject = "Someone sent a message from ".get_bloginfo('name');
+    $headers = 'From: '. $email . "rn" . 'Reply-To: ' . $email . "rn";
+    $message = "Заголовок сообщения: " . $title . "; " . "Имя: " . $name . "Номер: " . $phone;
+
+    $message_sent = "Yes!";
+    $message_unsent = "Not...";
+    
+    $sent = mail($to, $subject, $message, $headers);
+    // if($sent) generate_response("success", $message_sent); //message sent!
+    // else generate_response("error", $message_unsent);//message wasn't sent
+    
+    // $res = array(
+    //     'success' => 'Получилось', 
+    //     'err' => 'Не получилось',
+    // );
+    // echo json_encode($res);
+
+	// wp_die();
+	
+	return true;
+};
+	
