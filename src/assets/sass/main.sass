@@ -857,18 +857,28 @@ p, span, .content-item__description
 
 .special-offer__wrap-with-offers
     width: 100%
-    display: flex
-    overflow: hidden
     position: relative
     @media screen and (max-width: 576px)
         margin-top: 4.3rem
-        flex-wrap: nowrap
     @media screen and (min-width: 576px)
         margin-top: 4.3rem
-        flex-wrap: nowrap
     @media screen and (min-width: 1200px)
-        margin-top: 11.3rem
-        flex-wrap: wrap  
+        margin-top: 11.3rem 
+
+.special-offer__wrap-with-wrapper
+    display: flex
+    overflow: hidden
+    @media screen and (max-width: 576px)
+        margin:
+            bottom: 1.5rem
+        width: 100%
+        flex-wrap: nowrap
+    @media screen and (min-width: 576px)
+        flex-wrap: nowrap
+    @media screen and (min-width: 768px)
+        flex-wrap: wrap
+    @media screen and (min-width: 1200px)
+        flex-wrap: wrap 
 
 .special-offer__button
     display: flex
@@ -883,8 +893,20 @@ p, span, .content-item__description
         margin-top: calc(12rem - 11.6rem)
 
 .special-offer__offer-item
-    display: flex
     justify-content: center
+    @media screen and (max-width: 767px)
+        display: none
+        opacity: 0
+        transform: translateX(100%)
+        transition: all .4s linear
+        &.active
+            display: flex
+        &.movie
+            opacity: 1
+            transform: translateX(0%)            
+    @media screen and (min-width: 768px)
+        display: flex
+        opacity: 1
 
 .offer-item__block
     background-image: url(../images/taylor-smith-ADkyQ53QovE-unsplash.jpg)
@@ -918,6 +940,7 @@ p, span, .content-item__description
     height: 100%
     border: solid 5px #bc7112
 .offer-item__main-title
+    text-transform: uppercase
     padding: calc(2.4rem - 5px)
 
 .offer-item__footer
@@ -978,6 +1001,7 @@ p, span, .content-item__description
         font-size: 2.4rem
     @media screen and (min-width: 1200px)
         font-size: 3rem
+        text-align: right
 
 .special-offer__dots-bar
     position: absolute
@@ -996,15 +1020,22 @@ p, span, .content-item__description
     flex-wrap: nowrap
 .dots-bar__item
     cursor: pointer
-    width: 6.7px
-    height: 6.7px
     opacity: 0.8
     border: solid 1px #151419
     border-radius: 50%
     background-color: #151419
-    margin:
-        left: 3px
-        right: 3px
+    @media screen and (max-width: 767px)
+        margin:
+            left: 5px
+            right: 5px
+        width: 1rem
+        height: 1rem
+    @media screen and (min-width: 768px)
+        margin:
+            left: 3px
+            right: 3px
+        width: 6.7px
+        height: 6.7px
 .dots-bar__item.active
     background-color: #0099f0
 
@@ -1286,7 +1317,7 @@ p, span, .content-item__description
         @media screen and (min-width: 576px)
             display: none
     & .spec-circle
-        @media screen and (min-width: 576px)
+        @media screen and (min-width: 1200px)
             display: inline-block
             width: 8px
             height: 8px
@@ -1297,6 +1328,13 @@ p, span, .content-item__description
                 left: 5px
                 right: 5px
                 bottom: 3px
+    & .perenos
+        @media screen and (max-width: 576px)
+            display: inline
+        @media screen and (min-width: 576px)
+            display: inline
+        @media screen and (min-width: 992px)
+            display: none
     & .link-to-prise picture
         @media screen and (max-width: 576px)
             margin:
@@ -1372,6 +1410,10 @@ p, span, .content-item__description
                 margin:
                     left: auto
                     right: 0
+                    bottom: 3rem
+            @media screen and (min-width: 1200px)
+                margin:
+                    bottom: 0
 
     & .catalog-part.even
         @media screen and (max-width: 576px)
@@ -1558,26 +1600,26 @@ p, span, .content-item__description
     z-index: 15
 
 .our-project__container
-    .moving-one
+    & .moving-one
         opacity: 0
         transform: translateX(100%)
-        transition: all .5s linear 0s
-    .moving-two
+        transition: all .5s linear .4s
+    & .moving-two
         opacity: 0
         transform: translate(-50%, -50%) translateX(50%)
         transition: all .5s linear .2s
-    .moving-three
+    & .moving-three
         opacity: 0
         transform: translateX(25%)
-        transition: all .5s linear .4s
+        transition: all .5s linear 0s
     &.movie
-        .moving-one
+        & .moving-one
             opacity: 1
             transform: translateX(0%)
-        .moving-two
+        & .moving-two
             opacity: 1
             transform: translate(-50%, -50%) translateX(0%)
-        .moving-three
+        & .moving-three
             opacity: 1
             transform: translateX(0%)
 
@@ -2897,6 +2939,17 @@ p, span, .content-item__description
     @media screen and (min-width: 1200px)
         font-size: 35px
         line-height: 1.11
+.contacts
+    & .form-block__title
+        @media screen and (max-width: 576px)
+            margin:
+                bottom: 4rem
+        @media screen and (min-width: 576px)
+            margin:
+                bottom: 4rem
+        @media screen and (min-width: 1200px)
+            margin:
+                bottom: 8.3rem        
 .form-block__sub-title
     opacity: 0.8
     font-family: GothamPro
@@ -3037,10 +3090,24 @@ p, span, .content-item__description
     vertical-align: middle
     width: 100%
     height: 100%
-    @media screen and (min-width: 768px)
+    @media screen and (max-width: 576px)
+        padding: 3rem 1.5rem
+        max-height: 100vh
+        overflow: scroll
+    @media screen and (min-width: 576px)
         padding:
             top: 3rem
             bottom: 3rem
+            left: 3rem
+            right: 3rem
+        max-height: 81vh
+        overflow: scroll
+    @media screen and (min-width: 1200px)
+        padding:
+            top: 4rem
+            bottom: 4rem
+            left: 4rem
+            right: 4rem
     // display: flex
     // justify-content: center
     // align-items: center
@@ -3050,7 +3117,73 @@ p, span, .content-item__description
         @media screen and (min-width: 576px)
             width: 50rem
         @media screen and (min-width: 1200px)
-            width: 80rem 
+            width: 80rem
+    & .interactive-content
+        @media screen and (max-width: 576px)
+            width: 100%
+        @media screen and (min-width: 500px)
+            width: 100%
+        @media screen and (min-width: 1200px)
+            width: 80rem
+    & .interactive-content__preview
+        img
+            width: 100%
+    & .interactive-content__title-wrap
+        color: #304f61
+        text-align: center
+        @media screen and (max-width: 576px)
+            padding:
+                top: 2rem
+                bottom: 2rem
+        @media screen and (min-width: 576px)
+            padding:
+                top: 2rem
+                bottom: 2rem            
+    & .interactive-content__sub-title
+        color: #304f61
+        font-family: GothamPro
+        font-weight: 500
+        font-stretch: normal
+        font-style: normal
+        letter-spacing: normal
+        text-align: center
+        @media screen and (max-width: 576px)
+            font-size: 14px
+            line-height: 1.14
+            padding:
+                bottom: 2rem
+        @media screen and (min-width: 576px)
+            font-size: 14px
+            line-height: 1.14
+            padding:
+                bottom: 2rem
+        @media screen and (min-width: 1200px)
+            font-size: 30px
+            line-height: 1.13
+    & .interactive-content__body, & .interactive-content__body p
+        font-family: GothamPro
+        font-weight: 500
+        font-stretch: normal
+        font-style: normal
+        letter-spacing: normal
+        text-align: left
+        color: #304f61
+        @media screen and (max-width: 576px)
+            font-size: 18px
+            line-height: 1.17
+        @media screen and (min-width: 576px)
+            font-size: 18px
+            line-height: 1.17
+        @media screen and (min-width: 1200px)
+            font-size: 20px
+            line-height: 1.1
+    & .interactive-content__body p
+        @media screen and (max-width: 576px)
+            padding:
+                top: 2rem
+        @media screen and (min-width: 576px)
+            padding:
+                top: 2rem
 .modal__close-btn
     position: absolute 
     top: 2rem
@@ -3096,19 +3229,20 @@ p, span, .content-item__description
             right: 0
         background-image: url(../images/проект_11.jpg)
         @media screen and (max-width: 576px)
-            background-size: auto 40% // 
+            background-size: auto 50%
             background-position: center top 
     & .partition-block__inner-layer
         background-color: #313335
         @media screen and (max-width: 576px)
             width: 100%
-            height: 60%
+            height: 50% // 60%
             bottom: 0
             top: auto
         @media screen and (min-width: 576px)
             width: 66.66666%
             height: 100%
     & .partition-block__inner-border
+        pointer-events: none
         @media screen and (max-width: 1200px)
             border: solid 3px #bc7112
             top: 2.5rem
@@ -3239,7 +3373,10 @@ p, span, .content-item__description
             justify-content: flex-start
         @media screen and (min-width: 1200px)
             margin:
-                top: 0
+                top: 2.5rem // 0
+        @media screen and (min-width: 1200px)
+            margin:
+                top: 0rem // 0
         & span
             font-family: GothamPro
             font-weight: bold
