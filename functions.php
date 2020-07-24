@@ -405,7 +405,7 @@ function message_to_email($title, $name, $phone) {
     //     else $response = "<div class='error'>{$message}</div>";
     // };
 
-    //php mailer variables
+    //php mailer variables!
     $to = get_option('admin_email') . ', ';
     $to .= "ilya.ef@group-dvm.net"; // "info@whitealley.ru";
     $subject = "Someone sent a message from ".get_bloginfo('name');
