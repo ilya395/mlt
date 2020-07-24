@@ -6,6 +6,8 @@
 ?>
 <?php get_header(); ?>
 
+<?php get_template_part( 'includes/loader-light' ); ?>
+
 <?php get_template_part( 'includes/top-menu-other' ); ?>
 
 <div class="inner-about post">
@@ -54,7 +56,10 @@
 
 				<div class="col-12 inner-about__partition-block">
 					<div class="col-12 col-md-5 inner-about__block inner-about__block_with-image">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/проект_111.jpg" alt="">
+						<div class="inner-about__block-background" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)">
+
+						</div>
+						<!-- <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt=""> -->
 					</div>
 					<div class="col-12 col-md-7 inner-about__block inner-about__block_with-title">
 						<h4 class="post__title desktop-block">

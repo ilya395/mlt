@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php get_template_part( 'includes/loader-dark' ); ?>
+
 <?php get_template_part( 'includes/top-menu-inner' ); ?>
 
 <div class="inner-catalog">
@@ -232,7 +234,7 @@
             </section>
 
             <div class="col-12 inner-catalog__button">
-                <a href="#" class="simple-button simple-button_catalog-btn">
+                <a href="#" class="simple-button simple-button_catalog-btn" data-object="request" data-title="оставить заявку">
                     ОСТАВИТЬ ЗАЯВКУ
                 </a>
             </div>

@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php get_template_part( 'includes/loader-dark' ); ?>
+
 <?php get_template_part( 'includes/top-menu' ); ?>
 
 <div class="offers">

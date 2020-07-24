@@ -6,6 +6,8 @@
 ?>
 <?php get_header(); ?>
 
+<?php get_template_part( 'includes/loader-dark' ); ?>
+
 <?php get_template_part( 'includes/top-menu' ); ?>
 
 <div class="main">
@@ -68,6 +70,7 @@
                             'numberposts' => 6,
                             'orderby'     => 'date',
                             'order'       => 'DESC',
+                            'post_status' => 'publish',
                             'post_type'   => 'offer', // тип получаемых записей
                             // 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
                         ); 
