@@ -225,7 +225,8 @@ add_action('wp_head', 'way_js_vars');
 function way_js_vars() {
 
     $vars = array(
-        'ajax_url' => admin_url('admin-ajax.php'),
+		'ajax_url' => admin_url('admin-ajax.php'),
+		'theme_url' => get_template_directory_uri(),
     );
 
     echo "<script>window.wp = " . json_encode($vars) . "</script>";

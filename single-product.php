@@ -75,8 +75,8 @@
 							?>
 						</p>	
 						<div class="post__row">
-							<a href="#" class="link-to-prise post__botton">
-								<span>
+							<a href="#" class="link-to-prise post__botton" data-object="request" data-title="оставить заявку | <?php echo get_the_title(); ?>">
+								<span data-object="request" data-title="оставить заявку | <?php echo get_the_title(); ?>">
 									Оставить заявку
 								</span>
 							</a>
@@ -89,7 +89,7 @@
 
 					<div class="col-12 inner-about__block">
 						<p class="post__info-in-end-page">
-							Для заказа и более подробной информации Вы можете <a link="#" class="link-to-request">оставить заявку</a>, <a link="#" class="link-to-download">скачать прайс</a>, а так же связаться с нами по номеру <b>8 (843) 292 - 55 - 36</b>
+							Для заказа и более подробной информации Вы можете <a link="#" class="link-to-request" data-object="request" data-title="оставить заявку">оставить заявку</a>, <a link="#" class="link-to-download" data-object="prise" data-title="скачать прайс">скачать прайс</a>, а так же связаться с нами по номеру <b>8 (843) 292 - 55 - 36</b>
 						</p>
 					</div>
 				</div>

@@ -2,8 +2,8 @@
 ////////////////////////////// объекты/модули ////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-const URL_TO_PRISE = '';
-const NAME_OF_PRISE = '';
+const NAME_OF_PRISE = 'test.csv';
+const URL_TO_PRISE = `${window.wp.theme_url}/documents/${NAME_OF_PRISE}`;
 const AJAX_REQUEST_CONTENT_DATA = 'ajax_request_content';
 const AJAX_REQUEST_SUBMIT_FORM = 'ajax_submit_form';
 
@@ -197,7 +197,7 @@ const FormInPage = function(object) {
     }
 
     function _makingDownload() {
-        console.log('####: ', 'download start!');
+        console.log('#### download: ', 'download start!');
         const a = document.createElement('a');
         a.style.display = 'none'
         a.href = URL_TO_PRISE;
