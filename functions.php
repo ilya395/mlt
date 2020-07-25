@@ -11,6 +11,16 @@ function mlt_wp_media() {
 	wp_enqueue_script('main_script', get_template_directory_uri() . '/assets/js/common.js', [], null, true);
 }
 
+// подключаем к админке файлы для кастомизации
+add_action( 'admin_enqueue_scripts', 'mlt_wp_admin');
+
+function mlt_wp_admin() {
+	wp_enqueue_style('custom_libs_style', get_template_directory_uri() . '/custom/css/bootstrap-grid.min.css', [], null, false);
+	wp_enqueue_style('docs_dancing_style', get_template_directory_uri() . '/custom/css/style.css', [], null, false);
+
+	wp_enqueue_script('docs_dancing_script', get_template_directory_uri() . '/custom/js/script.js', [], null, true);
+}
+
 // регистрация всякой шняги
 add_action('after_setup_theme', 'mlt_after_setup');
 
@@ -430,4 +440,88 @@ function message_to_email($title, $name, $phone) {
 	
 	return true;
 };
+
+require_once ABSPATH . 'wp-admin/includes/file.php';
+
+// обработка ajax
+add_action('wp_ajax_action_for_export_elements', 'export_func'); // ajax от админа или авторизованого пользователя
+add_action('wp_ajax_nopriv_action_for_export_elements', 'export_func'); // ajax от неавторизованного пользователя
+// обработка ajax звпроса
+function export_func() {
+	$elements_for_export = (string)htmlspecialchars(trim($_POST['elements_for_export']));
+
+	$args = array( // получает любые записи
+        'numberposts' => -1,
+        'orderby'     => 'date',
+		'order'       => 'DESC',
+		'post_status' => 'publish',
+        'post_type'   => $elements_for_export, // тип получаемых записей
+        // 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+	);
+	$posts = get_posts($args);
+	// var_dump($posts);
+	global $post;
+
+	$data = [];
+
+	foreach ($posts as $post):
+		setup_postdata($post);
+		// var_dump($post);
+		$list = array(
+			'title' => get_the_title(),
+			'excerpt' => get_the_excerpt(),
+			'content' => get_the_content(),
+			'preview' => get_the_post_thumbnail_url(),
+		);
+		array_push($data, $list);
+	endforeach;
+
+	$name_of_my_file = 'export.csv';
+	$home_url = home_url('/');
+	$my_file = $home_url . 'wp-content/themes/mlt/documents/' . $name_of_my_file; // get_home_path() 
+
+	$fp = fopen($my_file, 'w');
+	foreach ($data as $fields) {
+		fputcsv($fp, $fields, ';', '|');
+	}
+	fclose($fp);
+
+	// file_force_download($my_file);
+
+	$res = array(
+		'url'  => $my_file,
+		'name' => $name_of_my_file,
+	);
+	$a = json_encode($res);
+	echo $a;
+
+    wp_die();
+}
+
+function file_force_download($file) {
+	if (file_exists($file)) {
+	  // сбрасываем буфер вывода PHP, чтобы избежать переполнения памяти выделенной под скрипт
+	  // если этого не сделать файл будет читаться в память полностью!
+	  if (ob_get_level()) {
+		ob_end_clean();
+	  }
+	  // заставляем браузер показать окно сохранения файла
+	  header('Content-Description: File Transfer');
+	  header('Content-Type: application/octet-stream');
+	  header('Content-Disposition: attachment; filename=' . basename($file));
+	  header('Content-Transfer-Encoding: binary');
+	  header('Expires: 0');
+	  header('Cache-Control: must-revalidate');
+	  header('Pragma: public');
+	  header('Content-Length: ' . filesize($file));
+	  // читаем файл и отправляем его пользователю
+	  if ($fd = fopen($file, 'rb')) {
+		while (!feof($fd)) {
+		  print fread($fd, 1024);
+		}
+		fclose($fd);
+	  }
+	  exit;
+	}
+  }
 	

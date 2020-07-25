@@ -81,7 +81,7 @@
                                 'orderby'      => 'name', // сортировка по имени
                                 'order'        => 'ASC', // от меньшего к большему
                                 'posts_per_page' => -1, // все
-                                'post_type' => 'product', // тип записи "посты"
+                                'post_type' => 'product', // тип записи product
                                 'post_status' => 'publish', // опубликованные посты
                                 'product_category' => $cat->slug,
                             );
