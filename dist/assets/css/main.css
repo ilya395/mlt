@@ -3728,16 +3728,16 @@ p, span, .content-item__description {
     .contacts .contacts__content-part {
       margin-top: 4.5rem;
       margin-bottom: 4.5rem; } }
-  .contacts .contacts__content-part.contacts__map iframe {
+  .contacts .contacts__content-part .contacts__map iframe {
     height: 55.5rem; }
     @media screen and (max-width: 576px) {
-      .contacts .contacts__content-part.contacts__map iframe {
+      .contacts .contacts__content-part .contacts__map iframe {
         width: 100%; } }
     @media screen and (min-width: 576px) {
-      .contacts .contacts__content-part.contacts__map iframe {
+      .contacts .contacts__content-part .contacts__map iframe {
         width: 100%; } }
     @media screen and (min-width: 1200px) {
-      .contacts .contacts__content-part.contacts__map iframe {
+      .contacts .contacts__content-part .contacts__map iframe {
         width: 100%; } }
   @media screen and (min-width: 1200px) {
     .contacts .col-md-6:nth-child(odd) {
@@ -4709,10 +4709,12 @@ p, span, .content-item__description {
   padding-left: 3.3rem;
   padding-right: 3.3rem; }
   .post .post__info-in-end-page .link-to-request {
+    cursor: pointer;
     text-decoration: none;
     color: #0099f0;
     font-weight: bold; }
   .post .post__info-in-end-page .link-to-download {
+    cursor: pointer;
     text-decoration: none;
     color: #bc7112;
     font-weight: bold; }
