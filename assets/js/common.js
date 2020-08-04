@@ -474,8 +474,33 @@ const dropdown = function(object) {
         },
         toggle() {
             elemForMove.classList.toggle('active');
+        },
+        init() {
+            elemForClick.addEventListener('click', function(e) {
+                if ( elemForClick.contains(e.target) ||  elemForClick == e.target) {
+                    methods.toggle();
+                }
+            });
+        },
+        initForBurger() {
+            elemForClick.addEventListener('click', function(e) {
+                if ( elemForClick.contains(e.target) ||  elemForClick == e.target) {
+                    methods.toggle();
+                    //
+                    const elemInHeader = document.querySelector('header');
+                    elemInHeader.classList.contains('active') 
+                        ? elemInHeader.classList.remove('active') 
+                        : elemInHeader.classList.add('active');
+                    //
+                    const body = document.querySelector('body');
+                    body.classList.contains('hidden')
+                        ? body.classList.remove('hidden')
+                        : body.classList.add('hidden'); 
+                }
+            });            
         }
     }
+
     return methods;
 }
 
@@ -573,12 +598,11 @@ const slider = function(object) {
             if(distanceX > 0){
                 // вправо
                 // alert('вправо: ' + ' x: ' + distanceX + '; y: ' + distanceY);
-                move('back');
-                
+                move('forward');
             }else{
                 // влево
                 // alert('влево: ' + '; x: ' + distanceX + '; y: ' + distanceY);
-                move('forward');
+                move('back');
             }
         }else{
             // скроль
@@ -678,7 +702,13 @@ const slider = function(object) {
 /////////////////////////////////// логика ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-window.addEventListener('load', function() {
+window.addEventListener('DOMContentLoaded', function() {
+
+});
+
+window.addEventListener('load', () => {
+
+    // большой лоадер
     const loader = document.getElementById('loader');
     function handler() {
         loader.classList.add('not-loader');
@@ -687,31 +717,14 @@ window.addEventListener('load', function() {
     }
     loader.addEventListener('transitionend', handler);
     loader.classList.add('transparent');
-}); // DOMContentLoaded
 
-window.addEventListener('load', () => {
-
-    const topMenu = new Vue({
-        el: "#top-menu",
-        data: {
-            isActive: false,
-        },
-        methods: {
-            visibleElementInHeader: function () { // v-on:click="isActive = !isActive"
-                this.isActive = !this.isActive;
-                //
-                const elemInHeader = document.querySelector('header');
-                elemInHeader.classList.contains('active') 
-                    ? elemInHeader.classList.remove('active') 
-                    : elemInHeader.classList.add('active');
-                //
-                const body = document.querySelector('body');
-                body.classList.contains('hidden')
-                    ? body.classList.remove('hidden')
-                    : body.classList.add('hidden');
-            }
-        }
+    // бургер меню
+    const burgerBtn = document.querySelector('.burger-button__wrap');
+    const burger = dropdown({
+        elemForClick: burgerBtn,
+        elemForMove: document.getElementById('top-menu'),            
     });
+    burger.initForBurger();
 
     if (window.location.pathname == '/') {
         const projects = document.querySelectorAll('article[data-object="content"]');
@@ -779,6 +792,30 @@ window.addEventListener('load', () => {
         });
         formOnContactPage.init();
         // formOnContactPage.buidtMyForm();
+    }
+
+    if (window.location.pathname == '/product/') {
+        const sections = document.querySelectorAll('.inner-catalog .inner-catalog__partition-block');
+        sections.forEach(item => {
+            const btn = item.querySelector('h2');
+            const drAndDo = dropdown({
+                elemForClick: btn,
+                elemForMove: item,                
+            });
+            drAndDo.init();
+        });
+    }
+
+    if (window.location.pathname == '/service/') {
+        const sections = document.querySelectorAll('.offers .inner-catalog__partition-block');
+        sections.forEach(item => {
+            const btn = item.querySelector('h2');
+            const drAndDo = dropdown({
+                elemForClick: btn,
+                elemForMove: item,                
+            });
+            drAndDo.init();
+        });
     }
 
     document.querySelector('.content-block').addEventListener('click', (e) => {

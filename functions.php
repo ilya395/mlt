@@ -9,6 +9,7 @@ function mlt_wp_media() {
 
     wp_enqueue_script('libs_script', get_template_directory_uri() . '/assets/js/libs.min.js', [], null, true);
 	wp_enqueue_script('main_script', get_template_directory_uri() . '/assets/js/common.js', [], null, true);
+	wp_enqueue_script('test_script', get_template_directory_uri() . '/assets/js/common.js', [], null, true);
 }
 
 // подключаем к админке файлы для кастомизации
@@ -316,6 +317,8 @@ function ajax_content() {
 		endif;
 	endforeach;
 
+	wp_reset_postdata();
+
 	$result = json_encode($data);
     wp_reset_postdata();
     echo $result;
@@ -450,6 +453,21 @@ add_action('wp_ajax_nopriv_action_for_export_elements', 'export_func'); // ajax 
 function export_func() {
 	$elements_for_export = (string)htmlspecialchars(trim($_POST['elements_for_export']));
 
+	$data = [
+		['id', 'title', 'excerpt', 'content', 'preview', 'terms', 'taxonomy', 'name', 'count', 'unit', 'amount', 'prodaem'],
+	];
+
+	// $arg_cat = array(
+	// 	'orderby'      => 'name', // сортировка по названию
+	// 	'order'        => 'ASC', // сортировка от меньшего к большему
+	// 	'hide_empty'   => 1, // скрыть пустые рубрики
+	// 	'taxonomy'     => 'product_category', // название таксономии                    
+	// );
+	// $categories = get_categories( $arg_cat );
+	// foreach ($categories as $cat):
+	// 	array_push($data[0], $cat->slug);
+	// endforeach;
+
 	$args = array( // получает любые записи
         'numberposts' => -1,
         'orderby'     => 'date',
@@ -462,35 +480,94 @@ function export_func() {
 	// var_dump($posts);
 	global $post;
 
-	$data = [];
-
 	foreach ($posts as $post):
 		setup_postdata($post);
-		// var_dump($post);
-		$list = array(
-			'title' => get_the_title(),
-			'excerpt' => get_the_excerpt(),
-			'content' => get_the_content(),
-			'preview' => get_the_post_thumbnail_url(),
-		);
+
+		$list = [];
+
+		// function write($func) {
+		// 	if (strlen($func) > 0) {
+		// 		return $list[] = $func;
+		// 	} else {
+		// 		return $list[] = '';
+		// 	};
+		// };
+
+		// $categories = get_the_category(get_the_ID()); // get_object_taxonomies('product');
+		// $list['categories'] = $categories['slug'];
+		$terms = get_the_terms(get_the_ID(), 'product_category');
+		$term = $terms[0]->slug;
+		$taxonomy = $terms[0]->taxonomy;
+
+		for ( $i = 0; $i < count( $data[0] ); $i++ ):
+			if ($data[0][$i] == 'id') {
+				$list[] = get_the_ID();
+			};
+			if ($data[0][$i] == 'title') {
+				$list[] = get_the_title();
+			};
+			if ($data[0][$i] == 'excerpt') {
+				// array_push($list, get_the_excerpt());
+				$list[] = get_the_excerpt();
+			};
+			if ($data[0][$i] == 'content') {
+				$text = str_replace( array("\r\n", "\r", "\n"), '',  get_the_content() ); // strip_tags
+				$list[] = $text;
+			};
+			if ($data[0][$i] == 'preview') {
+				// array_push($list, get_the_post_thumbnail_url());
+				$list[] = get_the_post_thumbnail_url();
+			};
+			if ($data[0][$i] == 'terms') {
+				$list[] = $term;
+			};
+			if ($data[0][$i] == 'taxonomy') {
+				$list[] = $taxonomy;
+			};
+			if (
+				$data[0][$i] != 'id' && $data[0][$i] != 'title' && $data[0][$i] != 'excerpt' && $data[0][$i] != 'content' && $data[0][$i] != 'preview' && $data[0][$i] != 'terms' && $data[0][$i] != 'taxonomy'
+			) {
+				$slug = $data[0][$i];
+
+				$field_objects = get_field_objects(get_the_ID());
+				foreach ($field_objects as $object):
+					if ($object['name'] == $slug) {
+						// write($object['value']);
+						// array_push($list, $object['value']);
+						$list[] = $object['value']; // $object['value'];
+					}
+					// $list[ $object['name'] ] = $object['value'];
+				endforeach;
+			}
+		endfor;
+
 		array_push($data, $list);
+
 	endforeach;
 
+	wp_reset_postdata();
+
 	$name_of_my_file = 'export.csv';
+	$my_file = get_home_path() . 'wp-content/themes/mlt/documents/' . $name_of_my_file;
+
 	$home_url = home_url('/');
-	$my_file = $home_url . 'wp-content/themes/mlt/documents/' . $name_of_my_file; // get_home_path() 
+	$url_for_front = $home_url . 'wp-content/themes/mlt/documents/' . $name_of_my_file;
 
 	$fp = fopen($my_file, 'w');
+	$array_fp = array();
 	foreach ($data as $fields) {
-		fputcsv($fp, $fields, ';', '|');
+		$array_fp[] = $fields;
+		fputcsv($fp, $fields, ';', '"');
 	}
 	fclose($fp);
 
 	// file_force_download($my_file);
 
 	$res = array(
-		'url'  => $my_file,
+		'url'  => $url_for_front,
 		'name' => $name_of_my_file,
+		'data' => $data,
+		'fp' => $array_fp,
 	);
 	$a = json_encode($res);
 	echo $a;
@@ -498,30 +575,346 @@ function export_func() {
     wp_die();
 }
 
-function file_force_download($file) {
-	if (file_exists($file)) {
-	  // сбрасываем буфер вывода PHP, чтобы избежать переполнения памяти выделенной под скрипт
-	  // если этого не сделать файл будет читаться в память полностью!
-	  if (ob_get_level()) {
-		ob_end_clean();
-	  }
-	  // заставляем браузер показать окно сохранения файла
-	  header('Content-Description: File Transfer');
-	  header('Content-Type: application/octet-stream');
-	  header('Content-Disposition: attachment; filename=' . basename($file));
-	  header('Content-Transfer-Encoding: binary');
-	  header('Expires: 0');
-	  header('Cache-Control: must-revalidate');
-	  header('Pragma: public');
-	  header('Content-Length: ' . filesize($file));
-	  // читаем файл и отправляем его пользователю
-	  if ($fd = fopen($file, 'rb')) {
-		while (!feof($fd)) {
-		  print fread($fd, 1024);
+// обработка ajax
+add_action('wp_ajax_action_for_import_elements', 'import_func'); // ajax от админа или авторизованого пользователя
+add_action('wp_ajax_nopriv_action_for_import_elements', 'import_func'); // ajax от неавторизованного пользователя
+// обработка ajax звпроса
+function import_func() {
+
+	// для отправки на фронт
+	// $list = [];
+	$l['status'] = 'work';
+
+	// if ($_POST['elements_for_import']) {
+	// 	print_r($_POST['elements_for_import']);
+	// }
+	// $elements_for_export = (string)htmlspecialchars(trim($_POST['elements_for_export']));
+	$elements_for_import = (string)htmlspecialchars(trim($_POST['elements_for_import']));
+	$l['elements_for_import'] = $elements_for_import;
+
+	// $field = $_POST['file'];
+
+	// if( empty($_FILES) ) {
+	// 	$list['empty'] = true;
+	// 	// wp_send_json_error( 'Файлов нет...' )
+	// } else {
+	// 	$list['empty'] = false;
+	// };
+	
+	// if ($_FILES['fileForImport']) {
+	// 	print_r($_FILES['fileForImport']);
+	// }
+	// $files = $_FILES; // полученные файлы
+	// $list['count'] = count($files);
+	// $done_files = array();
+
+	// $list['file_from_POST'] = $field;
+
+	// $uploaddir = get_template_directory_uri() . '/uploads';
+
+	// $uploaddir = get_home_path() . 'wp-content/themes/mlt/uploads';
+	// $list['url'] = $uploaddir;
+	// if( ! is_dir( $uploaddir ) ) {
+	// 	mkdir( $uploaddir, 0777 );
+	// 	$list['folder'] = 'created';
+	// };
+
+	// переместим файлы из временной директории в указанную
+	// foreach( $files as $file ){
+	// 	$file_name = $file['name'];
+	// 	$list['name_on_server'] = $file_name;
+
+	// 	$what_with_file = move_uploaded_file( $file['tmp_name'], "$uploaddir/$file_name" );
+	// 	$list['what_with_file'] = $what_with_file;
+	// 	if( $what_with_file ){
+	// 		$done_files[] = realpath( "$uploaddir/$file_name" );
+	// 	}
+	// }
+
+	function foo() {}
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	$main_data = [];
+
+	$name_of_my_file = 'import.csv';
+	$my_file = get_home_path() . 'wp-content/themes/mlt/documents/' . $name_of_my_file;
+
+	if (($fp = fopen($my_file, "r")) !== FALSE) {
+		while (($data = fgetcsv($fp, 0, ";")) !== FALSE) {
+			$list[] = $data;
 		}
-		fclose($fd);
-	  }
-	  exit;
+		fclose($fp);
+		$main_data = $list;
+		// print_r($list);
+	};
+	
+	/////
+
+	wp_reset_postdata();
+
+	$args = array( // получает любые записи
+        'numberposts' => -1,
+        'orderby'     => 'date',
+		'order'       => 'DESC',
+		'post_status' => 'publish',
+        'post_type'   => $elements_for_import, // тип получаемых записей
+        // 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+	);
+	$posts = get_posts($args);
+	$request['I'] = $posts;
+	$request['count_I'] = count($posts);
+
+	global $post;
+
+	$new_data = [];
+
+	$index_of_title = null;
+	for ($i = 0; $i < count($main_data[0]); $i++) {
+		if ($main_data[0][$i] == 'title') {
+			$index_of_title = $i;
+		}
+	};
+	$request['index_of_title'] = $index_of_title;
+
+	$i_iterator = [];
+
+	if (count($posts) > 0) {
+		$request['count_post'] = '>0';
+
+		foreach ($posts as $k => $post):
+			setup_postdata($post);
+
+			$post_title = get_the_title();
+			$match = false;
+
+			$i_iterator[$k]['value'] = $post;
+			$i_iterator[$k]['problem'] = array(
+				0 => array(),
+				1 => $post_title
+			);	
+
+			for ( $i = 1; $i < count($main_data); $i++ ) {
+				$i_iterator[$k]['problem'][0] = $main_data[$i][$index_of_title];
+
+				if ((string)$main_data[$i][$index_of_title] === (string)$post_title) {
+					
+					$match = true;
+					$i_iterator[$k]['совпало'] = true;
+					// проверить поля
+					$this_post_id = get_the_ID();
+					$updated_post_arr = array(
+						'ID'		=> $this_post_id, // допустим, ID поста, заголовок которого нужно изменить, равен 500
+						'post_type' => $elements_for_import,
+						// 'post_title'    => 'Новый заголовок' // заголовок
+						'post_status'   => 'publish',
+					);
+
+					$list_with_fields = $main_data[0];
+
+					$list_with_custom_fields = get_field_objects($this_post_id);;
+
+					foreach ($list_with_fields as $index => $item) {
+						if ($item == 'title') {
+							$updated_post_arr['post_title'] = $main_data[$i][$index];
+						};
+						if ($item == 'excerpt') {
+							$updated_post_arr['post_excerpt'] = $main_data[$i][$index];
+						};
+						if ($item == 'content') {
+							$updated_post_arr['post_content'] = $main_data[$i][$index];
+						};
+						if ($item == 'preview') {
+							// $updated_post_arr['post_content'] = $main_data[$i]['content'];
+						};
+						if ($item == 'terms') {
+							$updated_post_arr['category_name'] = $main_data[$i][$index];
+						};
+						if ($item == 'taxonomy') {
+
+						};
+					};
+					foreach ($list_with_fields as $index => $item) {
+						if (
+							$item != 'title' && $item != 'excerpt' && $item != 'content' && $item != 'preview' && $item != 'terms' && $item != 'taxonomy'
+						) {
+							foreach ($list_with_custom_fields as $custom_field) {
+								if ($item == $custom_field['name']) {
+									update_field($item, $main_data[$i][$index], $this_post_id);
+								}
+							}
+						};
+					};
+					
+					// обновляем пост (все остальные его параметры останутся прежними)
+					wp_insert_post( $updated_post_arr );
+				} else {
+					// скрыть пост, т.к. в новой выгрузке его нет
+					$i_iterator[$k]['совпало'] = false;
+					$this_post_id = get_the_ID();
+					$updated_post_arr = array(
+						'ID'		=> $this_post_id, // допустим, ID поста, заголовок которого нужно изменить, равен 500
+						'post_status'   => 'draft',
+					);
+					wp_insert_post( $updated_post_arr );
+				};
+			};
+
+		endforeach;
+
+		$request['posts'] = $i_iterator;
+
+		wp_reset_postdata();
+
+		$arr[] = 'I';
+
+		$l['complite'] = $arr;
+
+		/////
+
+		$args_new = array( // получает любые записи
+			'numberposts' => -1,
+			'orderby'     => 'date',
+			'order'       => 'DESC',
+			'post_status' => 'publish',
+			'post_type'   => $elements_for_import, // тип получаемых записей
+			// 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+		);
+		$posts_new = get_posts($args_new);
+		
+		global $post;
+
+		for ($i = 1; $i < count($main_data); $i++) {
+
+			$match = false;
+
+			$main_data_item_title = '';
+			foreach ($main_data[0] as $index => $item) {
+				if ($item == 'title') {
+					$main_data_item_title = $main_data[$i][$index];
+				};
+			};
+
+			foreach ($posts_new as $post):
+				setup_postdata($post);
+
+				$post_new_title = get_the_title();
+
+				if ($main_data_item_title == $post_new_title) {
+					// заголоаок найден и ранее был изменен
+					$match = false;
+				} else {
+					// это новый заголовок - добавить его
+					$match = true;			
+				}
+
+			endforeach;
+
+			if ($match == true) {
+				$updated_post_arr = array(
+					'post_status'   => 'publish',
+					'post_title'    => $main_data[$i]['title'],
+					'post_excerpt'  => $main_data[$i]['excerpt'],
+					'post_content'  => $main_data[$i]['content'],
+					'comment_status' => 'closed',
+					'post_category' => $main_data[$i]['terms'],
+
+				);
+
+				$new_post_id = wp_insert_post( $updated_post_arr );	
+
+				foreach ($main_data[0] as $t => $title) {
+					if (
+						$item != 'title' && $item != 'excerpt' && $item != 'content' && $item != 'preview' && $item != 'terms' && $item != 'taxonomy'
+					) {
+						// $slug = $main_data[$i][$j];
+						// $rand_char = rand(1000000000000, 9999999999999);
+						// $field_key = "field_1234567";
+
+						update_field( $title, $main_data[$i][$t], $new_post_id );
+					};
+				};
+
+			}
+
+		}
+
+	} else {
+		$request['count_post'] = '=0';
+		$index_of_title = null;
+		for ($i = 0; $i < count($main_data[0]); $i++) {
+			if ($main_data[0][$i] == 'title') {
+				$index_of_title = $i;
+			};
+		};
+
+		for ( $i = 1; $i < count($main_data); $i++ ) {
+
+			$request['title_' + $i] = $main_data[$i][0];
+
+			// проверить поля
+			$this_post_id = wp_insert_post(wp_slash( array (
+				'post_status'   => 'publish',
+				'post_title'    => $main_data[$i][0],
+				'post_type'     => $elements_for_import,
+			) ));
+			$request[$i] = $this_post_id;
+			$updated_post_arr = array(
+				'ID'		=> $this_post_id, // допустим, ID поста, заголовок которого нужно изменить, равен 500
+				'post_title'    => 'Новый заголовок', // заголовок
+				'post_type'     => $elements_for_import,
+				'post_status'   => 'publish',
+			);
+
+			$list_with_fields = $main_data[0];
+
+			// $list_with_custom_fields = get_field_objects($this_post_id);;
+
+			foreach ($list_with_fields as $index => $item) {
+				if ($item == 'title') {
+					$updated_post_arr['post_title'] = $main_data[$i][$index];
+				};
+				if ($item == 'excerpt') {
+					$updated_post_arr['post_excerpt'] = $main_data[$i][$index];
+				};
+				if ($item == 'content') {
+					$updated_post_arr['post_content'] = $main_data[$i][$index];
+				};
+				if ($item == 'preview') {
+					// $updated_post_arr['post_content'] = $main_data[$i]['content'];
+				};
+				if ($item == 'terms') {
+					$updated_post_arr['category_name'] = $main_data[$i][$index];
+				};
+				if ($item == 'taxonomy') {
+
+				};
+			};
+
+			// обновляем пост (все остальные его параметры останутся прежними)
+			wp_insert_post( $updated_post_arr );
+
+			foreach ($list_with_fields as $index => $item) {
+				if (
+					$item != 'title' && $item != 'excerpt' && $item != 'content' && $item != 'preview' && $item != 'terms' && $item != 'taxonomy'
+				) {
+					update_field($item, $main_data[$i][$index], $this_post_id);
+				};
+			};
+			
+		};
 	}
-  }
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	// $data = $done_files ? array('files' => $done_files ) : array('error' => 'Ошибка загрузки файлов.');
+
+	$request['info'] = $l;
+	$request['main_data'] = $main_data;
+
+	$res = json_encode( $request );
+	echo $res;
+
+	wp_die();
+};
 	

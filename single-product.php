@@ -1,7 +1,7 @@
 <?php
 	/*
-        Template Name: Товары
-		Template Post Type: product
+        Template Name: Товар
+
 	*/
 ?>
 <?php get_header(); ?>
@@ -41,6 +41,27 @@
 					<?php
 						if(have_posts()):
 							the_post();
+							// var_dump(get_post_meta(get_the_ID()));
+
+							// $list = array();
+							// $list[] = 'llolo';
+
+							// $s = get_the_title();
+							// var_dump($s);
+							// // $list[] = $s;
+								
+							// if (strlen($s) > 0) {
+							// 	$list[] = $s;
+							// 	var_dump('yes');
+							// 	// array_push($list, $func);
+							// } else {
+							// 	var_dump('no');
+							// 	$list[] = '';
+							// };
+
+
+
+							// var_dump(get_post(get_the_ID()));
 					?>
 
 					<h1 class="h1 catalog-part__list-title">
@@ -73,7 +94,19 @@
 									echo 'Аннотация для текста с товаром'; // the_content();
 								}
 							?>
-						</p>	
+						</p>
+						<p>
+							<?php
+								$field_objects = get_field_objects(get_the_ID());
+								// var_dump($field_objects);
+								foreach ($field_objects as $object):
+									// var_dump($object);
+
+									$str = $object['label'] . ': ' . $object['value'] . '<br>';
+									echo $str;
+								endforeach;						
+							?>
+						</p>
 						<div class="post__row">
 							<a href="#" class="link-to-prise post__botton" data-object="request" data-title="оставить заявку | <?php echo get_the_title(); ?>">
 								<span data-object="request" data-title="оставить заявку | <?php echo get_the_title(); ?>">
