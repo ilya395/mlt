@@ -89,7 +89,7 @@ const workHtml = `main`; // main // catalog // about // offers // contacts // po
 
 	/* обработка html, js */
 	const scripts = () => {
-	    return gulp.src(['src/assets/js/common.js', 'src/assets/libs/**/*.js'])
+	    return gulp.src(['src/assets/js/common.js', 'src/assets/js/test.js', 'src/assets/libs/**/*.js'])
 	    .pipe(browserSync.reload({ stream: true }))
 	}
 	exports.scripts = scripts;
@@ -197,7 +197,7 @@ const workHtml = `main`; // main // catalog // about // offers // contacts // po
 		gulp.watch('src/assets/sass/**/*.sass', gulp.parallel(inSass)); // Наблюдение за sass файлами
 		gulp.watch('src/assets/templates/*.html', gulp.parallel(indexCode));
 	    gulp.watch('src/*.html', gulp.parallel(code)); // Наблюдение за HTML файлами в корне проекта
-	    gulp.watch(['src/assets/js/common.js', 'src/assets/libs/**/*.js'], gulp.parallel(scripts)); // Наблюдение за главным JS файлом и за библиотеками
+	    gulp.watch(['src/assets/js/common.js', 'src/assets/js/test.js', 'src/assets/libs/**/*.js'], gulp.parallel(scripts)); // Наблюдение за главным JS файлом и за библиотеками
 	}
 	exports.watch = watch;
 

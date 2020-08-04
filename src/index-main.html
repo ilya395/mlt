@@ -16,6 +16,7 @@
 
 	<script src="assets/js/libs.min.js"></script>
 	<script src="assets/js/common.js"></script>
+	
 </head>
 <body>
 
@@ -26,6 +27,9 @@
     </div>
 </div>
     <div class="content-block" id="page-content">
+        <modalBlock
+            v-bind:class="{ active: isActiveModal, movie: isActiveModal }"
+        ></modalBlock>
 <div 
     class="top-menu" 
     id="top-menu"
@@ -199,7 +203,10 @@
                                 <div class="special-offer__wrap-with-wrapper">
                                     
                                     <div class="special-offer__offer-item col-12 col-md-6 col-lg-4">
-                                        <article class="offer-item__block">
+                                        <article 
+                                            class="offer-item__block"
+                                            v-on:click.prevent="visibleModal"
+                                        >
                                             <a href="#" class="offer-item__link">
                                                 <div class="offer-item__layer">
                                                     <div class="offer-item__border">
@@ -224,7 +231,36 @@
                                     </div>
         
                                     <div class="special-offer__offer-item col-12 col-md-6 col-lg-4">
-                                        <article class="offer-item__block">
+                                        <article 
+                                            class="offer-item__block"
+                                            v-on:click.prevent="visibleModal"
+                                        >
+                                            <div class="offer-item__layer none-pointer-events">
+                                                <div class="offer-item__border none-pointer-events">
+                                                    <h5 class="offer-item__main-title none-pointer-events">
+                                                        ШПАЛА ДЕРЕВЯННАЯ
+                                                        ПРОПИТАННАЯ
+                                                        ГОСТ 99999-23-ТУ
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <footer class="offer-item__footer none-pointer-events">
+                                                <div class="offer-item__footer-wrap none-pointer-events">
+                                                    <div class="offer-item__footer-border none-pointer-events">
+                                                        <div class="offer-item__footer-text none-pointer-events">
+                                                            40 000 руб./тн.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </footer>
+                                        </article>
+                                    </div>
+        
+                                    <div class="special-offer__offer-item col-12 col-md-6 col-lg-4">
+                                        <article
+                                            class="offer-item__block"
+                                            v-on:click.prevent="visibleModal"
+                                        >
                                             <div class="offer-item__layer">
                                                 <div class="offer-item__border">
                                                     <h5 class="offer-item__main-title">
@@ -247,30 +283,10 @@
                                     </div>
         
                                     <div class="special-offer__offer-item col-12 col-md-6 col-lg-4">
-                                        <article class="offer-item__block">
-                                            <div class="offer-item__layer">
-                                                <div class="offer-item__border">
-                                                    <h5 class="offer-item__main-title">
-                                                        ШПАЛА ДЕРЕВЯННАЯ
-                                                        ПРОПИТАННАЯ
-                                                        ГОСТ 99999-23-ТУ
-                                                    </h5>
-                                                </div>
-                                            </div>
-                                            <footer class="offer-item__footer">
-                                                <div class="offer-item__footer-wrap">
-                                                    <div class="offer-item__footer-border">
-                                                        <div class="offer-item__footer-text">
-                                                            40 000 руб./тн.
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </footer>
-                                        </article>
-                                    </div>
-        
-                                    <div class="special-offer__offer-item col-12 col-md-6 col-lg-4">
-                                        <article class="offer-item__block">
+                                        <article 
+                                            class="offer-item__block"
+                                            v-on:click.prevent="visibleModal"
+                                        >
                                             <div class="offer-item__layer">
                                                 <div class="offer-item__border">
                                                     <h5 class="offer-item__main-title">
@@ -764,4 +780,5 @@
 </div>
 
 </body>
+<script src="assets/js/test.js"></script>
 </html>

@@ -176,6 +176,9 @@ p, span, .content-item__description {
 .transparent {
   opacity: 0; }
 
+.none-pointer-events {
+  pointer-events: none; }
+
 .content-block {
   position: relative; }
 

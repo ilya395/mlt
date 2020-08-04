@@ -279,6 +279,53 @@ let popupModal = function(object) {
     return methods;
 }
 
+const dropdown = function(object) {
+
+    const {
+        elemForClick,
+        elemForMove,
+    } = object;
+
+    const methods = {
+        open() {
+            !elemForMove.classList.contains('active') ? elemForMove.classList.add('active') : elemForMove.classList.remove('active');
+        },
+        close() {
+            elemForMove.classList.contains('active') ? elemForMove.classList.remove('active') : elemForMove.classList.add('active');
+        },
+        toggle() {
+            elemForMove.classList.toggle('active');
+        },
+        init() {
+            console.log('burger init!');
+            elemForClick.addEventListener('click', function(e) {
+                if ( elemForClick.contains(e.target) ||  elemForClick == e.target) {
+                    methods.toggle();
+                }
+            });
+        },
+        initForBurger() {
+            elemForClick.addEventListener('click', function(e) {
+                if ( elemForClick.contains(e.target) ||  elemForClick == e.target) {
+                    methods.toggle();
+                    //
+                    const elemInHeader = document.querySelector('header');
+                    elemInHeader.classList.contains('active') 
+                        ? elemInHeader.classList.remove('active') 
+                        : elemInHeader.classList.add('active');
+                    //
+                    const body = document.querySelector('body');
+                    body.classList.contains('hidden')
+                        ? body.classList.remove('hidden')
+                        : body.classList.add('hidden'); 
+                }
+            });            
+        }
+    }
+
+    return methods;
+}
+
 //////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// логика ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -296,27 +343,27 @@ window.addEventListener('load', function() {
 
 window.addEventListener('load', () => {
 
-    const topMenu = new Vue({
-        el: "#top-menu",
-        data: {
-            isActive: false,
-        },
-        methods: {
-            visibleElementInHeader: function () { // v-on:click="isActive = !isActive"
-                this.isActive = !this.isActive;
-                //
-                const elemInHeader = document.querySelector('header');
-                elemInHeader.classList.contains('active') 
-                    ? elemInHeader.classList.remove('active') 
-                    : elemInHeader.classList.add('active');
-                //
-                const body = document.querySelector('body');
-                body.classList.contains('hidden')
-                    ? body.classList.remove('hidden')
-                    : body.classList.add('hidden');
-            }
-        }
-    });
+    // const topMenu = new Vue({
+    //     el: "#top-menu",
+    //     data: {
+    //         isActive: false,
+    //     },
+    //     methods: {
+    //         visibleElementInHeader: function () { // v-on:click="isActive = !isActive"
+    //             this.isActive = !this.isActive;
+    //             //
+    //             const elemInHeader = document.querySelector('header');
+    //             elemInHeader.classList.contains('active') 
+    //                 ? elemInHeader.classList.remove('active') 
+    //                 : elemInHeader.classList.add('active');
+    //             //
+    //             const body = document.querySelector('body');
+    //             body.classList.contains('hidden')
+    //                 ? body.classList.remove('hidden')
+    //                 : body.classList.add('hidden');
+    //         }
+    //     }
+    // });
 
     document.querySelector('.content-block').addEventListener('click', (e) => {
 
@@ -348,6 +395,13 @@ window.addEventListener('load', () => {
             console.log(e.target);
         }
     });
+
+    const burgerBtn = document.querySelector('.burger-button__wrap');
+    const burger = dropdown({
+        elemForClick: burgerBtn,
+        elemForMove: document.getElementById('top-menu'),            
+    });
+    burger.initForBurger();
     
 });
 
