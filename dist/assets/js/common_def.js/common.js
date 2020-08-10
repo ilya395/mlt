@@ -231,6 +231,44 @@ var popupModal = function popupModal(object) {
     e.preventDefault();
   });
   return methods;
+};
+
+var dropdown = function dropdown(object) {
+  var elemForClick = object.elemForClick,
+      elemForMove = object.elemForMove;
+  var methods = {
+    open: function open() {
+      !elemForMove.classList.contains('active') ? elemForMove.classList.add('active') : elemForMove.classList.remove('active');
+    },
+    close: function close() {
+      elemForMove.classList.contains('active') ? elemForMove.classList.remove('active') : elemForMove.classList.add('active');
+    },
+    toggle: function toggle() {
+      elemForMove.classList.toggle('active');
+    },
+    init: function init() {
+      console.log('burger init!');
+      elemForClick.addEventListener('click', function (e) {
+        if (elemForClick.contains(e.target) || elemForClick == e.target) {
+          methods.toggle();
+        }
+      });
+    },
+    initForBurger: function initForBurger() {
+      elemForClick.addEventListener('click', function (e) {
+        if (elemForClick.contains(e.target) || elemForClick == e.target) {
+          methods.toggle(); //
+
+          var elemInHeader = document.querySelector('header');
+          elemInHeader.classList.contains('active') ? elemInHeader.classList.remove('active') : elemInHeader.classList.add('active'); //
+
+          var body = document.querySelector('body');
+          body.classList.contains('hidden') ? body.classList.remove('hidden') : body.classList.add('hidden');
+        }
+      });
+    }
+  };
+  return methods;
 }; //////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// логика ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -296,6 +334,12 @@ window.addEventListener('load', function () {
       console.log(e.target);
     }
   });
+  var burgerBtn = document.querySelector('.burger-button__wrap');
+  var burger = dropdown({
+    elemForClick: burgerBtn,
+    elemForMove: document.getElementById('top-menu')
+  });
+  burger.initForBurger();
 }); //////////////////////////////////////////////////////////////////////////////
 ////////////////////////// вспомогательные функции ///////////////////////////
 //////////////////////////////////////////////////////////////////////////////

@@ -1240,6 +1240,12 @@ p, span, .content-item__description
 
 .catalog-part__list-item
     margin-top: 2rem
+    display: block
+    text-align: left
+    @media screen and (max-width: 576px)
+        width: 70%
+    @media screen and (min-width: 576px)
+        width: 100%
 .catalog-part.odd .catalog-part__list-item
     @media screen and (max-width: 576px)
         margin-top: 3rem
@@ -2386,8 +2392,8 @@ p, span, .content-item__description
         font-size: 40px // 50px
         line-height: 1.22
         text-align: left
-        margin-top: 6rem - 3rem - 2rem // 2.5rem
-        margin-left: 2rem // 6rem
+        margin-top: 3rem // 6rem - 3rem - 2rem // 2.5rem
+        margin-left: 3rem // 2rem // 6rem
 
 .offers, .inner-catalog
     & .partition-block__title
@@ -2420,13 +2426,16 @@ p, span, .content-item__description
         margin-left: 5rem // 7.5rem
     @media screen and (min-width: 576px)
         margin-top: 1.6rem
-        margin-left: 5rem // 7.5rem
+        margin-left: 3rem // 5rem // 7.5rem
     @media screen and (min-width: 768px)
         margin-left: 0rem
     @media screen and (min-width: 1200px)
         margin-top: 12rem - 3rem - 2rem // 9.65rem
         margin-left: 5rem
     li
+        flex-basis: 50%
+        flex-shrink: 1
+        flex-grow: 0
         margin-bottom: 2.2rem
         @media screen and (min-width: 576px)
             margin-right: 2rem
@@ -2434,7 +2443,7 @@ p, span, .content-item__description
             margin-right: 0
     li:nth-child(even)
         @media screen and (min-width: 1200px)
-            margin-left: 8.9rem
+            margin-left: 0 // 8.9rem
     li a
         text-decoration: none
         font-family: GothamPro
@@ -3445,7 +3454,7 @@ p, span, .content-item__description
                 bottom: 0
                 top: 0
 
-.offers, .stocks
+.offers, .stocks, .inner-catalog
     @media screen and (max-width: 576px)
         & .partition-block__content
             padding:
@@ -3689,6 +3698,37 @@ p, span, .content-item__description
     & .post__row
         @media screen and (min-width: 1200px)
             margin-top: 2rem
+    & .custom-fields__container
+        padding-bottom: 20px
+    & .custom-fields__row
+        display: flex
+        flex-direction: row
+        flex-wrap: nowrap
+        & .custom-fields__block
+            flex-basis: 50%
+            max-width: 50%
+            flex-grow: 0
+            flex-shrink: 1
+        & .custom-fields__block_text    
+            font-family: GothamPro
+            font-weight: normal
+            font-stretch: normal
+            font-style: normal
+            letter-spacing: normal
+            text-align: left
+            color: #5b5a62
+            @media screen and (max-width: 1200px)
+                line-height: 1.79
+                font-size: 14px
+                padding:
+                    bottom: 2rem
+            @media screen and (min-width: 1200px)
+                line-height: 1.39
+                font-size: 18px
+                padding:
+                    bottom: 2rem
+            & b
+                font-weight: bold
 
 .offers, .inner-catalog
     & .partition-block__layer
