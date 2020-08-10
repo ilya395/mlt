@@ -76,7 +76,11 @@ const templateModal = `
             &times;
         </div>
         <div class="modal__container">
-            сконтент
+            <div class="content-loader light">
+                <div class="loader__wrap">
+                    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
+            </div>
         </div>
     </div>
 `;
@@ -816,6 +820,14 @@ window.addEventListener('load', () => {
             });
             drAndDo.init();
         });
+    }
+
+    if (window.location.pathname == '/about/') {
+        const contentBlock = document.querySelector('.inner-about__partition-block');
+        const itDontNeed = document.querySelector('.square__azure.square__azure_second');
+        if(contentBlock.offsetHeight < 1100) {
+            itDontNeed.style.display = 'none';
+        }
     }
 
     document.querySelector('.content-block').addEventListener('click', (e) => {

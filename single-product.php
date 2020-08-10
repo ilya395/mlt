@@ -10,7 +10,7 @@
 
 <?php get_template_part( 'includes/top-menu-other' ); ?>
 
-<div class="inner-about post">
+<main class="inner-about post">
 	<div class="container">
 		<div class="row">
 
@@ -77,16 +77,38 @@
 
 				<div class="col-12 inner-about__partition-block">
 					<div class="col-12 col-md-5 inner-about__block inner-about__block_with-image">
-						<div class="inner-about__block-background" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)">
+						<?php
+							$back_img = get_template_directory_uri() . '/assets/images/woocommerce-placeholder.png';
+							if ('' === get_the_post_thumbnail_url()) {
+								$back_img = get_the_post_thumbnail_url();
+							}
+						?>
+						<div class="inner-about__block-background" style="background-image: url(<?php echo $back_img; ?>)">
 
 						</div>
-						<!-- <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt=""> -->
 					</div>
 					<div class="col-12 col-md-7 inner-about__block inner-about__block_with-title">
 						<h4 class="post__title desktop-block">
 							<?php echo get_the_title(); ?>
 						</h4>
-						<p>
+						<div class="custom-fields__container">
+						<?php
+							$field_objects = get_field_objects(get_the_ID());
+							foreach ($field_objects as $object):
+						?>
+							<div class="custom-fields__row">
+								<div class="custom-fields__block custom-fields__block_text custom-fields__block_name">
+									<?php echo $object['label']; ?>
+								</div>
+								<div class="custom-fields__block custom-fields__block_text custom-fields__block_value">
+									<?php echo $object['value']; ?>
+								</div>
+							</div>
+						<?php
+							endforeach;						
+						?>
+						</div>
+						<!-- <p>
 							<?php
 								if( has_excerpt() ){
 									echo get_the_excerpt();
@@ -94,19 +116,7 @@
 									echo 'Аннотация для текста с товаром'; // the_content();
 								}
 							?>
-						</p>
-						<p>
-							<?php
-								$field_objects = get_field_objects(get_the_ID());
-								// var_dump($field_objects);
-								foreach ($field_objects as $object):
-									// var_dump($object);
-
-									$str = $object['label'] . ': ' . $object['value'] . '<br>';
-									echo $str;
-								endforeach;						
-							?>
-						</p>
+						</p> -->
 						<div class="post__row">
 							<a href="#" class="link-to-prise post__botton" data-object="request" data-title="оставить заявку | <?php echo get_the_title(); ?>">
 								<span data-object="request" data-title="оставить заявку | <?php echo get_the_title(); ?>">
@@ -116,9 +126,16 @@
 						</div>
 					</div>
 
+					<?php
+						$content = get_the_content();
+						if ('' !== $content) {
+					?>
 					<div class="col-12 inner-about__block">
-						<?php echo get_the_content(); ?>
+						<?php echo $content; ?>
 					</div>
+					<?php
+						}
+					?>
 
 					<div class="col-12 inner-about__block">
 						<p class="post__info-in-end-page">
@@ -133,6 +150,6 @@
 				?>
 		</div>
 	</div>
-</div>
+</main>
 
 <?php get_footer(); ?>

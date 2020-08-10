@@ -10,7 +10,7 @@
 
 <?php get_template_part( 'includes/top-menu-other' ); ?>
 
-<div class="inner-about">
+<main class="inner-about">
     <div class="container">
         <div class="row">
 
@@ -80,6 +80,6 @@
 
         </div>
     </div>
-</div>
+</main>
 
 <?php get_footer(); ?>

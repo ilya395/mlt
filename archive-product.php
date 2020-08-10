@@ -4,7 +4,7 @@
 
 <?php get_template_part( 'includes/top-menu-inner' ); ?>
 
-<div class="inner-catalog">
+<main class="inner-catalog">
     <div class="container">
         <div class="row">
 
@@ -57,7 +57,7 @@
 
                     $back_img_fiels = get_field('prevyu_kategorii_product', 'term' . '_' . $cat->term_id);
             ?>
-
+            <a name="<?php echo $cat->slug; ?>"></a>
             <section class="inner-catalog__partition-block col-12">
                 <div class="partition-block__layer" style="background-image: url(<?php echo $back_img_fiels; ?>)">
                     <div class="partition-block__inner-layer">
@@ -110,129 +110,6 @@
                 endforeach;
             ?>
 
-            <section class="inner-catalog__partition-block col-12">
-                <div class="partition-block__layer">
-                    <div class="partition-block__inner-layer">
-                    </div>
-                </div>
-                <div class="partition-block__inner-border hovered">
-
-                </div>
-                <div class="partition-block__content">
-                    <div class="col-12 col-sm-4 partition-block__inner-wrap">
-                        <div class="partition-block__wrap-title">
-                            <h2 class="h2 partition-block__title">
-                                ШПАЛЫ
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-8 partition-block__wrap-list">
-                        <ul class="partition-block__list">
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="hovered">
-                                    Рельсы КР100, КР120, КР140
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
             <div class="col-12 inner-catalog__button">
                 <a href="#" class="simple-button simple-button_catalog-btn" data-object="request" data-title="оставить заявку">
                     ОСТАВИТЬ ЗАЯВКУ
@@ -241,6 +118,6 @@
 
         </div>
     </div>
-</div>
+</main>
 
 <?php get_footer(); ?>

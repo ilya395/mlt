@@ -10,7 +10,7 @@
 
 <?php get_template_part( 'includes/top-menu' ); ?>
 
-<div class="main">
+<main class="main">
     <header class="header">
         <div class="header__layer">
             <div class="container">
@@ -276,7 +276,7 @@
                                         ?>
 
                                     </div>
-                                    <a href="#" class="catalog-part__list-item catalog-part__list-item_link">
+                                    <a href="/product/#<?php echo $cat->slug; ?>" class="catalog-part__list-item catalog-part__list-item_link">
                                         Перейти в раздел 
                                     </a>
                                 </div>
@@ -544,6 +544,6 @@
             </div>
         </div>
     </div>
-</div>
+                            </main>
 
 <?php get_footer(); ?>

@@ -10,7 +10,7 @@
 
 <?php get_template_part( 'includes/top-menu-other' ); ?>
 
-<div class="contacts">
+<main class="contacts">
     <div class="container">
         <div class="row">
 
@@ -176,6 +176,6 @@
 
         </div>
     </div>
-</div>
+</main>
 
 <?php get_footer(); ?>

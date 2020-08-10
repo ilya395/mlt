@@ -4,7 +4,7 @@
 
 <?php get_template_part( 'includes/top-menu-other' ); ?>
 
-<div class="stocks">
+<main class="stocks">
     <div class="container">
         <div class="row">
 
@@ -116,6 +116,6 @@
 
         </div>
     </div>
-</div>
+</main>
 
 <?php get_footer(); ?>
