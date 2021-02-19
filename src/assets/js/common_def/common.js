@@ -310,11 +310,10 @@ window.addEventListener('load', function () {
   //     }
   // });
   document.querySelector('.content-block').addEventListener('click', function (e) {
-    console.log('#### клик был здесь: ', e.target);
-    e.preventDefault();
-
+    // console.log('#### клик был здесь: ', e.target);
     if (e.target.dataset.object) {
       // console.log(e.target.dataset.object);
+      e.preventDefault();
       var element = e.target;
       var modalForFrom = popupModal({
         startElem: element,
@@ -378,7 +377,7 @@ function imOkey(n) {
 
     ;
     var goodOrBadValue = false;
-    var badNumbers = ["+7 (911) 111-11-11", "+7 (922) 222-22-22", "+7 (933) 333-33-33", "+7 (944) 444-44-44", "+7 (955) 555-55-55", "+7 (966) 666-66-66", "+7 (977) 777-77-77", "+7 (988) 888-88-88", "+7 (999) 999-99-99"];
+    var badNumbers = ["+7(911)111-11-11", "+7(922)222-22-22", "+7(933)333-33-33", "+7(944)444-44-44", "+7(955)555-55-55", "+7(966)666-66-66", "+7(977)777-77-77", "+7(988)888-88-88", "+7(999)999-99-99"];
 
     for (var i = 0; i < badNumbers.length; i++) {
       if (n == badNumbers[i]) {

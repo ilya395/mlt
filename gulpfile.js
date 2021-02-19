@@ -12,7 +12,7 @@ const cache = require('gulp-cache'); // Подключаем библиотек�
 const autoprefixer = require('gulp-autoprefixer');// Подключаем библиотеку для автоматического добавления префиксов             
 const babel = require("gulp-babel");
 const include = require('gulp-file-include'); // соединение частей файла/файлов в родительском файле через инклуды
-const workHtml = `post`; // main // catalog // about // offers // contacts // post // stocks //
+const workHtml = `main`; // main // catalog // about // offers // contacts // post // stocks //
 
 /* тут начинаются таски */
 
@@ -81,9 +81,9 @@ const workHtml = `post`; // main // catalog // about // offers // contacts // po
 	const es5 = () => {
 		return gulp.src("src/assets/js/common.js")
 		.pipe(babel({
-			presets: ['@babel/env']// ['2015']
+			presets: ['@babel/preset-env']// ['2015'] // env
 		}))
-		.pipe(gulp.dest("src/assets/js/common_def.js"));
+		.pipe(gulp.dest("src/assets/js/common_def"));
 	}
 	exports.es5 = es5
 
