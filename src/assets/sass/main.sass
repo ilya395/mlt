@@ -182,7 +182,7 @@ p, span, .content-item__description
         margin-top: 0rem
         background-color: transparent
     @media screen and (min-width: 576px)
-        padding-top: 3.6rem
+        padding-top: 3.6rem + 3rem
         margin-top: 0rem
         background-color: transparent
     @media screen and (min-width: 1200px)
@@ -623,11 +623,15 @@ p, span, .content-item__description
     @media screen and (max-width: 576px)
         display: inline-flex
         justify-content: flex-end
+        align-items: flex-end
         margin-top: 30px
+        &:last-child
+            margin-top: 15px
     @media screen and (min-width: 576px)
         display: flex
         justify-content: flex-end
-        margin-top: 30px        
+        margin-top: 30px  
+        align-items: flex-end      
     @media screen and (min-width: 1200px)
         display: inline-flex
         justify-content: space-between
@@ -650,16 +654,20 @@ p, span, .content-item__description
     letter-spacing: normal
     text-align: left
     color: #f4f4f6
+    @media screen and (min-width: 576px)
+        font-size: 1.6rem
+    @media screen and (min-width: 1200px)
+        font-size: 2.4rem
 .phone-pref__item_icon
     width: 15px
     height: 15px
     object-fit: contain
     & picture
         width: 100%
-        head: 100% 
+        height: 100% 
         & img
             width: 100%
-            head: 100%            
+            height: 100%            
 @media screen and (max-width: 576px)
     .phone-pref__item_txt
         display: none
@@ -688,6 +696,7 @@ p, span, .content-item__description
 .header__all-manager-phones
     display: flex
     flex-direction: column
+    justify-content: space-between
 
 .header__phone-link
     text-decoration: none
@@ -706,7 +715,7 @@ p, span, .content-item__description
         font-weight: 500
         line-height: 1.13
     @media screen and (min-width: 768px)
-        font-size: 2.4rem // 35px
+        font-size: 1.6rem // 35px
         font-weight: bold
         line-height: 1.13 // 1.14
     @media screen and (min-width: 1200px)
@@ -2224,7 +2233,7 @@ p, span, .content-item__description
             //     font-weight: bold
             //     line-height: 1.14
                 @media screen and (max-width: 576px)
-                    font-size: 1.13rem // 16px
+                    font-size: 1.6rem // 16px
                     font-weight: 500
                     line-height: 1.13
                 @media screen and (min-width: 576px)
