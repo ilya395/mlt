@@ -10,7 +10,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 ////////////////////////////////// объекты ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 var templateForm = function templateForm(obj) {
-  html = "\n    <div class=\"form-block\">\n        <div class=\"form-block__title\">\n            ".concat(obj.title, "\n        </div>\n        <div class=\"form-block__sub-title\">\n            ").concat(obj.subTitle, "\n        </div>\n        <form class=\"form-block__content\">\n            <input type=\"hidden\" name=\"title\">\n            <div class=\"form-block__field\">\n                <label for=\"name\" class=\"form-block__label\">\n                    \u0412\u0430\u0448\u0435 \u0438\u043C\u044F\n                </label>\n                <input type=\"text\" id=\"name\" name=\"name\" class=\"form-block__input name\">\n            </div>\n            <div class=\"form-block__field\">\n                <label for=\"phone\" class=\"form-block__label\">\n                    \u0412\u0430\u0448 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\n                </label>\n                <input type=\"tel\" id=\"phone\" name=\"phone\" class=\"form-block__input phone phonemask\">\n            </div>\n            <button class=\"form-block__button simple-button simple-button_for-form\">\n                \u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C\n            </button>\n            <div class=\"form-block__messages\">\n                <div class=\"form-block__success\">\n                    <span>\n                        \u0411\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u0438\u043C \u0437\u0430 \u0437\u0430\u044F\u0432\u043A\u0443!\n                    </span>\n                </div>\n            </div>\n        </form>\n        <a href=\"#\" class=\"modal-content__warning\">\n            \u041D\u0430\u0436\u0438\u043C\u0430\u044F \u043D\u0430 \u043A\u043D\u043E\u043F\u043A\u0443, \u0432\u044B \u0434\u0430\u0435\u0442\u0435 \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0443 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445 \u0438 \u0441\u043E\u0433\u043B\u0430\u0448\u0430\u0435\u0442\u0435\u0441\u044C c \u043F\u043E\u043B\u0438\u0442\u0438\u043A\u043E\u0439 \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438\n        </a>\n    </div>");
+  html = "\n    <div class=\"form-block\">\n        <div class=\"form-block__title\">\n            ".concat(obj.title, "\n        </div>\n        <div class=\"form-block__sub-title\">\n            ").concat(obj.subTitle, "\n        </div>\n        <form class=\"form-block__content\">\n            <input type=\"hidden\" name=\"title\">\n            <div class=\"form-block__field\">\n                <label for=\"name\" class=\"form-block__label\">\n                    \u0412\u0430\u0448\u0435 \u0438\u043C\u044F\n                </label>\n                <input type=\"text\" id=\"name\" name=\"name\" class=\"form-block__input name\">\n            </div>\n            <div class=\"form-block__field\">\n                <label for=\"phone\" class=\"form-block__label\">\n                    \u0412\u0430\u0448 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\n                </label>\n                <input type=\"tel\" id=\"phone\" name=\"phone\" class=\"form-block__input phone phonemask\">\n            </div>\n            <div class=\"form-block__field\">\n                <label for=\"email\" class=\"form-block__label\">\n                    \u0412\u0430\u0448 email\n                </label>\n                <input type=\"email\" id=\"email\" name=\"email\" class=\"form-block__input phone\">\n            </div>\n            <button class=\"form-block__button simple-button simple-button_for-form\">\n                \u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C\n            </button>\n            <div class=\"form-block__messages\">\n                <div class=\"form-block__success\">\n                    <span>\n                        \u0411\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u0438\u043C \u0437\u0430 \u0437\u0430\u044F\u0432\u043A\u0443!\n                    </span>\n                </div>\n            </div>\n        </form>\n        <a href=\"#\" class=\"modal-content__warning\">\n            \u041D\u0430\u0436\u0438\u043C\u0430\u044F \u043D\u0430 \u043A\u043D\u043E\u043F\u043A\u0443, \u0432\u044B \u0434\u0430\u0435\u0442\u0435 \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0435 \u043D\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0443 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445 \u0438 \u0441\u043E\u0433\u043B\u0430\u0448\u0430\u0435\u0442\u0435\u0441\u044C c \u043F\u043E\u043B\u0438\u0442\u0438\u043A\u043E\u0439 \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438\n        </a>\n    </div>");
   return html;
 };
 
@@ -61,6 +61,7 @@ var FormInPage = function FormInPage(object) {
     var name = formWrap.querySelector('form input[name="name"]');
     var phone = formWrap.querySelector('form input[name="phone"]');
     var title = formWrap.querySelector('form input[name="title"]');
+    var email = formWrap.querySelector('form input[name="email"]');
     var button = formWrap.querySelector('form button');
 
     var sendAjax = function sendAjax(formData) {
@@ -86,7 +87,7 @@ var FormInPage = function FormInPage(object) {
       });
     };
 
-    var formData = "action=ajax_submit_form&name=".concat(name ? name.value : '', "&phone=").concat(phone ? phone.value : '', "&title=").concat(title);
+    var formData = "action=ajax_submit_form&name=".concat(name ? name.value : null, "&phone=").concat(phone ? phone.value : null, "&title=").concat(title ? title : null, "&email=").concat(email ? email : null);
 
     if (name.value != '' && name.value.length < 25 && phone.value != '' && imOkey(phone.value) == true) {
       sendAjax(formData);
@@ -288,27 +289,6 @@ window.addEventListener('load', function () {
 }); // DOMContentLoaded
 
 window.addEventListener('load', function () {
-  // const topMenu = new Vue({
-  //     el: "#top-menu",
-  //     data: {
-  //         isActive: false,
-  //     },
-  //     methods: {
-  //         visibleElementInHeader: function () { // v-on:click="isActive = !isActive"
-  //             this.isActive = !this.isActive;
-  //             //
-  //             const elemInHeader = document.querySelector('header');
-  //             elemInHeader.classList.contains('active') 
-  //                 ? elemInHeader.classList.remove('active') 
-  //                 : elemInHeader.classList.add('active');
-  //             //
-  //             const body = document.querySelector('body');
-  //             body.classList.contains('hidden')
-  //                 ? body.classList.remove('hidden')
-  //                 : body.classList.add('hidden');
-  //         }
-  //     }
-  // });
   document.querySelector('.content-block').addEventListener('click', function (e) {
     // console.log('#### клик был здесь: ', e.target);
     if (e.target.dataset.object) {

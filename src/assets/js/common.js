@@ -25,6 +25,12 @@ const templateForm = (obj) => {
                 </label>
                 <input type="tel" id="phone" name="phone" class="form-block__input phone phonemask">
             </div>
+            <div class="form-block__field">
+                <label for="email" class="form-block__label">
+                    Ваш email
+                </label>
+                <input type="email" id="email" name="email" class="form-block__input phone">
+            </div>
             <button class="form-block__button simple-button simple-button_for-form">
                 Отправить
             </button>
@@ -96,6 +102,7 @@ const FormInPage = function(object) {
         const name = formWrap.querySelector('form input[name="name"]');
         const phone = formWrap.querySelector('form input[name="phone"]');
         const title = formWrap.querySelector('form input[name="title"]');
+        const email = formWrap.querySelector('form input[name="email"]');
         const button = formWrap.querySelector('form button');
         
         let sendAjax = function (formData) {
@@ -130,7 +137,7 @@ const FormInPage = function(object) {
                 }
             )
         }
-        let formData = `action=ajax_submit_form&name=${name ? name.value : ''}&phone=${phone ? phone.value : ''}&title=${title}`;
+        let formData = `action=ajax_submit_form&name=${name ? name.value : null}&phone=${phone ? phone.value : null}&title=${title ? title : null}&email=${email ? email : null}`;
         if (
             name.value != '' && name.value.length < 25 && phone.value != '' && imOkey(phone.value) == true
         ) {
@@ -342,28 +349,6 @@ window.addEventListener('load', function() {
 }); // DOMContentLoaded
 
 window.addEventListener('load', () => {
-
-    // const topMenu = new Vue({
-    //     el: "#top-menu",
-    //     data: {
-    //         isActive: false,
-    //     },
-    //     methods: {
-    //         visibleElementInHeader: function () { // v-on:click="isActive = !isActive"
-    //             this.isActive = !this.isActive;
-    //             //
-    //             const elemInHeader = document.querySelector('header');
-    //             elemInHeader.classList.contains('active') 
-    //                 ? elemInHeader.classList.remove('active') 
-    //                 : elemInHeader.classList.add('active');
-    //             //
-    //             const body = document.querySelector('body');
-    //             body.classList.contains('hidden')
-    //                 ? body.classList.remove('hidden')
-    //                 : body.classList.add('hidden');
-    //         }
-    //     }
-    // });
 
     document.querySelector('.content-block').addEventListener('click', (e) => {
 
