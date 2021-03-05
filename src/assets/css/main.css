@@ -1143,7 +1143,7 @@ p, span, .content-item__description {
   font-style: normal;
   line-height: 1.11;
   letter-spacing: normal;
-  text-align: left;
+  text-align: center;
   color: #ffffff; }
   @media screen and (max-width: 576px) {
     .link-to-prise__wrap span {
